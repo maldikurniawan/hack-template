@@ -1,77 +1,116 @@
-import React, { Fragment, useState, useRef } from "react";
-import { useOnClickOutside } from "@/hooks/useOnClickOutside";
-import { menu } from "@/constants/menu";
-import { useLocation, Link } from "react-router-dom";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import PerfectScrollbar from "perfect-scrollbar";
+import { useEffect, useRef, useState } from "react";
+import { LiaCircle, LiaDotCircle } from "react-icons/lia";
+import { TbX } from "react-icons/tb";
+import Menu from "./Menu";
 
 interface SidebarProps {
     sideOpen: boolean;
-    setSideOpen: (open: boolean) => void;
+    setSideOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
-    const [navopen, setNavopen] = useState<Record<number, boolean>>({});
-    const location = useLocation();
-    const ref = useRef<HTMLDivElement>(null);
+    const { width } = useWindowSize();
+    const [openHover, setOpenHover] = useState<boolean>(false);
+    const scrollbarContainer = useRef<HTMLDivElement | null>(null);
+    const [scrolled, setScrolled] = useState<boolean>(false);
 
-    useOnClickOutside(ref, () => setNavopen({}));
+    // Initialize PerfectScrollbar
+    useEffect(() => {
+        if (scrollbarContainer.current) {
+            const ps = new PerfectScrollbar(scrollbarContainer.current, {
+                wheelPropagation: true,
+                useBothWheelAxes: true,
+            });
 
-    const toggleNavOpen = (index: number) => {
-        setNavopen((prev) => ({
-            ...prev,
-            [index]: !prev[index],
-        }));
-    };
+            scrollbarContainer.current.addEventListener("ps-scroll-y", () => {
+                if (ps.scrollbarYTop > 0) {
+                    setScrolled(true);
+                } else {
+                    setScrolled(false);
+                }
+            });
+
+            return () => {
+                ps.destroy();
+            };
+        }
+    }, []);
+
+    useEffect(() => {
+        if (width && width < 1024) {
+            setSideOpen(false);
+        }
+    }, [width, setSideOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <Fragment>
-            <div
-                onClick={() => setSideOpen(!sideOpen)}
-                className={`z-50 fixed w-screen h-screen md:hidden ${sideOpen ? "block" : "hidden"}`}
-            ></div>
-
-            <div
-                ref={ref}
-                className={`z-50 fixed md:relative h-screen flex flex-col bg-[#030B07] border-r border-r-green-900 text-white transition-all duration-300 ease-in-out ${sideOpen
-                    ? "md:w-[20rem] w-[16rem] translate-x-0"
-                    : "w-0 translate-x-[-100%]"
+        <>
+            {/* Sidebar */}
+            <aside
+                onMouseEnter={() => width > 1024 && setOpenHover(true)}
+                onMouseLeave={() => setOpenHover(false)}
+                className={`fixed lg:left-0 z-50 h-full flex flex-col bg-white dark:bg-base-600 transition-[width,left] duration-500 tracking-wide ${sideOpen || openHover ? "w-64 -left-0" : "w-20 -left-96"
                     }`}
             >
-                <div className={`w-full flex justify-center my-4 ${sideOpen ? "block" : "hidden"}`}>
-                    Logo
-                </div>
+                {/* Background */}
+                Ini Logo
 
-                <div className={`px-2 pb-5 text-xl overflow-y-auto overflow-x-hidden max-h-[80vh] hidden-scroll ${sideOpen ? "block" : "hidden"}`}>
-                    {menu.map((item, index) => (
-                        <div key={index}>
-                            <div onClick={() => item.sub && toggleNavOpen(index)}>
-                                <Link
-                                    to={item.path}
-                                    className={`mb-2 flex items-center gap-2 p-2 cursor-pointer capitalize text-base rounded-lg ${location.pathname.includes(item.path) ? "bg-black text-white hover:bg-white hover:text-black border border-green-900" : "hover:bg-gray-100 hover:text-black"}`}
-                                >
-                                    <div>{item.icon}</div>
-                                    <div className={`${sideOpen ? "block" : "hidden"}`}>{item.name}</div>
-                                </Link>
-                            </div>
-
-                            {item.sub && item.sub.length > 0 && navopen[index] && (
-                                <div className="pl-6">
-                                    {item.sub.map((subItem, subIndex) => (
-                                        <Link
-                                            key={subIndex}
-                                            to={subItem.path}
-                                            className={`mb-2 flex items-center gap-2 p-2 rounded-lg text-sm ${location.pathname.includes(subItem.path) ? "bg-gray-300 text-black" : "hover:bg-gray-300 hover:text-black"}`}
-                                        >
-                                            <div>{subItem.icon}</div>
-                                            <div>{subItem.name}</div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
+                {/* Logo */}
+                <div className="flex justify-between items-center w-full h-16 px-3 mx-auto">
+                    <div className="flex gap-2 items-center px-[8px]">
+                        <img src="/images/icons/egawi.png" alt="" className="w-10" />
+                        <div
+                            className={`font-bold transition-opacity duration-[1000ms] whitespace-nowrap ${sideOpen || openHover ? "opacity-100" : "opacity-0"
+                                } ${sideOpen || openHover ? "visible" : "invisible"}`}
+                        >
+                            E-Gawi
                         </div>
-                    ))}
+                    </div>
+                    <div className=" px-[8px]">
+                        <button
+                            className={`text-xl hidden lg:block ${!sideOpen && !openHover ? "lg:hidden" : ""
+                                }`}
+                        >
+                            {sideOpen ? (
+                                <LiaDotCircle onClick={() => setSideOpen(false)} />
+                            ) : (
+                                <LiaCircle onClick={() => setSideOpen(true)} />
+                            )}
+                        </button>
+                    </div>
+                    <button
+                        className="block lg:hidden p-2 rounded-full transition-[background] hover:bg-neutral-200 dark:hover:bg-base-400"
+                        onClick={() => setSideOpen(false)}
+                    >
+                        <TbX />
+                    </button>
                 </div>
-            </div>
-        </Fragment>
+
+                {/* shadow */}
+                <div
+                    className={`bg-gradient-to-b from-white to-transparent dark:bg-gradient-to-b dark:from-base-600 dark:to-transparent h-10 w-full absolute top-16 z-10 transition-opacity duration-200 pointer-events-none ${scrolled ? "opacity-100" : "opacity-0"
+                        }`}
+                ></div>
+
+                {/* Menu */}
+                <div
+                    ref={scrollbarContainer}
+                    className="relative flex-1 overflow-hidden group/rail"
+                >
+                    <Menu sideOpen={sideOpen} openHover={openHover} />
+                </div>
+            </aside>
+
+            {/* Backdrop */}
+            <div
+                onClick={() => setSideOpen(false)}
+                className={`fixed inset-0 bg-black/30 z-40 transition-opacity duration-500 ${sideOpen
+                        ? "opacity-100 pointer-events-auto lg:opacity-0 lg:pointer-events-none"
+                        : "opacity-0 pointer-events-none"
+                    }`}
+            ></div>
+        </>
     );
 };
 

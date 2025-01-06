@@ -25,6 +25,7 @@ interface SubMenu {
   name?: string | JSX.Element | null;
   title?: string;
   sub?: [];
+  menuLink?: string;
 }
 
 // MenuItem interface with sub as an array of SubMenu
@@ -32,10 +33,12 @@ interface MenuItem {
   path: string;
   element: JSX.Element | null;
   icon?: JSX.Element;
-  name?: string | JSX.Element;
+  name?: string | JSX.Element | undefined;
   title?: string;
   sub?: SubMenu[];
   label?: string;
+  menuLink?: string;
+  iconActive?: string;
 }
 
 export const menu: MenuItem[] = [
