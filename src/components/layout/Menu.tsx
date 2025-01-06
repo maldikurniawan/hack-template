@@ -86,7 +86,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
 
                 if (!item.sub || item.sub.length === 0) {
                     return (
-                        <NavLink onClick={navClose} key={itemIdx} to={item.menuLink || "#"}>
+                        <NavLink onClick={navClose} key={itemIdx} to={item.path || "#"}>
                             {({ isActive }) => (
                                 <div className="mb-1 px-3 w-full text-sm">
                                     <div
