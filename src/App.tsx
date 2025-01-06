@@ -1,9 +1,30 @@
-import Router from "./router/index";
+import { Layout } from "@/components"
+import { menu } from "@/constants/menu";
+import { Login } from "@/template";
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 export default function App() {
   return (
-    <div>
-      <Router />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {menu.map((item, index) => {
+            if (item.sub && item.sub.length > 0) {
+              return item.sub?.map((sub, index) => {
+                return (
+                  <Route key={index} path={sub.path} element={sub.element} />
+                );
+              });
+            } else {
+              return (
+                <Route key={index} path={item.path} element={item.element} />
+              );
+            }
+          })}
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<h1>404</h1>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
