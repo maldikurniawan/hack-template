@@ -11,7 +11,7 @@ const Layout: React.FC = () => {
 
     return (
         <Fragment>
-            <div className="flex">
+            <div className="flex bg-black">
                 <Sidebar sideOpen={sideOpen} setSideOpen={setSideOpen} />
                 <div className="w-full h-screen flex flex-col relative">
                     <Header sideOpen={sideOpen} setSideOpen={setSideOpen} />
