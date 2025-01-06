@@ -164,7 +164,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                                                     localStorage.removeItem("editUserData"); // Remove the item from localStorage
                                                     navClose(item.name); // Call navClose with only one argument
                                                 }}
-                                                to={subItem.menuLink || "#"}
+                                                to={subItem.path || "#"}
                                             >
                                                 {({ isActive }) => (
                                                     <div
