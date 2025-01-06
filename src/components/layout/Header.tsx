@@ -19,16 +19,16 @@ const Header: React.FC<HeaderProps> = ({
 
     return (
         <Fragment>
-            <div className="w-full flex bg-white py-2 justify-between items-center px-3 drop-shadow-sm relative z-10">
+            <div className="w-full flex bg-[#030B07] py-2 justify-between items-center px-3 border-b border-b-green-900 relative z-10">
                 <div
                     onClick={() => setSideOpen(!sideOpen)}
-                    className="p-1 rounded-lg bg-white text-slate-600 text-xl cursor-pointer hover:bg-slate-100 transition-all"
+                    className="p-1 rounded-lg border-green-900 border text-white text-xl cursor-pointer transition-all"
                 >
                     <HiMenuAlt2 />
                 </div>
                 <Popover as="div" className="flex relative">
                     <PopoverButton>
-                        <div className="w-10 h-10 rounded-full cursor-pointer overflow-hidden border">
+                        <div className="w-10 h-10 rounded-full cursor-pointer overflow-hidden border border-green-900">
                             <img
                                 className="object-cover h-full w-full"
                                 src="https://picsum.photos/200"
@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({
                         leaveFrom="transform scale-100 opacity-100"
                         leaveTo="transform scale-95 opacity-0"
                     >
-                        <PopoverPanel className="absolute z-[50] w-max min-w-[170px] flex flex-col right-3 top-14 rounded-lg shadow-lg bg-[#0F172A] pt-3 pb-1 px-1 text-white">
+                        <PopoverPanel className="absolute z-[50] w-max min-w-[170px] flex flex-col right-3 top-14 rounded-lg bg-black border border-green-900 pt-3 pb-1 px-1 text-white">
                             <div className="px-2 pb-2">
                                 <div className="text-lg font-bold">Admin</div>
                             </div>
