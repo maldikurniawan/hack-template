@@ -1,5 +1,6 @@
 import { Layout } from "@/components"
 import { menu } from "@/constants/menu";
+import { Login } from "@/template";
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 const Router = () => {
@@ -21,6 +22,7 @@ const Router = () => {
                         }
                     })}
                 </Route>
+                <Route path="/login" element={<Login />} />
                 <Route path="*" element={<h1>404</h1>} />
             </Routes>
         </BrowserRouter>

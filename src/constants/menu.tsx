@@ -24,6 +24,7 @@ interface SubMenu {
   icon?: JSX.Element | null;
   name?: string | JSX.Element | null;
   title?: string;
+  sub?: [];
 }
 
 // MenuItem interface with sub as an array of SubMenu
@@ -59,6 +60,7 @@ export const menu: MenuItem[] = [
         name: "alert",
         title: "Alert",
         element: <AlertPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -66,6 +68,7 @@ export const menu: MenuItem[] = [
         name: "avatar",
         title: "Avatar",
         element: <AvatarPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -73,6 +76,7 @@ export const menu: MenuItem[] = [
         name: "badge",
         title: "Badge",
         element: <BadgePage />,
+        sub: [],
       },
       {
         icon: null,
@@ -80,6 +84,7 @@ export const menu: MenuItem[] = [
         name: "button",
         title: "Button",
         element: <ButtonPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -87,6 +92,7 @@ export const menu: MenuItem[] = [
         name: "chip",
         title: "Chip",
         element: <ChipPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -94,6 +100,7 @@ export const menu: MenuItem[] = [
         name: "collapsible",
         title: "Collapsible",
         element: <CollapsiblePage />,
+        sub: [],
       },
       {
         icon: null,
@@ -101,6 +108,7 @@ export const menu: MenuItem[] = [
         name: "drawer",
         title: "Drawer",
         element: <DrawerPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -108,6 +116,7 @@ export const menu: MenuItem[] = [
         name: "list",
         title: "List",
         element: <ListPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -115,6 +124,7 @@ export const menu: MenuItem[] = [
         name: "modal",
         title: "Modal",
         element: <ModalPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -122,6 +132,7 @@ export const menu: MenuItem[] = [
         name: "pagination",
         title: "Pagination",
         element: <PaginationPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -129,6 +140,7 @@ export const menu: MenuItem[] = [
         name: "popover",
         title: "Popover",
         element: <PopoverPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -136,6 +148,7 @@ export const menu: MenuItem[] = [
         name: "tabs",
         title: "Tabs",
         element: <TabsPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -143,6 +156,7 @@ export const menu: MenuItem[] = [
         name: "tooltip",
         title: "Tooltip",
         element: <TooltipPage />,
+        sub: [],
       },
       {
         icon: null,
@@ -150,6 +164,7 @@ export const menu: MenuItem[] = [
         name: "timeline",
         title: "Timeline",
         element: <TimelinePage />,
+        sub: [],
       },
     ],
   },
