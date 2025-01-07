@@ -28,6 +28,7 @@ import SwitchPage from "./forms/SwitchPage";
 import TextAreaPage from "./forms/TextAreaPage";
 import TextFieldPage from "./forms/TextFieldPage";
 import TablePage from "./tables/TablePage";
+import MatrixRainingEffect from "./components/MatrixRainingEffect";
 
 export {
     Login,
@@ -60,4 +61,5 @@ export {
     TextAreaPage,
     TextFieldPage,
     TablePage,
+    MatrixRainingEffect,
 };
