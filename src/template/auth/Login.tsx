@@ -37,7 +37,7 @@ const Login: React.FC = () => {
 			<MatrixRainingEffect />
 			<div className="relative w-screen h-screen z-20 overflow-hidden flex font-light">
 				<div className="flex w-full items-center justify-center p-10">
-					<div className="w-full md:w-96 h-fit p-10 bg-white/10 backdrop-blur-lg border border-white shadow-lg">
+					<div className="w-full md:w-96 h-fit p-10 bg-white/10 backdrop-blur-lg border border-[#001e00] shadow-lg">
 						<Link to={"/"} className="flex items-center mb-4">
 							<img
 								src="images/anonymous.png"

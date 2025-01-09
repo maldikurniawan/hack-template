@@ -39,8 +39,8 @@ const TextFieldPage: React.FC<TextFieldPageProps> = ({
 				value={value}
 				onChange={onChange}
 				onBlur={onBlur}
-				className={`p-2 px-2 border ${error ? "border-red-500" : "border-white"
-					} text-sm bg-transparent text-white focus:outline-none focus:ring-1 focus:ring-white focus:border-none transition-colors`}
+				className={`p-2 px-2 border ${error ? "border-red-500" : "border-[#001e00]"
+					} text-sm bg-transparent text-white focus:outline-none focus:ring-1 focus:ring-[#001e00] focus:border-none transition-colors`}
 			/>
 			{error && <div className="text-red-500 text-sm">{error}</div>}
 		</div>

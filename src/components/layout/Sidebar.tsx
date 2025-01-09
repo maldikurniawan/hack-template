@@ -20,7 +20,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
 
             <div
                 ref={ref}
-                className={`z-50 fixed md:relative h-screen flex flex-col bg-[#001e00]/50 text-white transition-all duration-300 ease-in-out ${sideOpen
+                className={`z-50 fixed md:relative h-screen flex flex-col bg-[#001e00]/50 backdrop-blur-xl text-white transition-all duration-300 ease-in-out ${sideOpen
                     ? "md:w-[20rem] w-[16rem] translate-x-0"
                     : "w-0 translate-x-[-100%]"}`
                 }
