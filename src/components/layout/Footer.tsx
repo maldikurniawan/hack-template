@@ -1,6 +1,12 @@
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
     return (
-        <div>Footer</div>
+        <div className="p-6 text-xs text-white">
+            Copyright ©️ {currentYear}{" "}
+            <span>Queen Network Nusantara</span>
+            . All rights reserved.
+        </div>
     )
 }
 

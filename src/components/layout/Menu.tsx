@@ -2,8 +2,8 @@ import { menu } from "@/constants/menu";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from "@headlessui/react";
 import { useEffect, useState } from "react";
-import { RxBorderDashed } from "react-icons/rx";
-import { TbChevronRight, TbCircle } from "react-icons/tb";
+import { SiHackaday } from "react-icons/si";
+import { TbChevronRight } from "react-icons/tb";
 import { NavLink, useLocation } from "react-router-dom";
 
 interface MenuProps {
@@ -45,7 +45,6 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
         const initialNavState = menu
             .filter((item) => item.sub && item.sub.length > 0)
             .reduce<Record<string, boolean>>((acc, item) => {
-                // Check if item.name is a string before using it as a key
                 if (typeof item.name === 'string') {
                     acc[item.name] = false;
                 }
@@ -72,27 +71,15 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
     return (
         <div className="my-3">
             {menu.map((item, itemIdx) => {
-                if (item.label) {
-                    return (
-                        <div
-                            key={itemIdx}
-                            className={`px-3 mt-6 mb-3 m-3 text-xs text-green-200 whitespace-nowrap h-3 ${sideOpen || openHover ? "" : "flex items-center justify-center"
-                                }`}
-                        >
-                            {sideOpen || openHover ? item.label : <RxBorderDashed />}
-                        </div>
-                    );
-                }
-
                 if (!item.sub || item.sub.length === 0) {
                     return (
                         <NavLink onClick={navClose} key={itemIdx} to={item.path || "#"}>
                             {({ isActive }) => (
                                 <div className="mb-1 px-3 w-full text-sm">
                                     <div
-                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 rounded-md overflow-hidden ${isActive
-                                            ? "bg-green-50 dark:bg-green-500"
-                                            : "hover:bg-green-50 dark:hover:bg-green-500"
+                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${isActive
+                                            ? "bg-[#5ced73] text-black"
+                                            : "hover:bg-[#5ced73] hover:text-black"
                                             }`}
                                     >
                                         <span className="flex items-center gap-2">
@@ -121,11 +108,11 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                                 className="w-full px-3 mb-1 text-sm"
                             >
                                 <div
-                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 rounded-md overflow-hidden ${nav[typeof item.name === 'string' ? item.name : '']
-                                        ? "bg-green-50 dark:bg-green-500"
-                                        : "hover:bg-green-50 dark:hover:bg-green-500"
+                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${nav[typeof item.name === 'string' ? item.name : '']
+                                        ? "bg-[#5ced73] text-black"
+                                        : "hover:bg-[#5ced73] hover:text-black"
                                         } ${pathname.split("/")[2] === item.name
-                                            ? "bg-green-50 dark:bg-green-500"
+                                            ? "bg-[#5ced73] text-black"
                                             : ""
                                         }`}
                                 >
@@ -168,14 +155,14 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                                             >
                                                 {({ isActive }) => (
                                                     <div
-                                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 rounded-md overflow-hidden ${isActive
-                                                            ? "bg-green-50 dark:bg-green-500"
-                                                            : "hover:bg-green-50 dark:hover:bg-green-500"
+                                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${isActive
+                                                            ? "bg-[#5ced73] text-black"
+                                                            : "hover:bg-[#5ced73] hover:text-black"
                                                             }`}
                                                     >
                                                         <span className="flex items-center gap-2">
                                                             <span className="text-[10px] w-[18px] ml-1">
-                                                                <TbCircle />
+                                                                <SiHackaday />
                                                             </span>
                                                             <span
                                                                 className={`${sideOpen || openHover
@@ -196,7 +183,6 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                         </Disclosure>
                     );
                 }
-
                 return null;
             })}
         </div>

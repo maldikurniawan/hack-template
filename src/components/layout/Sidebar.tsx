@@ -20,15 +20,20 @@ const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
 
             <div
                 ref={ref}
-                className={`z-50 fixed md:relative h-screen flex flex-col bg-[#030B07] border-r border-r-green-900 text-white transition-all duration-300 ease-in-out ${sideOpen
+                className={`z-50 fixed md:relative h-screen flex flex-col bg-[#001e00]/50 text-white transition-all duration-300 ease-in-out ${sideOpen
                     ? "md:w-[20rem] w-[16rem] translate-x-0"
                     : "w-0 translate-x-[-100%]"}`
                 }
                 onMouseEnter={() => setOpenHover(true)}
                 onMouseLeave={() => setOpenHover(false)}
             >
-                <div className={`w-full flex justify-center my-4 ${sideOpen ? "block" : "hidden"}`}>
-                    Logo
+                <div className={`w-[90%] items-center cursor-pointer gap-1 mx-auto flex border-b-2 leading-[60px] text-left border-[#001e00] ${sideOpen ? "block" : "hidden"}`}>
+                    <img
+                        src="/images/anonymous.png"
+                        alt="Anonymous"
+                        className="w-10 h-10"
+                    />
+                    <span>Anonymous</span>
                 </div>
 
                 <div

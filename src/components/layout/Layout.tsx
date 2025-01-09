@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Sidebar, Header } from "@/components";
+import { Sidebar, Header, Footer } from "@/components";
 import { Outlet } from "react-router-dom";
 
 const Layout: React.FC = () => {
@@ -18,6 +18,7 @@ const Layout: React.FC = () => {
                     <div className="bg-black h-full overflow-y-auto custom-scroll px-8 py-4 relative z-[0] text-white">
                         <Outlet />
                     </div>
+                    <Footer />
                 </div>
             </div>
         </Fragment>
