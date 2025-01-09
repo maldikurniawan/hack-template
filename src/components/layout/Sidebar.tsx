@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
 
                 <div
                     ref={scrollbarContainer}
-                    className={`relative flex-1 overflow-auto scroll-hidden group/rail ${openHover ? 'bg-black' : ''}`}
+                    className={`relative flex-1 overflow-auto scroll-hidden ${openHover ? '' : ''}`}
                 >
                     <Menu sideOpen={sideOpen} openHover={openHover} />
                 </div>

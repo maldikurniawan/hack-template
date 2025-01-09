@@ -35,17 +35,17 @@ const Login: React.FC = () => {
 	return (
 		<div className="relative overflow-hidden">
 			<MatrixRainingEffect />
-			<div className="relative w-screen h-screen z-20 overflow-hidden flex text-base-300 font-light">
+			<div className="relative w-screen h-screen z-20 overflow-hidden flex font-light">
 				<div className="flex w-full items-center justify-center p-10">
-					<div className="w-full md:w-96 h-fit p-10 bg-white/10 backdrop-blur-lg rounded-lg border border-base-100 shadow-lg">
-						<Link to={"/"} className="flex items-center">
+					<div className="w-full md:w-96 h-fit p-10 bg-white/10 backdrop-blur-lg border border-white shadow-lg">
+						<Link to={"/"} className="flex items-center mb-4">
 							<img
 								src="images/anonymous.png"
-								alt="Logo Hengker"
+								alt="Logo Anonymous"
 								className="w-20 h-20 rounded-full"
 							/>
 							<div className="text-xl text-green-600 font-bold text-center">
-								Hengker
+								Anonymous
 							</div>
 						</Link>
 						<form onSubmit={formik.handleSubmit} className="space-y-4">
@@ -59,7 +59,6 @@ const Login: React.FC = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								error={formik.touched.username && formik.errors.username}
-								required={true}
 							/>
 							<div className="relative">
 								<TextFieldPage
@@ -72,7 +71,6 @@ const Login: React.FC = () => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									error={formik.touched.password && formik.errors.password}
-									required={true}
 								/>
 								<div
 									className="absolute top-7 text-green-600 right-2 cursor-pointer"
@@ -85,7 +83,7 @@ const Login: React.FC = () => {
 							<button
 								type="submit"
 								disabled={loading}
-								className="w-full bg-green-600 font-bold text-white p-2 rounded-md hover:bg-green-900 transition-colors"
+								className="w-full bg-green-600 font-bold text-white p-2 hover:bg-green-900 transition-colors"
 							>
 								{loading ? (
 									<TbLoader2 size={20} className="animate-spin mx-auto" />

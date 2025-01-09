@@ -76,7 +76,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                     return (
                         <div
                             key={itemIdx}
-                            className={`px-3 mt-6 mb-3 m-3 text-xs text-base-200 whitespace-nowrap h-3 ${sideOpen || openHover ? "" : "flex items-center justify-center"
+                            className={`px-3 mt-6 mb-3 m-3 text-xs text-green-200 whitespace-nowrap h-3 ${sideOpen || openHover ? "" : "flex items-center justify-center"
                                 }`}
                         >
                             {sideOpen || openHover ? item.label : <RxBorderDashed />}
@@ -91,8 +91,8 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                                 <div className="mb-1 px-3 w-full text-sm">
                                     <div
                                         className={`flex items-center justify-between w-full h-10 px-[18px] py-2 rounded-md overflow-hidden ${isActive
-                                            ? "bg-base-50 dark:bg-base-500"
-                                            : "hover:bg-base-50 dark:hover:bg-base-500"
+                                            ? "bg-green-50 dark:bg-green-500"
+                                            : "hover:bg-green-50 dark:hover:bg-green-500"
                                             }`}
                                     >
                                         <span className="flex items-center gap-2">
@@ -122,10 +122,10 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                             >
                                 <div
                                     className={`flex items-center justify-between w-full h-10 px-[18px] py-2 rounded-md overflow-hidden ${nav[typeof item.name === 'string' ? item.name : '']
-                                        ? "bg-base-50 dark:bg-base-500"
-                                        : "hover:bg-base-50 dark:hover:bg-base-500"
+                                        ? "bg-green-50 dark:bg-green-500"
+                                        : "hover:bg-green-50 dark:hover:bg-green-500"
                                         } ${pathname.split("/")[2] === item.name
-                                            ? "bg-base-50 dark:bg-base-500"
+                                            ? "bg-green-50 dark:bg-green-500"
                                             : ""
                                         }`}
                                 >
@@ -169,8 +169,8 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                                                 {({ isActive }) => (
                                                     <div
                                                         className={`flex items-center justify-between w-full h-10 px-[18px] py-2 rounded-md overflow-hidden ${isActive
-                                                            ? "bg-base-50 dark:bg-base-500"
-                                                            : "hover:bg-base-50 dark:hover:bg-base-500"
+                                                            ? "bg-green-50 dark:bg-green-500"
+                                                            : "hover:bg-green-50 dark:hover:bg-green-500"
                                                             }`}
                                                     >
                                                         <span className="flex items-center gap-2">
