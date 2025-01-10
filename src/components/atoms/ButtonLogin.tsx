@@ -1,14 +1,14 @@
 import React, { ReactNode } from "react";
 import styled from 'styled-components';
 
-interface ButtonProps {
+interface ButtonLoginProps {
     children: ReactNode;
     type: string;
     disabled: boolean;
     className: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children }) => {
+const ButtonLogin: React.FC<ButtonLoginProps> = ({ children }) => {
     return (
         <StyledWrapper>
             <button type="button" className="btn">
@@ -190,4 +190,4 @@ const StyledWrapper = styled.div`
     }
   }`;
 
-export default Button;
+export default ButtonLogin;

@@ -8,7 +8,7 @@ const Dashboard = () => {
                     Hello World
                 </div>
             </Card>
-            <Card>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum pariatur perferendis nesciunt mollitia fugit doloribus ducimus id accusantium atque esse ad aspernatur, quas iusto distinctio hic? Perferendis eligendi doloribus nulla!</Card>
+            <Card>Halo Dunia</Card>
         </div>
     )
 }

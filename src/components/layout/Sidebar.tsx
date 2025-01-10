@@ -1,4 +1,5 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useContext, useRef } from "react";
+import { ThemeContext } from "@/context/ThemeContext";
 import Menu from "./Menu";
 
 interface SidebarProps {
@@ -9,6 +10,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
     const scrollbarContainer = useRef<HTMLDivElement | null>(null);
     const ref = useRef<HTMLDivElement>(null);
+    const { themeColor } = useContext(ThemeContext);
 
     return (
         <Fragment>
@@ -30,7 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
                         alt="Anonymous"
                         className="w-10 h-10"
                     />
-                    <span>Anonymous</span>
+                    <span style={{ color: themeColor }}>Anonymous</span>
                 </div>
 
                 <div

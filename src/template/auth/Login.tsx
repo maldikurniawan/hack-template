@@ -1,10 +1,10 @@
-import { MatrixRainingEffect, TextFieldPage } from "@/template"
+import { MatrixRainingEffect } from "@/template"
 import { useState } from "react";
 import { TbEye, TbEyeOff, TbLoader2 } from "react-icons/tb"
 import { Link, useNavigate } from "react-router-dom"
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Button } from "@/components";
+import { ButtonLogin, TextField } from "@/components";
 
 const Login: React.FC = () => {
 	const navigate = useNavigate();
@@ -50,7 +50,7 @@ const Login: React.FC = () => {
 							</div>
 						</Link>
 						<form onSubmit={formik.handleSubmit} className="space-y-4">
-							<TextFieldPage
+							<TextField
 								label="Username"
 								id="username"
 								name="username"
@@ -62,7 +62,7 @@ const Login: React.FC = () => {
 								error={formik.touched.username && formik.errors.username}
 							/>
 							<div className="relative">
-								<TextFieldPage
+								<TextField
 									label="Password"
 									id="password"
 									name="password"
@@ -81,7 +81,7 @@ const Login: React.FC = () => {
 								</div>
 							</div>
 							<div className="pt-4">
-								<Button
+								<ButtonLogin
 									type="submit"
 									disabled={loading}
 									className="w-full bg-green-600 font-bold text-white p-2 hover:bg-green-900 transition-colors"
@@ -91,7 +91,7 @@ const Login: React.FC = () => {
 									) : (
 										"Login"
 									)}
-								</Button>
+								</ButtonLogin>
 							</div>
 						</form>
 					</div>

@@ -27,7 +27,7 @@ const Layout: React.FC = () => {
                     <Sidebar sideOpen={sideOpen} setSideOpen={setSideOpen} />
                     <div className="w-full h-screen flex flex-col relative">
                         <Header sideOpen={sideOpen} setSideOpen={setSideOpen} />
-                        <div className="bg-black h-full overflow-y-auto custom-scroll px-4 py-4 relative z-[0] text-white">
+                        <div className="bg-black h-full overflow-y-auto custom-scroll px-4 py-4 relative z-[0] text-white scroll-hidden">
                             <Outlet />
                         </div>
                         <Footer />

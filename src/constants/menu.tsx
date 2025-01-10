@@ -25,6 +25,7 @@ import {
   TablePage,
   TabsPage,
   TextAreaPage,
+  TextFieldPage,
   TimelinePage,
   TooltipPage,
 } from "@/template";
@@ -277,7 +278,7 @@ export const menu: MenuItem[] = [
         path: "/form-tables/forms/textarea",
         name: "textarea",
         title: "Textarea",
-        element: <TextAreaPage />,
+        element: <TextFieldPage />,
         sub: [],
       },
       {
