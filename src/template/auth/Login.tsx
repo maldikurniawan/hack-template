@@ -4,6 +4,7 @@ import { TbEye, TbEyeOff, TbLoader2 } from "react-icons/tb"
 import { Link, useNavigate } from "react-router-dom"
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Button } from "@/components";
 
 const Login: React.FC = () => {
 	const navigate = useNavigate();
@@ -80,7 +81,7 @@ const Login: React.FC = () => {
 								</div>
 							</div>
 							<div></div>
-							<button
+							<Button
 								type="submit"
 								disabled={loading}
 								className="w-full bg-green-600 font-bold text-white p-2 hover:bg-green-900 transition-colors"
@@ -90,7 +91,7 @@ const Login: React.FC = () => {
 								) : (
 									"Login"
 								)}
-							</button>
+							</Button>
 						</form>
 					</div>
 				</div>

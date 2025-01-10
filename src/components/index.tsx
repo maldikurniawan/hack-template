@@ -1,3 +1,4 @@
+import Button from "./atoms/Button";
 import Card from "./atoms/Card";
 import Loader from "./atoms/Loader";
 import Layout from "./layout/Layout";
@@ -6,6 +7,7 @@ import Header from "./layout/Header";
 import Sidebar from "./layout/Sidebar";
 
 export {
+    Button,
     Card,
     Loader,
     Footer,

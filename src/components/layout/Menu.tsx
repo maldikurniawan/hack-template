@@ -122,7 +122,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                             </DisclosureButton>
                             <Transition
                                 show={nav[typeof item.name === "string" ? item.name : ""]}
-                                enter="transition-[max-height] duration-300 ease-in"
+                                enter="transition-[max-height] duration-[2000ms] ease-in"
                                 enterFrom="max-h-0"
                                 enterTo="max-h-[180vh]"
                                 leave="transition-[max-height] duration-300 ease-out"

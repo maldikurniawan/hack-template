@@ -9,7 +9,7 @@ const Layout: React.FC = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 2500);
+        }, 2000);
 
         setSideOpen(window.innerWidth >= 767);
 
@@ -18,11 +18,11 @@ const Layout: React.FC = () => {
 
     return (
         <Fragment>
-            {/* {loading ? (
+            {loading ? (
                 <div className="flex justify-center items-center h-screen bg-black">
                     <Loader />
                 </div>
-            ) : ( */}
+            ) : (
                 <div className="flex bg-black">
                     <Sidebar sideOpen={sideOpen} setSideOpen={setSideOpen} />
                     <div className="w-full h-screen flex flex-col relative">
@@ -33,7 +33,7 @@ const Layout: React.FC = () => {
                         <Footer />
                     </div>
                 </div>
-            {/* )} */}
+            )}
         </Fragment>
     );
 };
