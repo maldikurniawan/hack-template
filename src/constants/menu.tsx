@@ -28,7 +28,7 @@ import {
   TimelinePage,
   TooltipPage,
 } from "@/template";
-import { TbCards, TbForms, TbId, TbPerspective, TbSmartHome, TbTable } from "react-icons/tb";
+import { PiCards, PiHouseLine, PiIdentificationCard, PiPerspective, PiTable, PiTextbox } from "react-icons/pi";
 
 // Adjust the SubMenu interface to not have a nested sub property
 interface SubMenu {
@@ -56,7 +56,7 @@ interface MenuItem {
 
 export const menu: MenuItem[] = [
   {
-    icon: <TbSmartHome />,
+    icon: <PiHouseLine />,
     path: "/",
     name: "dashboard",
     title: "Dashboard",
@@ -64,7 +64,7 @@ export const menu: MenuItem[] = [
     sub: [],
   },
   {
-    icon: <TbCards />,
+    icon: <PiCards />,
     path: "components",
     name: "components",
     title: "Components",
@@ -185,7 +185,7 @@ export const menu: MenuItem[] = [
     ],
   },
   {
-    icon: <TbId />,
+    icon: <PiIdentificationCard />,
     path: "cards",
     name: "cards",
     title: "Cards",
@@ -210,7 +210,7 @@ export const menu: MenuItem[] = [
     ],
   },
   {
-    icon: <TbForms />,
+    icon: <PiTextbox />,
     path: "forms",
     name: "forms",
     title: "Forms",
@@ -291,7 +291,7 @@ export const menu: MenuItem[] = [
     ],
   },
   {
-    icon: <TbTable />,
+    icon: <PiTable />,
     path: "tables",
     name: "tables",
     title: "Tables",
@@ -308,7 +308,7 @@ export const menu: MenuItem[] = [
     ],
   },
   {
-    icon: <TbPerspective />,
+    icon: <PiPerspective />,
     path: "examples",
     name: "examples",
     title: "Examples",

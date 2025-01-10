@@ -80,18 +80,19 @@ const Login: React.FC = () => {
 									{isShow ? <TbEyeOff size={24} /> : <TbEye size={24} />}
 								</div>
 							</div>
-							<div></div>
-							<Button
-								type="submit"
-								disabled={loading}
-								className="w-full bg-green-600 font-bold text-white p-2 hover:bg-green-900 transition-colors"
-							>
-								{loading ? (
-									<TbLoader2 size={20} className="animate-spin mx-auto" />
-								) : (
-									"Login"
-								)}
-							</Button>
+							<div className="pt-4">
+								<Button
+									type="submit"
+									disabled={loading}
+									className="w-full bg-green-600 font-bold text-white p-2 hover:bg-green-900 transition-colors"
+								>
+									{loading ? (
+										<TbLoader2 size={20} className="animate-spin mx-auto" />
+									) : (
+										"Login"
+									)}
+								</Button>
+							</div>
 						</form>
 					</div>
 				</div>

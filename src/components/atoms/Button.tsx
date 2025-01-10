@@ -64,11 +64,10 @@ const StyledWrapper = styled.div`
 
   strong {
     z-index: 2;
-    font-family: "Avalors Personal Use";
-    font-size: 12px;
-    letter-spacing: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0px;
     color: #ffffff;
-    text-shadow: 0 0 4px white;
   }
 
   #glow {
@@ -96,17 +95,6 @@ const StyledWrapper = styled.div`
   .btn:hover #container-stars {
     z-index: 1;
     background-color: #212121;
-  }
-
-  .btn:hover {
-    transform: scale(1.1);
-  }
-
-  .btn:active {
-    border: double 4px #fe53bb;
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    animation: none;
   }
 
   .btn:active .circle {
