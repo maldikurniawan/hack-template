@@ -59,7 +59,6 @@ const StyledWrapper = styled.div`
     overflow: hidden;
     transition: 0.5s;
     backdrop-filter: blur(1rem);
-    border-radius: 5rem;
   }
 
   strong {
