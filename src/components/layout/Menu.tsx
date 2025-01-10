@@ -97,7 +97,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                 className="w-full px-3 mb-1 text-sm"
                             >
                                 <div
-                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${nav[typeof item.name === "string" ? item.name : ""]
+                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${nav[typeof item.name === "string" ? item.name : ""]}
                                         ? "bg-[#5ced73] text-black"
                                         : "hover:bg-[#5ced73] hover:text-black"
                                         } ${pathname.split("/")[2] === item.name
@@ -113,23 +113,23 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                     </span>
 
                                     <div
-                                        className={`flex items-center gap-2 transition-[transform,opacity] ${nav[typeof item.name === "string" ? item.name : ""] ? "rotate-90" : ""
-                                            } ${sideOpen ? "opacity-100" : "opacity-0"}`}
+                                        className={`flex items-center gap-2 transition-all duration-300 ${nav[typeof item.name === "string" ? item.name : ""] ? "rotate-90" : ""}
+                                            ${sideOpen ? "opacity-100" : "opacity-0"}`}
                                     >
                                         <TbChevronRight />
                                     </div>
                                 </div>
                             </DisclosureButton>
                             <Transition
-                                show={nav[typeof item.name === "string" ? item.name : ""]}
-                                enter="transition-[max-height] duration-[2000ms] ease-in"
-                                enterFrom="max-h-0"
-                                enterTo="max-h-[180vh]"
-                                leave="transition-[max-height] duration-300 ease-out"
-                                leaveFrom="max-h-[180vh]"
-                                leaveTo="max-h-0"
+                                as="div"
+                                enter="transition-all duration-300 ease-in-out"
+                                enterFrom="max-h-0 opacity-0"
+                                enterTo="max-h-[180vh] opacity-100"
+                                leave="transition-all duration-300 ease-in-out"
+                                leaveFrom="max-h-[180vh] opacity-100"
+                                leaveTo="max-h-0 opacity-0"
                             >
-                                <DisclosurePanel as="div" className="pb-2">
+                                <DisclosurePanel className="overflow-hidden pb-2">
                                     {item.sub.map((subItem, subItemIdx) => (
                                         <div key={subItemIdx} className="mb-1 px-3 w-full text-sm">
                                             <NavLink
