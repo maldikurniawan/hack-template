@@ -8,12 +8,11 @@ import { NavLink, useLocation } from "react-router-dom";
 
 interface MenuProps {
     sideOpen: boolean;
-    openHover: boolean;
 }
 
 type NavState = Record<string, boolean>;
 
-const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
+const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
     const [initNav, setInitNav] = useState<NavState>({});
     const [nav, setNav] = useState<NavState>({});
     const { pathname } = useLocation();
@@ -45,7 +44,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
         const initialNavState = menu
             .filter((item) => item.sub && item.sub.length > 0)
             .reduce<Record<string, boolean>>((acc, item) => {
-                if (typeof item.name === 'string') {
+                if (typeof item.name === "string") {
                     acc[item.name] = false;
                 }
                 return acc;
@@ -56,17 +55,10 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
     }, []);
 
     useEffect(() => {
-        if (!openHover) {
-            if (!sideOpen) setNav(initNav);
+        if (!sideOpen) {
+            setNav(initNav);
         }
-    }, [openHover, sideOpen, initNav]);
-
-    useEffect(() => {
-        if (!sideOpen && openHover) {
-            const menuActive = pathname.split("/")[2];
-            setNav((prev) => ({ ...prev, [menuActive]: true }));
-        }
-    }, [openHover, sideOpen, pathname, initNav]);
+    }, [sideOpen, initNav]);
 
     return (
         <div className="my-3">
@@ -86,10 +78,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                                             <span className="text-xl w-5">
                                                 {isActive ? item.iconActive || item.icon : item.icon}
                                             </span>
-                                            <span
-                                                className={`${sideOpen || openHover ? "opacity-100" : "opacity-0"
-                                                    }`}
-                                            >
+                                            <span className={`${sideOpen ? "opacity-100" : "opacity-0"}`}>
                                                 {item.title}
                                             </span>
                                         </span>
@@ -104,11 +93,11 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                     return (
                         <Disclosure key={itemIdx}>
                             <DisclosureButton
-                                onClick={() => navOpen(typeof item.name === 'string' ? item.name : '')}
+                                onClick={() => navOpen(typeof item.name === "string" ? item.name : "")}
                                 className="w-full px-3 mb-1 text-sm"
                             >
                                 <div
-                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${nav[typeof item.name === 'string' ? item.name : '']
+                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${nav[typeof item.name === "string" ? item.name : ""]
                                         ? "bg-[#5ced73] text-black"
                                         : "hover:bg-[#5ced73] hover:text-black"
                                         } ${pathname.split("/")[2] === item.name
@@ -118,24 +107,21 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                                 >
                                     <span className="flex items-center gap-2">
                                         <span className="text-xl w-5">{item.icon}</span>
-                                        <span
-                                            className={`tracking-wide ${sideOpen || openHover ? "opacity-100" : "opacity-0"
-                                                }`}
-                                        >
+                                        <span className={`tracking-wide ${sideOpen ? "opacity-100" : "opacity-0"}`}>
                                             {item.title}
                                         </span>
                                     </span>
 
                                     <div
-                                        className={`flex items-center gap-2 transition-[transform,opacity] ${nav[typeof item.name === 'string' ? item.name : ''] ? "rotate-90" : ""
-                                            } ${sideOpen || openHover ? "opacity-100" : "opacity-0"}`}
+                                        className={`flex items-center gap-2 transition-[transform,opacity] ${nav[typeof item.name === "string" ? item.name : ""] ? "rotate-90" : ""
+                                            } ${sideOpen ? "opacity-100" : "opacity-0"}`}
                                     >
                                         <TbChevronRight />
                                     </div>
                                 </div>
                             </DisclosureButton>
                             <Transition
-                                show={nav[typeof item.name === 'string' ? item.name : '']}
+                                show={nav[typeof item.name === "string" ? item.name : ""]}
                                 enter="transition-[max-height] duration-300 ease-in"
                                 enterFrom="max-h-0"
                                 enterTo="max-h-[180vh]"
@@ -148,8 +134,8 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                                         <div key={subItemIdx} className="mb-1 px-3 w-full text-sm">
                                             <NavLink
                                                 onClick={() => {
-                                                    localStorage.removeItem("editUserData"); // Remove the item from localStorage
-                                                    navClose(item.name); // Call navClose with only one argument
+                                                    localStorage.removeItem("editUserData");
+                                                    navClose(item.name);
                                                 }}
                                                 to={subItem.path || "#"}
                                             >
@@ -164,12 +150,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen, openHover }) => {
                                                             <span className="text-[10px] w-[18px] ml-1">
                                                                 <SiHackaday />
                                                             </span>
-                                                            <span
-                                                                className={`${sideOpen || openHover
-                                                                    ? "opacity-100"
-                                                                    : "opacity-0"
-                                                                    }`}
-                                                            >
+                                                            <span className={`${sideOpen ? "opacity-100" : "opacity-0"}`}>
                                                                 {subItem.title}
                                                             </span>
                                                         </span>

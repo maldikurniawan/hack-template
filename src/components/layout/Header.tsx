@@ -21,10 +21,10 @@ const Header: React.FC<HeaderProps> = ({
     return (
         <Fragment>
             <div className="p-4">
-                <div className="w-full flex bg-[#001e00]/50 py-2 backdrop-blur-xl justify-between items-center px-3 relative z-10">
+                <div className="w-full flex bg-[#001e00]/50 py-2 backdrop-blur-xl justify-between items-center px-3 relative z-10 border border-[#001e00]">
                     <div
                         onClick={() => setSideOpen(!sideOpen)}
-                        className="p-1 rounded-lg border-[#001e00] border-2 hover:bg-[#5ced73] hover:text-black text-white text-xl cursor-pointer transition-all"
+                        className="p-1 border-[#001e00] border-2 hover:bg-[#5ced73] hover:text-black text-white text-xl cursor-pointer transition-all"
                     >
                         <HiMenuAlt2 />
                     </div>
@@ -46,14 +46,14 @@ const Header: React.FC<HeaderProps> = ({
                             leaveFrom="transform scale-100 opacity-100"
                             leaveTo="transform scale-95 opacity-0"
                         >
-                            <PopoverPanel className="absolute z-[50] w-max min-w-[170px] flex flex-col right-3 top-14 bg-[#001e00]/50 pt-3 pb-1 px-1 text-white">
+                            <PopoverPanel className="absolute z-[50] w-max min-w-[170px] flex flex-col right-3 top-14 bg-black border border-[#001e00] pt-3 pb-1 px-1 text-white">
                                 <div className="px-2 pb-2">
                                     <div className="text-lg font-bold">Admin</div>
                                 </div>
                                 <div className="flex flex-col">
                                     <Link
                                         to={"/login"}
-                                        className="text-xs py-2 px-2 rounded-lg text-left hover:bg-[#5ced73] hover:text-black transition-all"
+                                        className="text-xs py-2 px-2 text-left hover:bg-[#5ced73] hover:text-black transition-all"
                                     >
                                         Keluar
                                     </Link>

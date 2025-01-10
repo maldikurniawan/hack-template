@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useRef } from "react";
 import Menu from "./Menu";
 
 interface SidebarProps {
@@ -7,7 +7,6 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
-    const [openHover, setOpenHover] = useState<boolean>(false);
     const scrollbarContainer = useRef<HTMLDivElement | null>(null);
     const ref = useRef<HTMLDivElement>(null);
 
@@ -20,14 +19,12 @@ const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
 
             <div
                 ref={ref}
-                className={`z-50 fixed md:relative h-screen flex flex-col bg-[#001e00]/50 backdrop-blur-xl text-white transition-all duration-300 ease-in-out ${sideOpen
+                className={`z-50 fixed md:relative h-screen flex flex-col bg-[#001e00]/50 border-r border-r-[#001e00] backdrop-blur-xl text-white transition-all duration-300 ease-in-out ${sideOpen
                     ? "md:w-[20rem] w-[16rem] translate-x-0"
                     : "w-0 translate-x-[-100%]"}`
                 }
-                onMouseEnter={() => setOpenHover(true)}
-                onMouseLeave={() => setOpenHover(false)}
             >
-                <div className={`w-[90%] items-center cursor-pointer gap-1 mx-auto flex border-b-2 leading-[60px] text-left border-[#001e00] ${sideOpen ? "block" : "hidden"}`}>
+                <div className={`w-[90%] items-center cursor-pointer gap-1 mx-auto flex border-b-2 leading-[60px] text-left border-[#001e00] ${sideOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5 pointer-events-none"} transition-all duration-300 ease-in-out`}>
                     <img
                         src="/images/anonymous.png"
                         alt="Anonymous"
@@ -38,9 +35,9 @@ const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
 
                 <div
                     ref={scrollbarContainer}
-                    className={`relative flex-1 overflow-auto scroll-hidden ${openHover ? '' : ''}`}
+                    className="relative flex-1 overflow-auto scroll-hidden"
                 >
-                    <Menu sideOpen={sideOpen} openHover={openHover} />
+                    <Menu sideOpen={sideOpen} />
                 </div>
             </div>
         </Fragment>
