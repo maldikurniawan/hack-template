@@ -97,7 +97,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                 className="w-full px-3 mb-1 text-sm"
                             >
                                 <div
-                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${nav[typeof item.name === "string" ? item.name : ""]}
+                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${nav[typeof item.name === "string" ? item.name : ""]
                                         ? "bg-[#5ced73] text-black"
                                         : "hover:bg-[#5ced73] hover:text-black"
                                         } ${pathname.split("/")[2] === item.name
