@@ -34,7 +34,7 @@ const Login: React.FC = () => {
 	});
 
 	return (
-		<div className="relative overflow-hidden">
+		<div className="relative min-h-screen overflow-hidden">
 			<MatrixRainingEffect />
 			<div className="relative w-screen h-screen z-20 overflow-hidden flex font-light">
 				<div className="flex w-full items-center justify-center p-10">

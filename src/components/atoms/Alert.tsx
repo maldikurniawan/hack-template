@@ -4,7 +4,7 @@ import { ReactNode, Dispatch, SetStateAction, useContext } from "react";
 
 interface AlertProps {
     variant?: "solid" | "outline" | "tonal";
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightBlue" | "lightRed" | "lightYellow" | string;
+    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
     rounded?: "none" | "sm" | "rounded" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
     density?: "tight" | "normal" | "loose";
     icon?: ReactNode;
@@ -33,9 +33,9 @@ const Alert = ({
         lightGreen: themeColor,
         lightGray: "#B0B0B0",
         lightPurple: "#B05CED",
-        lightBlue: "#5CB0ED",
-        lightRed: "#ED5C73",
         lightYellow: "#EDDB5C",
+        lightRed: "#ED5C73",
+        lightBlue: "#5CB0ED",
     };
 
     const alertColor = alertColors[color] || color;

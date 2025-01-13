@@ -7,6 +7,7 @@ import {
 } from "@headlessui/react";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { Avatar, Badge, ButtonRipple } from "@/components";
 
 interface HeaderProps {
     sideOpen: boolean;
@@ -30,13 +31,11 @@ const Header: React.FC<HeaderProps> = ({
                     </div>
                     <Popover as="div" className="flex relative">
                         <PopoverButton>
-                            <div className="w-10 h-10 rounded-full cursor-pointer overflow-hidden">
-                                <img
-                                    className="object-cover h-full w-full"
-                                    src="https://picsum.photos/200"
-                                    alt="user"
-                                />
-                            </div>
+                            <ButtonRipple className="rounded-full">
+                                <Badge size="sm" placement="right-end" color="lightGreen">
+                                    <Avatar color="lightGreen">AD</Avatar>
+                                </Badge>
+                            </ButtonRipple>
                         </PopoverButton>
                         <Transition
                             enter="transition duration-100 ease-out"

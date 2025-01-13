@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
-import { Card, Alert } from "@/components"
+import { Card, Alert, Button } from "@/components"
 import { PiCheck, PiExclamationMark, PiHouseLine, PiX } from "react-icons/pi";
 
 const AlertPage = () => {
@@ -27,13 +27,13 @@ const AlertPage = () => {
 					<Alert color="lightPurple">
 						Good morning! You have successfully logged in.
 					</Alert>
-					<Alert color="lightBlue">
+					<Alert color="lightYellow">
 						Good morning! You have successfully logged in.
 					</Alert>
 					<Alert color="lightRed">
 						Good morning! You have successfully logged in.
 					</Alert>
-					<Alert color="lightYellow">
+					<Alert color="lightBlue">
 						Good morning! You have successfully logged in.
 					</Alert>
 				</div>
@@ -51,7 +51,7 @@ const AlertPage = () => {
 					<Alert icon={<PiHouseLine />} color="lightGreen">
 						Good morning! You have successfully logged in.
 					</Alert>
-					<Alert icon={<PiCheck />} color="lightBlue">
+					<Alert icon={<PiCheck />} color="lightPurple">
 						Good morning! You have successfully logged in.
 					</Alert>
 					<Alert icon={<PiExclamationMark />} color="lightYellow">
@@ -83,9 +83,9 @@ const AlertPage = () => {
 							Good morning! You have successfully logged in.
 						</Alert>
 					) : (
-						<button className="bg-lightGreen text-black p-2 px-8" onClick={() => setShow(true)}>
+						<Button color="lightGreen" onClick={() => setShow(true)}>
 							Reset
-						</button>
+						</Button>
 					)}
 				</div>
 			</Card>
@@ -141,7 +141,7 @@ const AlertPage = () => {
 					<Alert density="tight" color="lightGreen">
 						Good morning! You have successfully logged in.
 					</Alert>
-					<Alert density="normal" color="lightBlue">
+					<Alert density="normal" color="lightPurple">
 						Good morning! You have successfully logged in.
 					</Alert>
 					<Alert density="loose" color="lightYellow">
