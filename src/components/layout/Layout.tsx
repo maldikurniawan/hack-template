@@ -23,11 +23,11 @@ const Layout: React.FC = () => {
                     <Loader />
                 </div>
             ) : (
-                <div className="flex bg-black">
+                <div className="flex">
                     <Sidebar sideOpen={sideOpen} setSideOpen={setSideOpen} />
                     <div className="w-full h-screen flex flex-col relative">
                         <Header sideOpen={sideOpen} setSideOpen={setSideOpen} />
-                        <div className="bg-black h-full overflow-y-auto custom-scroll px-4 py-4 relative z-[0] text-white scroll-hidden">
+                        <div className="bg-black h-full overflow-y-auto px-4 py-4 text-white scroll-hidden">
                             <Outlet />
                         </div>
                         <Footer />

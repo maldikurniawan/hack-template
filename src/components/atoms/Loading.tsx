@@ -16,8 +16,8 @@ const Loading = ({ size = 20, loading = false, color = "lightGreen" }: LoadingPr
         lightGray: "#B0B0B0",
         lightPurple: "#B05CED",
         lightYellow: "#EDDB5C",
-        lightRed: "#ED5C73",
         lightBlue: "#5CB0ED",
+        lightRed: "#ED5C73",
     };
 
     const loadColor = loadColors[color] || color;

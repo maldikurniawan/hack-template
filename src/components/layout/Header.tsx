@@ -1,13 +1,8 @@
 import React, { Fragment } from "react";
-import {
-    Popover,
-    PopoverButton,
-    PopoverPanel,
-    Transition,
-} from "@headlessui/react";
 import { HiMenuAlt2 } from "react-icons/hi";
-import { Link } from "react-router-dom";
-import { Avatar, Badge, ButtonRipple } from "@/components";
+import { Avatar, Badge, ButtonRipple, Popover, List } from "@/components";
+import { TbLogout } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
     sideOpen: boolean;
@@ -19,46 +14,56 @@ const Header: React.FC<HeaderProps> = ({
     setSideOpen,
 }) => {
 
+    const navigate = useNavigate();
+
     return (
         <Fragment>
-            <div className="p-4">
-                <div className="w-full flex bg-[#001e00]/50 py-2 backdrop-blur-xl justify-between items-center px-3 relative z-10 border border-[#001e00]">
+            <div className="p-4 bg-black z-10">
+                <div className="w-full flex bg-[#001e00]/50 py-2 backdrop-blur-xl justify-between items-center px-3 relative border border-[#001e00]">
                     <div
                         onClick={() => setSideOpen(!sideOpen)}
                         className="p-1 border-[#001e00] border-2 hover:bg-[#5ced73] hover:text-black text-white text-xl cursor-pointer transition-all"
                     >
                         <HiMenuAlt2 />
                     </div>
-                    <Popover as="div" className="flex relative">
-                        <PopoverButton>
+                    <Popover
+                        placement="bottom-end"
+                        spacing={20}
+                        rounded="none"
+                        button={
                             <ButtonRipple className="rounded-full">
                                 <Badge size="sm" placement="right-end" color="lightGreen">
                                     <Avatar color="lightGreen">AD</Avatar>
                                 </Badge>
                             </ButtonRipple>
-                        </PopoverButton>
-                        <Transition
-                            enter="transition duration-100 ease-out"
-                            enterFrom="transform scale-95 opacity-0"
-                            enterTo="transform scale-100 opacity-100"
-                            leave="transition duration-75 ease-out"
-                            leaveFrom="transform scale-100 opacity-100"
-                            leaveTo="transform scale-95 opacity-0"
-                        >
-                            <PopoverPanel className="absolute z-[50] w-max min-w-[170px] flex flex-col right-3 top-14 bg-black border border-[#001e00] pt-3 pb-1 px-1 text-white">
-                                <div className="px-2 pb-2">
-                                    <div className="text-lg font-bold">Admin</div>
+                        }
+                    >
+                        <div className="text-sm w-full md:min-w-[260px] text-white">
+                            <div className="p-4 border-b">
+                                <div className="flex gap-2 items-center">
+                                    <div className="w-fit">
+                                        <Avatar color="lightGreen">AD</Avatar>
+                                    </div>
+                                    <div>
+                                        <div className="text-sm font-semibold whitespace-nowrap">
+                                            Admin
+                                        </div>
+                                        <div className="text-xs">Admin</div>
+                                    </div>
                                 </div>
-                                <div className="flex flex-col">
-                                    <Link
-                                        to={"/login"}
-                                        className="text-xs py-2 px-2 text-left hover:bg-[#5ced73] hover:text-black transition-all"
-                                    >
-                                        Keluar
-                                    </Link>
-                                </div>
-                            </PopoverPanel>
-                        </Transition>
+                            </div>
+
+                            <div className="p-2 font-medium">
+                                <List
+                                    onClick={() => navigate("/login")}
+                                    color="lightRed"
+                                    prefix={<TbLogout />}
+                                    density="loose"
+                                >
+                                    Logout
+                                </List>
+                            </div>
+                        </div>
                     </Popover>
                 </div>
             </div>

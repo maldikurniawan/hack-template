@@ -11,8 +11,10 @@ import Drawer from "./atoms/Drawer";
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import Layout from "./layout/Layout";
+import List from "./atoms/List";
 import Loading from "./atoms/Loading";
 import Loader from "./atoms/Loader";
+import Popover from "./atoms/Popover";
 import Sidebar from "./layout/Sidebar";
 import TextField from "./forms/TextField";
 
@@ -30,8 +32,10 @@ export {
     Footer,
     Header,
     Layout,
+    List,
     Loading,
     Loader,
+    Popover,
     Sidebar,
     TextField,
 };

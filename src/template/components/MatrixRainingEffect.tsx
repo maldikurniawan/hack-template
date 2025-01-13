@@ -86,7 +86,7 @@ const MatrixRainingCode: React.FC = () => {
         };
     }, []);
 
-    return <canvas className="fixed top-0 left-0 z-[-1]" ref={canvasRef}></canvas>;
+    return <canvas className="fixed top-0 left-0 z-[-1] h-full" ref={canvasRef}></canvas>;
 };
 
 export default MatrixRainingCode;

@@ -1,7 +1,6 @@
-import { ThemeContext } from "@/context/ThemeContext";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import { useWindowSize } from "@/hooks/useWindowSize";
-import { ReactNode, Dispatch, SetStateAction, useContext, useRef } from "react";
+import { ReactNode, Dispatch, SetStateAction, useRef } from "react";
 import { TbX } from "react-icons/tb";
 import { ButtonRipple } from "..";
 
@@ -28,7 +27,6 @@ const Drawer = ({
     children,
 }: DrawerProps) => {
     const { width: windowWidth, height: windowHeight } = useWindowSize();
-    const { colorMode } = useContext(ThemeContext);
     const ref = useRef<HTMLDivElement | null>(null);
 
     useOnClickOutside(ref, () => {
@@ -59,7 +57,7 @@ const Drawer = ({
     return (
         <div
             ref={ref}
-            className={`fixed z-50 bg-[#001e00]/90 backdrop-blur-sm text-white h-screen shadow-2xl transition-[right,top] duration-500`}
+            className={`fixed z-[999999] bg-[#001e00]/90 backdrop-blur-sm text-white h-screen shadow-2xl transition-[right,top] duration-500`}
             style={{
                 ...style,
             }}
@@ -70,8 +68,7 @@ const Drawer = ({
                     <div className="text-xs text-white leading-none">{description}</div>
                 </div>
                 <ButtonRipple
-                    color={colorMode === "light" ? "#00000030" : "#ffffff30"}
-                    className="p-2 rounded-full transition-[background]"
+                    className="p-2 rounded-full transition-[background] text-white hover:bg-white hover:text-black"
                     onClick={() => setOpen(false)}
                 >
                     <TbX />
@@ -81,7 +78,7 @@ const Drawer = ({
                 style={{
                     height: `calc(100vh - 64px)`,
                 }}
-                className="overflow-y-auto custom-scroll"
+                className="overflow-y-auto custom-scroll p-4"
             >
                 {children}
             </div>

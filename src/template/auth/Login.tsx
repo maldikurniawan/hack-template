@@ -34,9 +34,9 @@ const Login: React.FC = () => {
 	});
 
 	return (
-		<div className="relative min-h-screen overflow-hidden">
+		<div className="relative overflow-hidden">
 			<MatrixRainingEffect />
-			<div className="relative w-screen h-screen z-20 overflow-hidden flex font-light">
+			<div className="relative w-screen h-screen overflow-hidden flex font-light">
 				<div className="flex w-full items-center justify-center p-10">
 					<div className="w-full md:w-96 h-fit p-10 bg-white/10 backdrop-blur-lg shadow-lg">
 						<Link to={"/"} className="flex items-center mb-4">

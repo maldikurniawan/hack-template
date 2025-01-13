@@ -16,11 +16,11 @@ const Card: React.FC<CardProps> = ({ children, icon, title }) => {
                 }}
                 className="absolute z-0 inset-0 h-full w-full bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-[size:24px_24px]"
             ></div>
-            <div className="flex items-center gap-2 font-bold text-black relative z-10">
+            <div className="flex items-center gap-2 font-bold text-black relative">
                 {icon && <div className="text-2xl">{icon}</div>}
                 {title && <div className="text-lg">{title}</div>}
             </div>
-            <div className="text-white relative z-10">{children}</div>
+            <div className="text-white relative">{children}</div>
         </div>
     );
 };

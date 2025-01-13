@@ -24,15 +24,6 @@ const DrawerPage = () => {
 				<Button onClick={() => setDrawer(true)} color="lightGreen">
 					Open Drawer
 				</Button>
-				<Drawer
-					dismiss
-					title="DRAWER TITLE"
-					description="Drawer Description"
-					open={drawer}
-					setOpen={setDrawer}
-				>
-					Helo
-				</Drawer>
 			</Card>
 
 			{/* Width */}
@@ -51,6 +42,16 @@ const DrawerPage = () => {
 						Open 50% Drawer
 					</Button>
 				</div>
+				<Drawer
+					dismiss
+					title="DRAWER TITLE"
+					description="Drawer Description"
+					open={drawer}
+					setOpen={setDrawer}
+				>
+					Helo
+				</Drawer>
+
 				<Drawer
 					dismiss
 					title="DRAWER"
