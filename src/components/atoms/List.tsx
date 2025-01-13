@@ -3,8 +3,8 @@ import { useContext, useState, ReactNode } from "react";
 
 interface ListProps {
     color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
-    rounded?: "none" | "sm" | "rounded" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
-    density?: "tight" | "normal" | "loose";
+    rounded?: "none" | "sm" | "rounded" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full" | string;
+    density?: "tight" | "normal" | "loose" | string;
     size?: "xs" | "sm" | "md" | "lg" | "xl";
     prefix?: ReactNode;
     suffix?: ReactNode;
@@ -15,7 +15,7 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({
     color = "lightGreen",
-    rounded = "md",
+    rounded = "none",
     density = "normal",
     size = "md",
     prefix = null,
@@ -76,7 +76,7 @@ const List: React.FC<ListProps> = ({
         <div
             style={{
                 backgroundColor: active ? listColor : isHover ? `${listColor}20` : "",
-                color: active ? "#fff" : isHover ? listColor : "",
+                color: active ? "#000" : isHover ? listColor : "",
                 fontSize: listSize,
             }}
             onMouseEnter={() => setIsHover(true)}

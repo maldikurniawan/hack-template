@@ -14,6 +14,7 @@ import Layout from "./layout/Layout";
 import List from "./atoms/List";
 import Loading from "./atoms/Loading";
 import Loader from "./atoms/Loader";
+import Modal from "./atoms/Modal";
 import Popover from "./atoms/Popover";
 import Sidebar from "./layout/Sidebar";
 import TextField from "./forms/TextField";
@@ -35,6 +36,7 @@ export {
     List,
     Loading,
     Loader,
+    Modal,
     Popover,
     Sidebar,
     TextField,

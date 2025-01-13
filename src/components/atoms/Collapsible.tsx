@@ -44,7 +44,7 @@ const CollapsibleItem: FC<CollapsibleItemProps> = ({
         <AccordionItem
             disabled={disabled}
             initialEntered={initialExpanded}
-            className={`text-sm mb-2 rounded-md  ${themeSkin === "default"
+            className={`text-sm mb-2 ${themeSkin === "default"
                 ? "shadow-[0_0px_2px_rgb(255,255,255,0.5)] bg-[#001e00]"
                 : themeSkin
                 }`}

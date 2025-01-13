@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
     color = "lightGreen",
     textcolor = "",
     size = "md",
-    rounded = "md",
+    rounded = "none",
     block = false,
     loading = false,
     onClick = () => { },

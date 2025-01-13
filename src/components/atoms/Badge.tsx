@@ -90,7 +90,7 @@ const Badge: React.FC<BadgeProps> = ({
             <div
                 ref={refs.setFloating}
                 style={{ ...floatingStyles, ...style }}
-                className={`absolute z-10 border-2 flex items-center justify-center border-white dark:border-lightGray-600 rounded-full ${hidden ? "hidden" : ""
+                className={`absolute z-10 border-2 flex items-center justify-center border-white rounded-full ${hidden ? "hidden" : ""
                     } ${badgeRounded} ${badgeSize} ${className}`}
             >
                 {value}
