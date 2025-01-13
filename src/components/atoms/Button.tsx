@@ -5,7 +5,7 @@ import { ButtonRipple, Loading } from "..";
 interface ButtonProps {
     type?: "button" | "submit" | "reset";
     variant?: "solid" | "outline" | "text" | "tonal" | "flat";
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
     textcolor?: string;
     size?: "xs" | "sm" | "md" | "lg" | "xl" | number | string;
     rounded?: "none" | "sm" | "rounded" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
@@ -22,7 +22,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
     type = "button",
     variant = "solid",
-    color = "primary",
+    color = "lightGreen",
     textcolor = "",
     size = "md",
     rounded = "md",
@@ -55,8 +55,8 @@ const Button: React.FC<ButtonProps> = ({
         xs: "min-w-[60px] min-h-[24px] px-2 py-1 text-xs",
         sm: "min-w-[80px] min-h-[28px] px-2 py-1 text-sm",
         md: "min-w-[100px] min-h-[32px] px-4 py-2 text-sm",
-        lg: "min-w-[120px] min-h-[40px] px-4 py-2 text-base",
-        xl: "min-w-[140px] min-h-[44px] px-4 py-2 text-base",
+        lg: "min-w-[120px] min-h-[40px] px-4 py-2 text-lightGray",
+        xl: "min-w-[140px] min-h-[44px] px-4 py-2 text-lightGray",
     };
 
     const btnSize = typeof size === "string" ? sizeClasses[size as keyof typeof sizeClasses] : "min-w-[100px] min-h-[32px] px-4 py-2 text-sm";
@@ -82,7 +82,7 @@ const Button: React.FC<ButtonProps> = ({
 
     const btnRounded = roundedClasses[rounded as keyof typeof roundedClasses] || "rounded-md";
 
-    // Button styles based on variant
+    // Button styles lightGrayd on variant
     let btnStyle: React.CSSProperties = {};
 
     switch (variant) {

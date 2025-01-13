@@ -4,7 +4,7 @@ import { ReactNode, useContext } from "react";
 
 interface BadgeProps {
     placement?: "top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end";
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
     size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
     rounded?: "none" | "sm" | "rounded" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
     value?: string | number | ReactNode;
@@ -17,7 +17,7 @@ interface BadgeProps {
 
 const Badge: React.FC<BadgeProps> = ({
     placement = "right-start",
-    color = "primary",
+    color = "lightGreen",
     size = "md",
     rounded = "full",
     value = "",
@@ -90,7 +90,7 @@ const Badge: React.FC<BadgeProps> = ({
             <div
                 ref={refs.setFloating}
                 style={{ ...floatingStyles, ...style }}
-                className={`absolute z-10 border-2 flex items-center justify-center border-white dark:border-base-600 rounded-full ${hidden ? "hidden" : ""
+                className={`absolute z-10 border-2 flex items-center justify-center border-white dark:border-lightGray-600 rounded-full ${hidden ? "hidden" : ""
                     } ${badgeRounded} ${badgeSize} ${className}`}
             >
                 {value}

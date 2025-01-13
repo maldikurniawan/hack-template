@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
+    "@szhsin/react-accordion": "^1.4.0",
     "axios": "^1.7.9",
     "formik": "^2.4.6",
     "perfect-scrollbar": "^1.5.6",
