@@ -19,11 +19,11 @@ interface DatePickerProps {
     label?: string;
     disabled?: boolean;
     placeholder?: string;
-    variant?: "basic" | "outline" | "underlined" | "filled";
-    size?: "sm" | "md" | "lg" | "xl";
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    variant?: "basic" | "outline" | "underlined" | "filled" | string;
+    size?: "sm" | "md" | "lg" | "xl" | string;
+    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | string;
-    density?: "tight" | "normal" | "loose";
+    density?: "tight" | "normal" | "loose" | string;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     prepend?: React.ReactNode;
@@ -33,9 +33,9 @@ interface DatePickerProps {
     mode?: "single" | "multiple" | "range";
     fromYear?: number;
     toYear?: number;
-    value?: string;
-    setValue?: React.Dispatch<React.SetStateAction<string>>;
-    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    value?: any;
+    setValue?: any;
+    onChange?: (date: any) => void;
     required?: boolean;
     placement?:
     | "top"
@@ -61,7 +61,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     placeholder,
     variant = "basic",
     size = "md",
-    color = "primary",
+    color = "lightGreen",
     rounded = "none",
     density = "normal",
     prefix,
@@ -93,12 +93,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
     // Color mapping
     const datepickerColor =
         {
-            primary: themeColor,
-            base: "#BABCBD",
-            success: "#4ED17E",
-            warning: "#EEC239",
-            danger: "#F26969",
-            info: "#629BF8",
+            lightGreen: themeColor,
+            lightGray: "#BABCBD",
+            lightPurple: "#4ED17E",
+            lightYellow: "#EEC239",
+            lightRed: "#F26969",
+            lightBlue: "#629BF8",
         }[color] || color;
 
     const { refs, floatingStyles } = useFloating({
@@ -129,7 +129,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                     error={error}
                     value={
                         mode === "range"
-                            ? `${moment(value?.from).format("DD/MM/YYYY")} - ${moment(value?.to).format("DD/MM/YYYY")}`
+                            ? `${moment(value).format("DD/MM/YYYY")} - ${moment(value).format("DD/MM/YYYY")}`
                             : mode === "multiple"
                                 ? Array.isArray(value) ? value.map((v) => moment(v).format("DD/MM/YYYY")).join(", ") : ""
                                 : value
@@ -146,9 +146,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className={`bg-white dark:bg-base-700 w-fit rounded-lg shadow-lg border border-base-50 dark:border-base-500 z-10 ${position}`}
+                    className={`bg-black w-fit rounded-lg shadow-lg border border-lightGray-50 dark:border-lightGray-500 z-10 ${position}`}
                 >
                     <DayPicker
+                        required
                         className="m-0 p-4 text-sm"
                         selected={value}
                         onSelect={setValue}
@@ -171,7 +172,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                             },
                         }}
                         classNames={{
-                            button: `rdp-button hover:!bg-base-75 dark:hover:!bg-base-500 ${mode !== "range" ? "rounded-lg" : ""
+                            button: `rdp-button hover:!bg-white ${mode !== "range" ? "rounded-lg" : ""
                                 } ${mode === "single" ? "aria-selected:!pointer-events-none" : ""
                                 }`,
                             day_selected: "rdp-day_selected ",

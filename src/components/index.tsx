@@ -9,6 +9,7 @@ import CardStatistic from "./atoms/CardStatistic";
 import Checkbox from "./forms/Checkbox";
 import Chip from "./atoms/Chip";
 import Collapsible from "./atoms/Collapsible";
+import DatePicker from "./forms/DatePicker";
 import Drawer from "./atoms/Drawer";
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
@@ -37,6 +38,7 @@ export {
     Checkbox,
     Chip,
     Collapsible,
+    DatePicker,
     Drawer,
     Footer,
     Header,
