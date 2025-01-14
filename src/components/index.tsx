@@ -15,6 +15,7 @@ import List from "./atoms/List";
 import Loading from "./atoms/Loading";
 import Loader from "./atoms/Loader";
 import Modal from "./atoms/Modal";
+import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
 import Sidebar from "./layout/Sidebar";
 import TextField from "./forms/TextField";
@@ -37,6 +38,7 @@ export {
     Loading,
     Loader,
     Modal,
+    Pagination,
     Popover,
     Sidebar,
     TextField,

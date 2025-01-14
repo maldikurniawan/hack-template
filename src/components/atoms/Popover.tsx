@@ -54,6 +54,7 @@ const CustomPopover: React.FC<PopoverProps> = ({
     rounded = "rounded",
     isFlip = true,
     isShift = true,
+    position = "relative",
     children,
 }) => {
     const panelRounded =
@@ -86,6 +87,8 @@ const CustomPopover: React.FC<PopoverProps> = ({
             </PopoverButton>
 
             <Transition
+                as="div"
+                className={`${position} z-10`}
                 enter="transition duration-100 ease-out"
                 enterFrom="transform scale-95 opacity-0"
                 enterTo="transform scale-100 opacity-100"

@@ -65,8 +65,9 @@ const Modal: React.FC<ModalProps> = ({
 
     return (
         <Transition
+            as="div"
             show={show}
-            // className="fixed inset-0 z-50 p-5 flex flex-col items-center justify-center overflow-hidden"
+            className="fixed inset-0 z-50 p-5 flex flex-col items-center justify-center overflow-hidden"
         >
             {/* Backdrop */}
             <TransitionChild
@@ -75,7 +76,7 @@ const Modal: React.FC<ModalProps> = ({
                 enterTo="opacity-100"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
-                className="w-full h-full absolute bg-black/50 transition-opacity duration-300"
+                className="w-full h-full absolute bg-black/50 -z-10 transition-opacity duration-300"
                 onClick={onBackDropClick}
             />
 
@@ -87,7 +88,7 @@ const Modal: React.FC<ModalProps> = ({
                 enterTo="opacity-100 scale-100"
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
-                className="transition-[opacity,transform] duration-300 rounded"
+                className="transition-[opacity,transform] duration-300 relative"
                 style={{
                     maxWidth: modalWidth,
                     width: width === "auto" ? "auto" : "100%",
@@ -100,7 +101,7 @@ const Modal: React.FC<ModalProps> = ({
                         <ButtonRipple
                             color={colorMode === "light" ? "#00000030" : "#ffffff30"}
                             onClick={() => setShow(false)}
-                            className={`bg-white w-8 h-8 rounded flex items-center justify-center ${themeSkin === "default" ? "shadow-lg" : themeSkin
+                            className={`bg-green-950 border border-black w-8 h-8 text-white flex items-center justify-center ${themeSkin === "default" ? "shadow-lg" : themeSkin
                                 }`}
                         >
                             <FiX />
@@ -108,7 +109,7 @@ const Modal: React.FC<ModalProps> = ({
                     </div>
                 )}
                 <div
-                    className={`max-h-[90vh] h-full w-full bg-[#001e00] rounded overflow-y-auto custom-scroll ${themeSkin === "default" ? "shadow-lg" : themeSkin
+                    className={`max-h-[90vh] h-full w-full bg-[#001e00] overflow-y-auto custom-scroll ${themeSkin === "default" ? "shadow-lg" : themeSkin
                         }`}
                 >
                     {children}
