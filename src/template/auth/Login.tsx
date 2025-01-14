@@ -49,13 +49,14 @@ const Login: React.FC = () => {
 								Anonymous
 							</div>
 						</Link>
-						<form onSubmit={formik.handleSubmit} className="space-y-4">
+						<form onSubmit={formik.handleSubmit} className="space-y-4 text-green-600">
 							<TextField
 								label="Username"
 								id="username"
 								name="username"
 								type="text"
 								placeholder="Username"
+								color="lightGreen"
 								value={formik.values.username}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
@@ -68,6 +69,7 @@ const Login: React.FC = () => {
 									name="password"
 									type={isShow ? "text" : "password"}
 									placeholder="Password"
+									color="lightGreen"
 									value={formik.values.password}
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}

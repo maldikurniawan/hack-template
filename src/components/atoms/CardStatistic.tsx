@@ -49,7 +49,7 @@ const CardStatistic: React.FC<CardStatisticProps> = ({
 
     return (
         <Card>
-            <div className={`text-sm cursor-pointer`}>
+            <div className={`text-sm`}>
                 <div className="flex items-center gap-4 mb-2">
                     <div
                         style={{

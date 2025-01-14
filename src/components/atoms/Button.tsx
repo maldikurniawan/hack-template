@@ -55,8 +55,8 @@ const Button: React.FC<ButtonProps> = ({
         xs: "min-w-[60px] min-h-[24px] px-2 py-1 text-xs",
         sm: "min-w-[80px] min-h-[28px] px-2 py-1 text-sm",
         md: "min-w-[100px] min-h-[32px] px-4 py-2 text-sm",
-        lg: "min-w-[120px] min-h-[40px] px-4 py-2 text-lightGray",
-        xl: "min-w-[140px] min-h-[44px] px-4 py-2 text-lightGray",
+        lg: "min-w-[120px] min-h-[40px] px-4 py-2 text-white",
+        xl: "min-w-[140px] min-h-[44px] px-4 py-2 text-white",
     };
 
     const btnSize = typeof size === "string" ? sizeClasses[size as keyof typeof sizeClasses] : "min-w-[100px] min-h-[32px] px-4 py-2 text-sm";
