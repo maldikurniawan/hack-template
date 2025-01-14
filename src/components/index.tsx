@@ -5,6 +5,8 @@ import Button from "./atoms/Button";
 import ButtonLogin from "./atoms/ButtonLogin";
 import ButtonRipple from "./atoms/ButtonRipple";
 import Card from "./atoms/Card";
+import CardStatistic from "./atoms/CardStatistic";
+import Checkbox from "./forms/Checkbox";
 import Chip from "./atoms/Chip";
 import Collapsible from "./atoms/Collapsible";
 import Drawer from "./atoms/Drawer";
@@ -18,7 +20,10 @@ import Modal from "./atoms/Modal";
 import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
 import Sidebar from "./layout/Sidebar";
+import Tabs from "./atoms/Tabs";
 import TextField from "./forms/TextField";
+import Timeline from "./atoms/Timeline";
+import Tooltip from "./atoms/Tooltip";
 
 export {
     Alert,
@@ -28,6 +33,8 @@ export {
     ButtonLogin,
     ButtonRipple,
     Card,
+    CardStatistic,
+    Checkbox,
     Chip,
     Collapsible,
     Drawer,
@@ -41,5 +48,8 @@ export {
     Pagination,
     Popover,
     Sidebar,
+    Tabs,
     TextField,
+    Timeline,
+    Tooltip,
 };

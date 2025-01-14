@@ -76,7 +76,9 @@ const Pagination: React.FC<PaginationProps> = ({
         : "md";
 
     // Define shadow styles based on variant
-    const getShadowStyle = variant === "solid" ? "border border-white" : "";
+    const getShadowStyle = variant === "solid" ? "border border-green-600" : "";
+
+    const disabledColor = colorMode === "light" ? "#E0E0E0" : "#6E6E6E"; // Disabled color
 
     return (
         <div className="flex gap-2">
@@ -95,7 +97,11 @@ const Pagination: React.FC<PaginationProps> = ({
                         onClick={onPrevious}
                         disabled={currentPage === 1}
                     >
-                        <TbChevronLeft />
+                        <TbChevronLeft
+                            style={{
+                                color: currentPage === 1 ? disabledColor : "inherit",
+                            }}
+                        />
                     </button>
 
                     {paginationRange.map((pageNumber, index) => {
@@ -113,7 +119,11 @@ const Pagination: React.FC<PaginationProps> = ({
                                     disabled
                                     className={`${getShadowStyle} flex justify-center items-center`}
                                 >
-                                    <TbDots />
+                                    <TbDots
+                                        style={{
+                                            color: disabledColor,
+                                        }}
+                                    />
                                 </button>
                             );
                         }
@@ -132,7 +142,7 @@ const Pagination: React.FC<PaginationProps> = ({
                                                 : "#4D535595",
                                     color:
                                         pageNumber === currentPage
-                                            ? "white"
+                                            ? "black"
                                             : colorMode === "light"
                                                 ? "#171C1E"
                                                 : "white",
@@ -159,7 +169,11 @@ const Pagination: React.FC<PaginationProps> = ({
                         onClick={onNext}
                         disabled={currentPage === lastPage}
                     >
-                        <TbChevronRight />
+                        <TbChevronRight
+                            style={{
+                                color: currentPage === lastPage ? disabledColor : "inherit",
+                            }}
+                        />
                     </button>
                 </>
             )}

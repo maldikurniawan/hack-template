@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
 const Loader = () => {
-    return (
-        <StyledWrapper>
-            <div className="terminal-loader">
-                <div className="terminal-header">
-                    <div className="terminal-title">Status</div>
-                    <div className="terminal-controls">
-                        <div className="control close" />
-                        <div className="control minimize" />
-                        <div className="control maximize" />
-                    </div>
-                </div>
-                <div className="text">Loading...</div>
-            </div>
-        </StyledWrapper>
-    );
+  return (
+    <StyledWrapper>
+      <div className="terminal-loader">
+        <div className="terminal-header">
+          <div className="terminal-title">Status</div>
+          <div className="terminal-controls">
+            <div className="control close" />
+            <div className="control minimize" />
+            <div className="control maximize" />
+          </div>
+        </div>
+        <div className="text">Loading...</div>
+      </div>
+    </StyledWrapper>
+  );
 }
 
 const StyledWrapper = styled.div`

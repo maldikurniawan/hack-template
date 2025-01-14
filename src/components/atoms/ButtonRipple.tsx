@@ -1,5 +1,5 @@
 import { ThemeContext } from "@/context/ThemeContext";
-import { useContext, MouseEventHandler, CSSProperties, ReactNode, ButtonHTMLAttributes  } from "react";
+import { useContext, CSSProperties, ReactNode, ButtonHTMLAttributes } from "react";
 import useRipple from "use-ripple-hook";
 
 type ButtonRippleProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -8,7 +8,7 @@ type ButtonRippleProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     cancelAutomatically?: boolean;
     disabled?: boolean;
     children?: ReactNode;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
+    onClick?: () => void;
     className?: string;
     style?: CSSProperties;
     stopPropagation?: boolean;
@@ -26,7 +26,7 @@ const ButtonRipple = ({
     stopPropagation = false,
     ...rest
 }: ButtonRippleProps) => {
-    
+
     const { themeColor, colorMode } = useContext(ThemeContext);
 
     // Color
