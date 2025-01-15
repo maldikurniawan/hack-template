@@ -3,10 +3,10 @@ import { ReactNode } from "react";
 import { Button } from "..";
 
 interface TabsProps {
-    tab: string[];
-    vertical: boolean;
-    children: ReactNode | ReactNode[];
-    defaultindex: number;
+    tab?: string[];
+    vertical?: boolean;
+    children?: ReactNode | ReactNode[];
+    defaultindex?: number;
 }
 
 const Tabs = ({
