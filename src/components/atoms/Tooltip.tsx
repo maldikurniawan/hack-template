@@ -14,13 +14,13 @@ import { Transition } from "@headlessui/react";
 import { useState } from "react";
 
 interface TooltipProps {
-    tooltip: React.ReactNode;
-    placement: "top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end";
-    spacing: number;
-    fill: boolean;
-    delay: number;
-    position: "relative" | "fixed" | "absolute" | "sticky";
-    children: React.ReactNode;
+    tooltip?: React.ReactNode;
+    placement?: "top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end";
+    spacing?: number;
+    fill?: boolean;
+    delay?: number;
+    position?: "relative" | "fixed" | "absolute" | "sticky";
+    children?: React.ReactNode;
 }
 
 const Tooltip = ({

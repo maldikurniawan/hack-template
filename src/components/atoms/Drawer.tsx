@@ -8,13 +8,13 @@ import { ButtonRipple } from "..";
  * Drawer component props type
  */
 interface DrawerProps {
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
     width?: string;
-    open: boolean;
+    open?: boolean;
     setOpen: Dispatch<SetStateAction<boolean>>;
-    dismiss: boolean;
-    children: ReactNode;
+    dismiss?: boolean;
+    children?: ReactNode;
 }
 
 const Drawer = ({
