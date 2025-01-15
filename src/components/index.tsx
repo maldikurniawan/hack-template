@@ -23,6 +23,8 @@ import Modal from "./atoms/Modal";
 import MonthPicker from "./forms/MonthPicker";
 import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
+import Radio from "./forms/Radio";
+import Select from "./forms/Select";
 import Sidebar from "./layout/Sidebar";
 import Tabs from "./atoms/Tabs";
 import TextField from "./forms/TextField";
@@ -55,6 +57,8 @@ export {
     MonthPicker,
     Pagination,
     Popover,
+    Radio,
+    Select,
     Sidebar,
     Tabs,
     TextField,

@@ -24,7 +24,7 @@ interface MonthPickerProps {
     append?: React.ReactNode;
     note?: React.ReactNode;
     error?: React.ReactNode;
-    value?: string | Date;
+    value?: string;
     setValue?: React.Dispatch<React.SetStateAction<string>>;
     onChange?: any;
     required?: boolean;
@@ -122,7 +122,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className={`bg-black w-fit rounded-lg shadow-lg border border-white z-10 p-4 ${position}`}
+                    className={`bg-black w-fit shadow-lg border border-white z-10 p-4 ${position}`}
                 >
                     <div className="flex items-center justify-between mb-2">
                         <Button
@@ -131,7 +131,8 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                             }}
                             variant="text"
                             color={colorMonthPicker}
-                            size={40}
+                            size="40"
+                            className="p-3"
                         >
                             <TbChevronLeft />
                         </Button>
@@ -142,7 +143,8 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                             }}
                             variant="text"
                             color={colorMonthPicker}
-                            size={40}
+                            size="40"
+                            className="p-3"
                         >
                             <TbChevronRight />
                         </Button>
@@ -167,7 +169,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                                                 ? "white"
                                                 : "",
                                     }}
-                                    className="text-sm m-0 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-white rounded-md"
+                                    className="text-sm m-0 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-green-900"
                                 >
                                     {month.substring(0, 3)}
                                 </div>

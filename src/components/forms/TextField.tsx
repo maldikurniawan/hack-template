@@ -1,6 +1,6 @@
 import { ThemeContext } from "@/context/ThemeContext";
 import Cleave from 'cleave.js/react';
-import { useContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
+import { useContext, useState, ReactNode } from "react";
 import { TbX } from "react-icons/tb";
 
 interface TextFieldProps {
@@ -9,7 +9,7 @@ interface TextFieldProps {
     type?: string;
     label?: string;
     value?: string;
-    setValue?: Dispatch<SetStateAction<string>>;
+    setValue?: React.Dispatch<React.SetStateAction<string>>;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
     onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
@@ -36,8 +36,8 @@ const TextField: React.FC<TextFieldProps> = ({
     id,
     name,
     type = "text",
-    label,
-    value,
+    label = "",
+    value = "",
     setValue,
     onChange,
     onBlur,
@@ -57,7 +57,7 @@ const TextField: React.FC<TextFieldProps> = ({
     append,
     note,
     error,
-    cleaveOptions = {},
+    cleaveOptions,
     clearable = false,
 }) => {
     const { themeColor } = useContext(ThemeContext);
