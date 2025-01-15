@@ -20,6 +20,7 @@ import List from "./atoms/List";
 import Loading from "./atoms/Loading";
 import Loader from "./atoms/Loader";
 import Modal from "./atoms/Modal";
+import MonthPicker from "./forms/MonthPicker";
 import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
 import Sidebar from "./layout/Sidebar";
@@ -51,6 +52,7 @@ export {
     Loading,
     Loader,
     Modal,
+    MonthPicker,
     Pagination,
     Popover,
     Sidebar,
