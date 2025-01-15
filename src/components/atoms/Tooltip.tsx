@@ -25,11 +25,11 @@ interface TooltipProps {
 
 const Tooltip = ({
     tooltip,
-    placement,
-    spacing,
-    fill,
-    delay,
-    position,
+    placement = "top",
+    spacing = 5,
+    fill = false,
+    delay = 0,
+    position = "relative",
     children,
 }: TooltipProps) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -88,16 +88,6 @@ const Tooltip = ({
             </Transition>
         </div>
     );
-};
-
-Tooltip.defaultProps = {
-    tooltip: null,
-    placement: "top",
-    spacing: 5,
-    fill: false,
-    delay: 0,
-    position: "relative",
-    children: null,
 };
 
 export default Tooltip;

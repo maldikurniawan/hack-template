@@ -3,7 +3,7 @@ import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import moment from "moment/moment";
 import { useContext, useRef, useState } from "react";
 import { DayPicker } from "react-day-picker";
-import "react-day-picker/dist/style.css";
+import "react-day-picker/style.css";
 import { TextField } from "..";
 import {
     autoUpdate,
@@ -57,7 +57,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     id,
     name,
     label,
-    disabled,
+    disabled = false,
     placeholder,
     variant = "basic",
     size = "md",
@@ -80,12 +80,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
     placement = "bottom-start",
     position = "relative",
 }) => {
-    const { themeColor, colorMode } = useContext(ThemeContext);
+    const { themeColor } = useContext(ThemeContext);
     const currentYear = moment().year();
-    const fromYearValue = fromYear || 2015;
-    const toYearValue = toYear || currentYear + 2;
+    const fromYearValue = fromYear || currentYear - 4;
+    const toYearValue = toYear || currentYear + 4;
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState<boolean>(false);
 
     const ref = useRef<HTMLDivElement>(null);
     useOnClickOutside(ref, () => setOpen(false));
@@ -129,9 +129,11 @@ const DatePicker: React.FC<DatePickerProps> = ({
                     error={error}
                     value={
                         mode === "range"
-                            ? `${moment(value).format("DD/MM/YYYY")} - ${moment(value).format("DD/MM/YYYY")}`
+                            ? `${moment(value?.from).format("DD/MM/YYYY")} - ${moment(
+                                value?.to
+                            ).format("DD/MM/YYYY")}`
                             : mode === "multiple"
-                                ? Array.isArray(value) ? value.map((v) => moment(v).format("DD/MM/YYYY")).join(", ") : ""
+                                ? value?.map((v: any) => moment(v).format("DD/MM/YYYY")).join(", ")
                                 : value
                                     ? moment(value).format("DD/MM/YYYY")
                                     : ""
@@ -146,7 +148,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className={`bg-black w-fit rounded-lg shadow-lg border border-lightGray-50 dark:border-lightGray-500 z-10 ${position}`}
+                    className={`bg-black w-fit rounded-lg shadow-lg z-10 ${position}`}
                 >
                     <DayPicker
                         required
@@ -155,33 +157,31 @@ const DatePicker: React.FC<DatePickerProps> = ({
                         onSelect={setValue}
                         onDayClick={(e) => {
                             if (mode === "single") setOpen(false);
-                            onChange?.(e);
+                            onChange && onChange(e);
                         }}
                         modifiersStyles={{
                             selected: {
                                 backgroundColor: datepickerColor,
-                                color: "#fff",
+                                color: "#000",
                             },
                         }}
                         styles={{
                             dropdown: {
-                                backgroundColor: colorMode === "light" ? "#fff" : "#171C1E",
-                            },
-                            caption_label: {
-                                fontSize: "0.875rem",
+                                backgroundColor: "#000",
                             },
                         }}
                         classNames={{
-                            button: `rdp-button hover:!bg-white ${mode !== "range" ? "rounded-lg" : ""
-                                } ${mode === "single" ? "aria-selected:!pointer-events-none" : ""
-                                }`,
-                            day_selected: "rdp-day_selected ",
+                            selected: datepickerColor,
+                            caption_label: "text-white",
+                            range_start: "rounded-s-full",
+                            range_middle: "bg-black/50",
+                            range_end: "rounded-e-full",
+                            today: "text-green-600 font-bold",
                         }}
                         mode={mode}
                         captionLayout="dropdown"
                         fromYear={fromYearValue}
                         toYear={toYearValue}
-                        showOutsideDays
                     />
                 </div>
             )}

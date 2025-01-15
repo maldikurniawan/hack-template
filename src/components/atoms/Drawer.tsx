@@ -18,12 +18,12 @@ interface DrawerProps {
 }
 
 const Drawer = ({
-    title,
-    description,
+    title = "Drawer",
+    description = "Drawer description",
     width = "380px",
-    open,
+    open = false,
     setOpen,
-    dismiss,
+    dismiss = true,
     children,
 }: DrawerProps) => {
     const { width: windowWidth, height: windowHeight } = useWindowSize();
@@ -84,14 +84,6 @@ const Drawer = ({
             </div>
         </div>
     );
-};
-
-Drawer.defaultProps = {
-    title: "Drawer",
-    description: "Drawer description",
-    width: "380px",
-    open: false,
-    dismiss: true,
 };
 
 export default Drawer;

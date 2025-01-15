@@ -35,7 +35,7 @@ interface TextFieldProps {
 const TextField: React.FC<TextFieldProps> = ({
     id,
     name,
-    type,
+    type = "text",
     label,
     value,
     setValue,
@@ -60,7 +60,7 @@ const TextField: React.FC<TextFieldProps> = ({
     cleaveOptions = {},
     clearable = false,
 }) => {
-    const { themeColor, colorMode } = useContext(ThemeContext);
+    const { themeColor } = useContext(ThemeContext);
 
     const variants = ["outline", "underlined", "filled"];
     const [isFocus, setIsFocus] = useState<boolean>(false);
@@ -91,7 +91,7 @@ const TextField: React.FC<TextFieldProps> = ({
         {
             none: 0,
             sm: 2,
-            lightGray: 4,
+            base: 4,
             md: 6,
             lg: 8,
             xl: 12,
@@ -115,18 +115,12 @@ const TextField: React.FC<TextFieldProps> = ({
             borderColor: error
                 ? "#ef4444"
                 : disabled
-                    ? colorMode === "light"
-                        ? "#BABCBA80"
-                        : "#4D535580"
+                    ? "#4D535580"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? colorMode === "light"
-                                ? "#9A9C9A"
-                                : "#6F6F6F"
-                            : colorMode === "light"
-                                ? "#BABCBA"
-                                : "#4D5355",
+                            ? "#6F6F6F"
+                            : "#4D5355",
             borderWidth: 1,
             borderStyle: "solid",
             outline: error
@@ -142,41 +136,29 @@ const TextField: React.FC<TextFieldProps> = ({
             borderColor: error
                 ? "#ef4444"
                 : disabled
-                    ? colorMode === "light"
-                        ? "#BABCBA80"
-                        : "#4D535580"
+                    ? "#4D535580"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? colorMode === "light"
-                                ? "#9A9C9A"
-                                : "#6F6F6F"
-                            : colorMode === "light"
-                                ? "#BABCBA"
-                                : "#4D5355",
+                            ? "#6F6F6F"
+                            : "#4D5355",
             borderBottomWidth: 1,
             borderBottomStyle: "solid",
             borderTopLeftRadius: textFieldRounded,
             borderTopRightRadius: textFieldRounded,
-            backgroundColor: colorMode === "light" ? "#f7f6f9" : "#20282A",
+            backgroundColor: "#20282A",
         };
     } else if (variant === "underlined") {
         containerStyle = {
             borderColor: error
                 ? "#ef4444"
                 : disabled
-                    ? colorMode === "light"
-                        ? "#BABCBA80"
-                        : "#4D535580"
+                    ? "#4D535580"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? colorMode === "light"
-                                ? "#9A9C9A"
-                                : "#6F6F6F"
-                            : colorMode === "light"
-                                ? "#BABCBA"
-                                : "#4D5355",
+                            ? "#6F6F6F"
+                            : "#4D5355",
             borderBottomWidth: 1,
             borderBottomStyle: "solid",
         };
@@ -185,18 +167,12 @@ const TextField: React.FC<TextFieldProps> = ({
             borderColor: error
                 ? "#ef4444"
                 : disabled
-                    ? colorMode === "light"
-                        ? "#BABCBA80"
-                        : "#4D535580"
+                    ? "#4D535580"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? colorMode === "light"
-                                ? "#9A9C9A"
-                                : "#6F6F6F"
-                            : colorMode === "light"
-                                ? "#BABCBA"
-                                : "#4D5355",
+                            ? "#6F6F6F"
+                            : "#4D5355",
             borderWidth: 1,
             borderStyle: "solid",
             outline: "none",
@@ -436,28 +412,6 @@ const TextField: React.FC<TextFieldProps> = ({
             )}
         </div>
     );
-};
-
-TextField.defaultProps = {
-    id: "",
-    name: "",
-    type: "text",
-    label: "",
-    value: "",
-    setValue: () => { },
-    onChange: () => { },
-    onBlur: () => { },
-    onClick: () => { },
-    disabled: false,
-    readOnly: false,
-    required: false,
-    placeholder: "",
-    variant: "basic",
-    size: "md",
-    color: "lightGreen",
-    rounded: "none",
-    density: "normal",
-    clearable: false,
 };
 
 export default TextField;

@@ -11,6 +11,8 @@ import Chip from "./atoms/Chip";
 import Collapsible from "./atoms/Collapsible";
 import DatePicker from "./forms/DatePicker";
 import Drawer from "./atoms/Drawer";
+import FileInput from "./forms/FileInput";
+import FileInputForm from "./forms/FileInputForm";
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import Layout from "./layout/Layout";
@@ -40,6 +42,8 @@ export {
     Collapsible,
     DatePicker,
     Drawer,
+    FileInput,
+    FileInputForm,
     Footer,
     Header,
     Layout,

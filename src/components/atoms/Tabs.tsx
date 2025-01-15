@@ -9,7 +9,12 @@ interface TabsProps {
     defaultindex: number;
 }
 
-const Tabs = ({ tab, vertical, children, defaultindex }: TabsProps) => {
+const Tabs = ({
+    tab = [],
+    vertical = false,
+    children,
+    defaultindex = 0
+}: TabsProps) => {
     return (
         <TabGroup
             defaultIndex={defaultindex}
@@ -45,13 +50,6 @@ const Tabs = ({ tab, vertical, children, defaultindex }: TabsProps) => {
             </TabPanels>
         </TabGroup>
     );
-};
-
-Tabs.defaultProps = {
-    tab: [],
-    vertical: false,
-    children: null,
-    defaultindex: 0,
 };
 
 export default Tabs;

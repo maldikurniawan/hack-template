@@ -27,3 +27,12 @@ html {
 .custom-scroll::-webkit-scrollbar-button {
   display: none;
 }
+
+input[type]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.rdp-root {
+	--rdp-accent-color: "transparent";
+	--rdp-background-color: "transparent";
+}

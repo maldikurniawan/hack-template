@@ -59,21 +59,18 @@ const Pagination: React.FC<PaginationProps> = ({
 
     const lastPage = paginationRange[paginationRange.length - 1] as number;
 
-    const validRoundedValues = [
-        "none",
-        "sm",
-        "rounded",
-        "md",
-        "lg",
-        "xl",
-        "2xl",
-        "3xl",
-        "full",
-    ] as const;
-
-    const roundedType = validRoundedValues.includes(rounded as any)
-        ? rounded
-        : "md";
+    const pageRounded =
+        {
+            none: "rounded-none",
+            sm: "rounded-sm",
+            rounded: "rounded",
+            md: "rounded-md",
+            lg: "rounded-lg",
+            xl: "rounded-xl",
+            "2xl": "rounded-2xl",
+            "3xl": "rounded-3xl",
+            full: "rounded-full",
+        }[rounded] || "rounded-none";
 
     // Define shadow styles based on variant
     const getShadowStyle = variant === "solid" ? "border border-green-600" : "";
@@ -91,9 +88,8 @@ const Pagination: React.FC<PaginationProps> = ({
                             height: sizePagination,
                             backgroundColor: colorMode === "light" ? "#BABCBD95" : "#4D535595",
                             color: colorMode === "light" ? "#171C1E" : "white",
-                            borderRadius: roundedType,
                         }}
-                        className={`${getShadowStyle} flex justify-center items-center`}
+                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                         onClick={onPrevious}
                         disabled={currentPage === 1}
                     >
@@ -114,10 +110,9 @@ const Pagination: React.FC<PaginationProps> = ({
                                         height: sizePagination,
                                         backgroundColor: colorMode === "light" ? "#BABCBD95" : "#4D535595",
                                         color: colorMode === "light" ? "#171C1E" : "white",
-                                        borderRadius: roundedType,
                                     }}
                                     disabled
-                                    className={`${getShadowStyle} flex justify-center items-center`}
+                                    className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                                 >
                                     <TbDots
                                         style={{
@@ -146,9 +141,8 @@ const Pagination: React.FC<PaginationProps> = ({
                                             : colorMode === "light"
                                                 ? "#171C1E"
                                                 : "white",
-                                    borderRadius: roundedType,
                                 }}
-                                className={`${getShadowStyle} flex justify-center items-center`}
+                                className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                                 onClick={() => onPageChange(pageNumber as number)}
                             >
                                 {pageNumber}
@@ -163,9 +157,8 @@ const Pagination: React.FC<PaginationProps> = ({
                             height: sizePagination,
                             backgroundColor: colorMode === "light" ? "#BABCBD95" : "#4D535595",
                             color: colorMode === "light" ? "#171C1E" : "white",
-                            borderRadius: roundedType,
                         }}
-                        className={`${getShadowStyle} flex justify-center items-center`}
+                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                         onClick={onNext}
                         disabled={currentPage === lastPage}
                     >

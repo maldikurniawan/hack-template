@@ -13,32 +13,32 @@ const DatePickerPage = () => {
 	const [colorDatePicker, setColorDatePicker] = useState([
 		{
 			color: "lightGreen",
-			label: "lightGreen",
+			label: "Primary",
 			value: "",
 		},
 		{
 			color: "lightGray",
-			label: "lightGray",
+			label: "Base",
 			value: "",
 		},
 		{
 			color: "lightPurple",
-			label: "lightPurple",
+			label: "Success",
 			value: "",
 		},
 		{
 			color: "lightYellow",
-			label: "lightYellow",
+			label: "Warning",
 			value: "",
 		},
 		{
 			color: "lightRed",
-			label: "lightRed",
+			label: "Danger",
 			value: "",
 		},
 		{
 			color: "lightBlue",
-			label: "lightBlue",
+			label: "Info",
 			value: "",
 		},
 	]);

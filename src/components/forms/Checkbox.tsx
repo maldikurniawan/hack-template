@@ -13,7 +13,15 @@ interface CheckboxProps {
     label: string;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ id, checked, onChange, size = "md", color = "lightGreen", disabled = false, label }) => {
+const Checkbox: React.FC<CheckboxProps> = ({
+    id,
+    checked = false,
+    onChange = () => { },
+    size = "md",
+    color = "lightGreen",
+    disabled = false,
+    label
+}) => {
     const { themeColor } = useContext(ThemeContext);
 
     // Color
@@ -108,16 +116,6 @@ const Checkbox: React.FC<CheckboxProps> = ({ id, checked, onChange, size = "md",
             )}
         </div>
     );
-};
-
-Checkbox.defaultProps = {
-    id: "",
-    checked: false,
-    onChange: () => { },
-    size: "md",
-    color: "lightGreen",
-    disabled: false,
-    label: "",
 };
 
 export default Checkbox;
