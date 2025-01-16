@@ -7,6 +7,7 @@ import {
   CardStatisticPage,
   CheckboxPage,
   ChipPage,
+  ColorPickerPage,
   CollapsiblePage,
   Dashboard,
   DatePickerPage,
@@ -28,8 +29,18 @@ import {
   TextFieldPage,
   TimelinePage,
   TooltipPage,
+  Maps,
+  ExampleTemplateKuitansi,
 } from "@/template";
-import { PiCards, PiHouseLine, PiIdentificationCard, PiPerspective, PiTable, PiTextbox } from "react-icons/pi";
+import {
+  PiCards,
+  PiHouseLine,
+  PiIdentificationCard,
+  PiMapTrifold,
+  PiPerspective,
+  PiTable,
+  PiTextbox
+} from "react-icons/pi";
 
 // Adjust the SubMenu interface to not have a nested sub property
 interface SubMenu {
@@ -44,8 +55,8 @@ interface SubMenu {
 
 // MenuItem interface with sub as an array of SubMenu
 interface MenuItem {
-  path: string;
-  element: JSX.Element | null;
+  path?: string;
+  element?: JSX.Element | null;
   icon?: JSX.Element;
   name?: string | JSX.Element | undefined;
   title?: string;
@@ -63,6 +74,9 @@ export const menu: MenuItem[] = [
     title: "Dashboard",
     element: <Dashboard />,
     sub: [],
+  },
+  {
+    label: "UI ELEMENTS",
   },
   {
     icon: <PiCards />,
@@ -211,6 +225,17 @@ export const menu: MenuItem[] = [
     ],
   },
   {
+    icon: <PiMapTrifold />,
+    path: "/maps",
+    name: "maps",
+    title: "Maps",
+    element: <Maps />,
+    sub: [],
+  },
+  {
+    label: "FORMS & TABLES",
+  },
+  {
     icon: <PiTextbox />,
     path: "forms",
     name: "forms",
@@ -223,6 +248,14 @@ export const menu: MenuItem[] = [
         name: "checkbox",
         title: "Checkbox",
         element: <CheckboxPage />,
+        sub: [],
+      },
+      {
+        icon: null,
+        path: "/form-tables/forms/color-picker",
+        name: "color-picker",
+        title: "Color Picker",
+        element: <ColorPickerPage />,
         sub: [],
       },
       {
@@ -309,6 +342,9 @@ export const menu: MenuItem[] = [
     ],
   },
   {
+    label: "EXAMPLES",
+  },
+  {
     icon: <PiPerspective />,
     path: "examples",
     name: "examples",
@@ -329,6 +365,14 @@ export const menu: MenuItem[] = [
         name: "invoice",
         title: "Invoice",
         element: <ExampleTemplateInvoice />,
+        sub: [],
+      },
+      {
+        icon: null,
+        path: "/examples/examples/kuitansi",
+        name: "kuitansi",
+        title: "Kuitansi",
+        element: <ExampleTemplateKuitansi />,
         sub: [],
       },
     ],

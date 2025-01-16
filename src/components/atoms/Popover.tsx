@@ -44,6 +44,7 @@ interface PopoverProps {
     isShift?: boolean;
     position?: "relative" | "fixed" | "absolute" | "sticky";
     children: ReactNode;
+    full?: boolean;
 }
 
 const CustomPopover: React.FC<PopoverProps> = ({
@@ -56,6 +57,7 @@ const CustomPopover: React.FC<PopoverProps> = ({
     isShift = true,
     position = "relative",
     children,
+    full= false,
 }) => {
     const panelRounded =
         {
@@ -81,7 +83,7 @@ const CustomPopover: React.FC<PopoverProps> = ({
     });
 
     return (
-        <HeadlessPopover className="relative w-fit">
+        <HeadlessPopover className={`relative ${full ? "w-full" : "w-fit"}`}>
             <PopoverButton ref={refs.setReference} as="div">
                 {button}
             </PopoverButton>

@@ -7,6 +7,7 @@ import BadgePage from "./components/BadgePage";
 import ButtonPage from "./components/ButtonPage";
 import ChipPage from "./components/ChipPage";
 import CollapsiblePage from "./components/CollapsiblePage";
+import ColorPickerPage from "./forms/ColorPickerPage";
 import DrawerPage from "./components/DrawerPage";
 import ListPage from "./components/ListPage";
 import ModalPage from "./components/ModalPage";
@@ -18,6 +19,8 @@ import TooltipPage from "./components/TooltipPage";
 import Dashboard from "./dashboard/Dashboard";
 import ExampleTablePage from "./examples/ExampleTablePage";
 import ExampleTemplateInvoice from "./examples/ExampleTemplateInvoice";
+import ExampleTemplateKuitansi from "./examples/ExampleTemplateKuitansi";
+import MatrixRainingEffect from "./components/MatrixRainingEffect";
 import CheckboxPage from "./forms/CheckboxPage";
 import DatePickerPage from "./forms/DatePickerPage";
 import FileInputPage from "./forms/FileInputPage";
@@ -28,7 +31,7 @@ import SwitchPage from "./forms/SwitchPage";
 import TextAreaPage from "./forms/TextAreaPage";
 import TextFieldPage from "./forms/TextFieldPage";
 import TablePage from "./tables/TablePage";
-import MatrixRainingEffect from "./components/MatrixRainingEffect";
+import Maps from "./maps/Maps";
 
 export {
     Login,
@@ -40,6 +43,7 @@ export {
     ButtonPage,
     ChipPage,
     CollapsiblePage,
+    ColorPickerPage,
     DrawerPage,
     ListPage,
     ModalPage,
@@ -51,6 +55,7 @@ export {
     Dashboard,
     ExampleTablePage,
     ExampleTemplateInvoice,
+    ExampleTemplateKuitansi,
     CheckboxPage,
     DatePickerPage,
     FileInputPage,
@@ -61,5 +66,6 @@ export {
     TextAreaPage,
     TextFieldPage,
     TablePage,
+    Maps,
     MatrixRainingEffect,
 };

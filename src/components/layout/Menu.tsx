@@ -63,6 +63,17 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
     return (
         <div className="my-3">
             {menu.map((item, itemIdx) => {
+                if (item.label) {
+                    return (
+                        <div
+                            key={itemIdx}
+                            className="px-3 mt-6 mb-3 m-3 text-xs text-base-200 whitespace-nowrap h-3"
+                        >
+                            {item.label}
+                        </div>
+                    );
+                }
+
                 if (!item.sub || item.sub.length === 0) {
                     return (
                         <NavLink onClick={navClose} key={itemIdx} to={item.path || "#"}>

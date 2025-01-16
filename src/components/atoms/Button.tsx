@@ -11,7 +11,7 @@ interface ButtonProps {
     rounded?: "none" | "sm" | "rounded" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
     block?: boolean;
     loading?: boolean;
-    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    onClick?: () => void;
     loadingComponent?: ReactNode;
     disabled?: boolean;
     className?: string;
@@ -127,10 +127,9 @@ const Button: React.FC<ButtonProps> = ({
             onMouseOver={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
             color={!variant || variant === "solid" || variant === "flat" ? "" : `${btnColor}60`}
-            onClick={(e) => {
-                if (stopPropagation) e.stopPropagation();
-                onClick?.(e);
-            }}
+            onClick={() => {
+				onClick && onClick();
+			}}
             stopPropagation={stopPropagation}
             duration={300}
             disabled={disabled || loading}
