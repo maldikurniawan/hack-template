@@ -7,10 +7,10 @@ const SelectPage = () => {
 	const { themeColor } = useContext(ThemeContext);
 
 	const options = [
-		{ value: "chocolate", label: "Chocolate" },
-		{ value: "strawberry", label: "Strawberry" },
-		{ value: "vanilla", label: "Vanilla" },
-		{ value: "mango", label: "Mango" },
+		{ value: "genshin", label: "Genshin Impact" },
+		{ value: "botw", label: "Breath of the Wild" },
+		{ value: "gta5", label: "Grand Theft Auto V" },
+		{ value: "starrail", label: "Honkai: Star Rail" },
 	];
 
 	const [value, setValue] = useState("");

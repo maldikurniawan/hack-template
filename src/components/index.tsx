@@ -26,6 +26,7 @@ import Popover from "./atoms/Popover";
 import Radio from "./forms/Radio";
 import Select from "./forms/Select";
 import Sidebar from "./layout/Sidebar";
+import Switch from "./forms/Switch";
 import Tabs from "./atoms/Tabs";
 import TextField from "./forms/TextField";
 import Timeline from "./atoms/Timeline";
@@ -60,6 +61,7 @@ export {
     Radio,
     Select,
     Sidebar,
+    Switch,
     Tabs,
     TextField,
     Timeline,
