@@ -6,6 +6,7 @@ import ButtonLogin from "./molecules/ButtonLogin";
 import ButtonRipple from "./atoms/ButtonRipple";
 import Card from "./atoms/Card";
 import CardStatistic from "./molecules/CardStatistic";
+import Charts from "./atoms/Charts";
 import Checkbox from "./forms/Checkbox";
 import Chip from "./atoms/Chip";
 import ColorPicker from "./forms/ColorPicker";
@@ -47,6 +48,7 @@ export {
     ButtonRipple,
     Card,
     CardStatistic,
+    Charts,
     Checkbox,
     Chip,
     ColorPicker,

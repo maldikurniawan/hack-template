@@ -47,7 +47,12 @@ interface InvoiceProps {
 }
 
 const Invoice = forwardRef<HTMLDivElement, InvoiceProps>(function Invoice(props, ref) {
-    const { type, data, company, logo } = props;
+    const {
+        type = 1,
+        data,
+        company,
+        logo = "LOGO"
+    } = props;
 
     if (type === 1) {
         return (
