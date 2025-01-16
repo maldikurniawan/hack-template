@@ -21,7 +21,7 @@ html {
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-  @apply bg-white rounded-full;
+  @apply bg-white/30 rounded-full;
 }
 
 .custom-scroll::-webkit-scrollbar-button {

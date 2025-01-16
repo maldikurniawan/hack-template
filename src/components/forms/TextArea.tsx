@@ -6,17 +6,17 @@ interface TextAreaProps {
     name?: string;
     label?: string;
     value?: string;
-    onChange?: React.Dispatch<React.SetStateAction<string>>;
-    onBlur?: React.Dispatch<React.SetStateAction<string>>;
+    onChange?: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
+    onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void
     disabled?: boolean;
     readOnly?: boolean;
     required?: boolean;
     placeholder?: string;
-    variant: "basic" | "outline" | "underlined" | "filled";
-    size: "sm" | "md" | "lg" | "xl";
-    color: "primary" | "base" | "success" | "warning" | "danger" | "info";
-    rounded: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
-    density: "tight" | "normal" | "loose";
+    variant?: "basic" | "outline" | "underlined" | "filled" | string;
+    size?: "sm" | "md" | "lg" | "xl" | string;
+    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | string;
+    density?: "tight" | "normal" | "loose" | string;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     prepend?: React.ReactNode;
@@ -31,15 +31,15 @@ const TextArea: React.FC<TextAreaProps> = ({
     name = "",
     label = "",
     value = "",
-    onChange = () => { },
-    onBlur = () => { },
+    onChange,
+    onBlur,
     disabled = false,
     readOnly = false,
     required = false,
     placeholder = "",
     variant = "basic",
     size = "md",
-    color = "primary",
+    color = "lightGreen",
     rounded = "none",
     density = "normal",
     prefix,
@@ -50,7 +50,7 @@ const TextArea: React.FC<TextAreaProps> = ({
     error,
     rows = 2,
 }) => {
-    const { themeColor, colorMode } = useContext(ThemeContext);
+    const { themeColor } = useContext(ThemeContext);
 
     const variants = ["outline", "underlined", "filled"];
     const [isFocus, setIsFocus] = useState<boolean>(false);
@@ -59,12 +59,12 @@ const TextArea: React.FC<TextAreaProps> = ({
     // Color
     const textFieldColor =
         {
-            primary: themeColor,
-            base: "#BABCBD",
-            success: "#4ED17E",
-            warning: "#EEC239",
-            danger: "#F26969",
-            info: "#629BF8",
+            lightGreen: themeColor,
+            lightGray: "#B0B0B0",
+            lightPurple: "#B05CED",
+            lightYellow: "#EDDB5C",
+            lightRed: "#ED5C73",
+            lightBlue: "#5CB0ED",
         }[color] || color;
 
     // Size
@@ -105,18 +105,12 @@ const TextArea: React.FC<TextAreaProps> = ({
             borderColor: error
                 ? "#ef4444"
                 : disabled
-                    ? colorMode === "light"
-                        ? "#BABCBA80"
-                        : "#4D535580"
+                    ? "#4D535580"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? colorMode === "light"
-                                ? "#9A9C9A"
-                                : "#6F6F6F"
-                            : colorMode === "light"
-                                ? "#BABCBA"
-                                : "#4D5355",
+                            ? "#6F6F6F"
+                            : "#4D5355",
             borderWidth: 1,
             borderStyle: "solid",
             outline: error
@@ -132,41 +126,29 @@ const TextArea: React.FC<TextAreaProps> = ({
             borderColor: error
                 ? "#ef4444"
                 : disabled
-                    ? colorMode === "light"
-                        ? "#BABCBA80"
-                        : "#4D535580"
+                    ? "#4D535580"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? colorMode === "light"
-                                ? "#9A9C9A"
-                                : "#6F6F6F"
-                            : colorMode === "light"
-                                ? "#BABCBA"
-                                : "#4D5355",
+                            ? "#6F6F6F"
+                            : "#4D5355",
             borderBottomWidth: 1,
             borderBottomStyle: "solid",
             borderTopLeftRadius: textFieldRounded,
             borderTopRightRadius: textFieldRounded,
-            backgroundColor: colorMode === "light" ? "#f7f6f9" : "#20282A",
+            backgroundColor: "#20282A",
         };
     } else if (variant === "underlined") {
         containerStyle = {
             borderColor: error
                 ? "#ef4444"
                 : disabled
-                    ? colorMode === "light"
-                        ? "#BABCBA80"
-                        : "#4D535580"
+                    ? "#4D535580"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? colorMode === "light"
-                                ? "#9A9C9A"
-                                : "#6F6F6F"
-                            : colorMode === "light"
-                                ? "#BABCBA"
-                                : "#4D5355",
+                            ? "#6F6F6F"
+                            : "#4D5355",
             borderBottomWidth: 1,
             borderBottomStyle: "solid",
         };
@@ -175,18 +157,12 @@ const TextArea: React.FC<TextAreaProps> = ({
             borderColor: error
                 ? "#ef4444"
                 : disabled
-                    ? colorMode === "light"
-                        ? "#BABCBA80"
-                        : "#4D535580"
+                    ? "#4D535580"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? colorMode === "light"
-                                ? "#9A9C9A"
-                                : "#6F6F6F"
-                            : colorMode === "light"
-                                ? "#BABCBA"
-                                : "#4D5355",
+                            ? "#6F6F6F"
+                            : "#4D5355",
             borderWidth: 1,
             borderStyle: "solid",
             outline: "none",
@@ -242,12 +218,12 @@ const TextArea: React.FC<TextAreaProps> = ({
         };
     }
 
-    const textAreaRef = useRef(null);
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     const resizeTextArea = () => {
         if (!textAreaRef.current) return;
         textAreaRef.current.style.height = "auto";
-        textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
+        textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
     };
 
     useEffect(resizeTextArea, [value]);
@@ -292,7 +268,7 @@ const TextArea: React.FC<TextAreaProps> = ({
                             style={{ ...labelStyle }}
                             className={`absolute pointer-events-none transition-[top,font,padding,margin] leading-none whitespace-nowrap ${(isFocus && variant === "outline") ||
                                 (variant === "outline" && value)
-                                ? "bg-white/80 dark:bg-base-600/80 backdrop-blur px-1 -ml-1"
+                                ? "bg-transparent backdrop-blur px-1 -ml-1"
                                 : ""
                                 }`}
                         >
@@ -369,7 +345,7 @@ const TextArea: React.FC<TextAreaProps> = ({
                     style={{
                         fontSize: textFieldSize - 3,
                     }}
-                    className="leading-none tracking-wide mt-1 text-danger-500"
+                    className="leading-none tracking-wide mt-1 text-red-500"
                 >
                     {error}
                 </div>

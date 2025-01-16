@@ -32,7 +32,7 @@ interface SelectProps {
     placeholder?: string;
     error?: React.ReactNode;
     note?: React.ReactNode;
-    onChange?: React.Dispatch<React.SetStateAction<string>>;
+    onChange?: React.Dispatch<React.SetStateAction<any>>;
     onBlur?: (e: FocusEvent<HTMLElement>) => void;
     required?: boolean;
     menuposition?: "absolute" | "fixed";
