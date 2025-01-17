@@ -37,6 +37,18 @@ const Dashboard = () => {
                     <Charts variant="radialBar" />
                 </div>
             </div>
+            <div className="bg-green-900/20">
+                <div className="font-bold px-4 w-fit mt-2">Polar Area Chart</div>
+                <div>
+                    <Charts variant="polarArea" />
+                </div>
+            </div>
+            <div className="bg-green-900/20">
+                <div className="font-bold px-4 w-fit mt-2">Radar Chart</div>
+                <div>
+                    <Charts variant="radar" />
+                </div>
+            </div>
         </div>
     )
 }

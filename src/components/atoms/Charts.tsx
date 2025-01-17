@@ -3,7 +3,7 @@ import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 
 interface ChartsProps {
-    variant: 'line' | 'area' | 'bar' | 'pie' | 'donut' | 'radialBar';
+    variant: 'line' | 'area' | 'bar' | 'pie' | 'donut' | 'radialBar' | 'polarArea' | 'radar';
 }
 
 const Charts: React.FC<ChartsProps> = ({ variant }) => {
@@ -195,7 +195,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                 legend: {
                     position: 'bottom',
                     labels: {
-                        colors: ["text-white", "text-white"],
+                        colors: "text-white",
                     },
                 },
             },
@@ -231,7 +231,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                 legend: {
                     position: 'bottom',
                     labels: {
-                        colors: ["text-white", "text-white", "text-white", "text-white", "text-white"],
+                        colors: "text-white",
                     },
                 },
             },
@@ -267,7 +267,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                 legend: {
                     position: 'bottom',
                     labels: {
-                        colors: ["text-white", "text-white", "text-white"],
+                        colors: "text-white",
                     },
                 },
             },
@@ -313,6 +313,103 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                 labels: ['Apples', 'Oranges', 'Bananas'],
                 fill: {
                     opacity: 0.85,
+                },
+            },
+        },
+        polarArea: {
+            series: [14, 23, 21, 17, 15, 10, 12, 17, 21],
+            options: {
+                chart: {
+                    height: 300,
+                    type: 'polarArea',
+                    zoom: {
+                        enabled: false,
+                    },
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                colors: ['#4361ee', '#805dca', '#00ab55', '#e7515a', '#e2a03f', '#2196f3', '#3b3f5c'],
+                stroke: {
+                    show: false,
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#FFF',
+                        },
+                    },
+                },
+                responsive: [
+                    {
+                        breakpoint: 480,
+                        options: {
+                            chart: {
+                                width: 200,
+                            },
+                        },
+                    },
+                ],
+                plotOptions: {
+                    polarArea: {
+                        rings: {
+                            strokeColor: '#FFF',
+                        },
+                        spokes: {
+                            connectorColors: '#FFF',
+                        },
+                    },
+                },
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        colors: "text-white",
+                    },
+                },
+                fill: {
+                    opacity: 0.85,
+                },
+            },
+        },
+        radar: {
+            series: [
+                {
+                    name: 'Series 1',
+                    data: [80, 50, 30, 40, 100, 20],
+                },
+            ],
+            options: {
+                chart: {
+                    height: 300,
+                    type: 'radar',
+                    zoom: {
+                        enabled: false,
+                    },
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                colors: ['#4361ee'],
+                xaxis: {
+                    categories: ['January', 'February', 'March', 'April', 'May', 'June'],
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#FFF',
+                        },
+                    },
+                },
+                plotOptions: {
+                    radar: {
+                        polygons: {
+                            strokeColors: '#FFF',
+                            connectorColors: '#FFF',
+                        },
+                    },
+                },
+                tooltip: {
+                    theme: 'dark',
                 },
             },
         },
