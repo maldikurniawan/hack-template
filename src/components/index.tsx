@@ -4,6 +4,7 @@ import Badge from "./atoms/Badge";
 import Button from "./atoms/Button";
 import ButtonLogin from "./molecules/ButtonLogin";
 import ButtonRipple from "./atoms/ButtonRipple";
+import Calendar from "./atoms/Calendar";
 import Card from "./atoms/Card";
 import CardStatistic from "./molecules/CardStatistic";
 import Charts from "./atoms/Charts";
@@ -46,6 +47,7 @@ export {
     Button,
     ButtonLogin,
     ButtonRipple,
+    Calendar,
     Card,
     CardStatistic,
     Charts,

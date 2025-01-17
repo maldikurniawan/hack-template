@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Maps: React.FC = () => {
+const MapPage: React.FC = () => {
     return (
         <div>
             <iframe
@@ -15,4 +15,4 @@ const Maps: React.FC = () => {
     );
 };
 
-export default Maps;
+export default MapPage;

@@ -29,10 +29,12 @@ import {
   TextFieldPage,
   TimelinePage,
   TooltipPage,
-  Maps,
+  MapPage,
   ExampleTemplateKuitansi,
+  CalendarPage,
 } from "@/template";
 import {
+  PiCalendarDots,
   PiCards,
   PiHouseLine,
   PiIdentificationCard,
@@ -229,7 +231,15 @@ export const menu: MenuItem[] = [
     path: "/maps",
     name: "maps",
     title: "Maps",
-    element: <Maps />,
+    element: <MapPage />,
+    sub: [],
+  },
+  {
+    icon: <PiCalendarDots />,
+    path: "/calendar",
+    name: "calendar",
+    title: "Calendar",
+    element: <CalendarPage />,
     sub: [],
   },
   {

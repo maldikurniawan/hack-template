@@ -5,6 +5,7 @@ import AlertPage from "./components/AlertPage";
 import AvatarPage from "./components/AvatarPage";
 import BadgePage from "./components/BadgePage";
 import ButtonPage from "./components/ButtonPage";
+import CalendarPage from "./calendar/CalendarPage";
 import ChipPage from "./components/ChipPage";
 import CollapsiblePage from "./components/CollapsiblePage";
 import ColorPickerPage from "./forms/ColorPickerPage";
@@ -31,7 +32,7 @@ import SwitchPage from "./forms/SwitchPage";
 import TextAreaPage from "./forms/TextAreaPage";
 import TextFieldPage from "./forms/TextFieldPage";
 import TablePage from "./tables/TablePage";
-import Maps from "./maps/Maps";
+import MapPage from "./maps/MapPage";
 
 export {
     Login,
@@ -41,6 +42,7 @@ export {
     AvatarPage,
     BadgePage,
     ButtonPage,
+    CalendarPage,
     ChipPage,
     CollapsiblePage,
     ColorPickerPage,
@@ -66,6 +68,6 @@ export {
     TextAreaPage,
     TextFieldPage,
     TablePage,
-    Maps,
+    MapPage,
     MatrixRainingEffect,
 };
