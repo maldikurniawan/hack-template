@@ -38,9 +38,9 @@ const Calendar: React.FC<CalendarProps> = ({
             customButtons={{
                 buttonAdd: {
                     text: "+ Tambah",
-                },
-                today: {
-                    text: "Today",
+                    click: () => {
+                        alert("Add button clicked!");
+                    },
                 },
             }}
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}

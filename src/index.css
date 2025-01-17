@@ -50,4 +50,18 @@ input[type]::-webkit-calendar-picker-indicator {
   .calendar-wrapper .fc-toolbar .fc-toolbar-chunk:first-child {
     margin-top: 0px !important;
   }
+
+}
+
+.calendar-wrapper .fc-button {
+  text-transform: capitalize !important;
+}
+
+.calendar-wrapper table>thead>tr>th[role='presentation'],
+.calendar-wrapper table>tbody>tr>td {
+  @apply !p-0;
+}
+
+.calendar-wrapper table>thead {
+  background-color: #001e00;
 }
