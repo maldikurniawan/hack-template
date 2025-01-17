@@ -122,7 +122,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className={`bg-black w-fit shadow-lg border border-white z-10 p-4 ${position}`}
+                    className={`bg-[#1D2426] w-fit shadow shadow-white z-10 p-4 ${position}`}
                 >
                     <div className="flex items-center justify-between mb-2">
                         <Button
@@ -166,10 +166,10 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                                         color:
                                             moment(value).format("MMMM") === month &&
                                                 moment(value).format("YYYY") === year.toString()
-                                                ? "white"
+                                                ? "black"
                                                 : "",
                                     }}
-                                    className="text-sm m-0 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-green-900"
+                                    className="text-sm m-0 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-white/10"
                                 >
                                     {month.substring(0, 3)}
                                 </div>

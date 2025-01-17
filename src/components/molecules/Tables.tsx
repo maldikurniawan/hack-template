@@ -104,7 +104,7 @@ const TableRow = ({ children, style, expandable }: TableRowProps) => {
                         <div
                             ref={ref}
                             style={{ height: isExpanded ? `${ref.current?.scrollHeight}px` : "0px" }}
-                            className={`overflow-hidden transition-[height] duration-300 ease-in-out ${isExpanded ? "border-b" : ""}`}
+                            className={`overflow-hidden transition-[height] duration-300 ease-in-out ${isExpanded ? "border-b border-[#4D5355]" : ""}`}
                         >
                             {expandable}
                         </div>
@@ -125,7 +125,7 @@ const TableHeader = ({ children, style, center = false }: TableHeaderProps) => {
     return (
         <th
             style={style}
-            className={`border-b font-normal uppercase tracking-wide px-2 sticky ${center ? "text-center" : "text-left"}`}
+            className={`border-b border-[#4D5355] bg-black/50 font-normal uppercase tracking-wide px-2 sticky ${center ? "text-center" : "text-left"}`}
         >
             {children}
         </th>
@@ -144,7 +144,7 @@ const TableData = ({ children, style, center = false, colspan }: TableDataProps)
         <td
             style={style}
             colSpan={colspan}
-            className={`border-b px-2 ${center ? "text-center" : "text-left"}`}
+            className={`border-b border-[#4D5355] px-2 ${center ? "text-center" : "text-left"}`}
         >
             {children}
         </td>

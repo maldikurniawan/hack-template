@@ -385,7 +385,7 @@ const Invoice = forwardRef<HTMLDivElement, InvoiceProps>(function Invoice(props,
         return (
             <div ref={ref} className="overflow-x-auto">
                 <div className="min-w-full w-max">
-                    <div className="px-6 sm:px-10 py-6 w-full bg-green-950 flex items-center justify-between text-white">
+                    <div className="px-6 sm:px-10 py-6 w-full bg-lightGray/50 flex items-center justify-between text-white">
                         <div className="text-4xl font-bold tracking-wider">INVOICE</div>
                         <div className="font-bold text-4xl">{logo}</div>
                     </div>

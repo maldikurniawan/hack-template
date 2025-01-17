@@ -101,7 +101,7 @@ const CustomPopover: React.FC<PopoverProps> = ({
                 <PopoverPanel
                     ref={refs.setFloating}
                     style={{ ...floatingStyles, position: 'absolute' }}
-                    className={`relative bg-black border border-[#001e00] ${fill ? "w-full" : ""
+                    className={`relative bg-[#1D2426] border border-[#001e00] ${fill ? "w-full" : ""
                         } ${panelRounded} shadow-lg overflow-hidden`}
                 >
                     {children}

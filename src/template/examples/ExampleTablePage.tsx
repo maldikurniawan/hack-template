@@ -125,7 +125,7 @@ const ExampleTablePage = () => {
 												<Tooltip tooltip="Lihat">
 													<ButtonRipple
 														stopPropagation
-														className="p-2 rounded-full transition-[background] hover:bg-neutral-200"
+														className="p-2 rounded-full transition-[background] hover:bg-white/10"
 													>
 														<TbEye className="text-xl text-blue-400" />
 													</ButtonRipple>
@@ -133,7 +133,7 @@ const ExampleTablePage = () => {
 												<Tooltip tooltip="Hapus">
 													<ButtonRipple
 														stopPropagation
-														className="p-2 rounded-full transition-[background] hover:bg-neutral-200"
+														className="p-2 rounded-full transition-[background] hover:bg-white/10"
 													>
 														<TbTrash className="text-xl text-red-400" />
 													</ButtonRipple>
@@ -141,7 +141,7 @@ const ExampleTablePage = () => {
 												<Tooltip tooltip="Lainnya">
 													<ButtonRipple
 														stopPropagation
-														className="p-2 rounded-full transition-[background] hover:bg-neutral-200"
+														className="p-2 rounded-full transition-[background] hover:bg-white/10"
 													>
 														<TbDotsVertical className="text-xl" />
 													</ButtonRipple>

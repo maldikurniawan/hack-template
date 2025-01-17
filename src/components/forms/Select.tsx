@@ -311,7 +311,7 @@ const Select: React.FC<SelectProps> = ({
                                 option: (base, state) => ({
                                     ...base,
                                     color: state.isSelected
-                                        ? "#FFFFFF"
+                                        ? "#000000"
                                         : "#989C9D",
                                     backgroundColor: state.isSelected
                                         ? selectColor
@@ -322,13 +322,13 @@ const Select: React.FC<SelectProps> = ({
                                     "&:hover": {
                                         backgroundColor: state.isSelected
                                             ? selectColor
-                                            : "#1D2426",
+                                            : "#4D5355",
                                     },
                                 }),
                                 multiValue: (base) => ({
                                     ...base,
                                     color: "#E5E7EB",
-                                    backgroundColor: "#4D5355",
+                                    backgroundColor: "#171C1E",
                                     padding: "6px",
                                     fontSize: selectSize - 2,
                                     display: "flex",
@@ -410,7 +410,7 @@ const Select: React.FC<SelectProps> = ({
                                 option: (base, state) => ({
                                     ...base,
                                     color: state.isSelected
-                                        ? "#FFFFFF"
+                                        ? "#000000"
                                         : "#989C9D",
                                     backgroundColor: state.isSelected
                                         ? selectColor
@@ -421,13 +421,13 @@ const Select: React.FC<SelectProps> = ({
                                     "&:hover": {
                                         backgroundColor: state.isSelected
                                             ? selectColor
-                                            : "#1D2426",
+                                            : "#4D5355",
                                     },
                                 }),
                                 multiValue: (base) => ({
                                     ...base,
                                     color: "#E5E7EB",
-                                    backgroundColor: "#4D5355",
+                                    backgroundColor: "#171C1E",
                                     padding: "6px",
                                     fontSize: selectSize - 2,
                                     display: "flex",
