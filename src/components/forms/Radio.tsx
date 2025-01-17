@@ -68,7 +68,7 @@ const Radio: FC<RadioProps> = ({
                         <div className="flex items-center gap-x-1">
                             <ButtonRipple
                                 color={`${checkboxColor}50`}
-                                className="p-2 rounded-full transition-[background] hover:bg-white/30"
+                                className="p-2 rounded-full transition-[background] hover:bg-white/10"
                             >
                                 <div
                                     style={{

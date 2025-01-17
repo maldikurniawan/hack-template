@@ -27,7 +27,7 @@ const ButtonRipple = ({
     ...rest
 }: ButtonRippleProps) => {
     
-    const { themeColor, colorMode } = useContext(ThemeContext);
+    const { themeColor } = useContext(ThemeContext);
 
     // Color
     const btnColors: Record<string, string> = {
@@ -43,7 +43,7 @@ const ButtonRipple = ({
 
     const [ripple, event] = useRipple({
         duration,
-        color: btnColor || (colorMode === "light" ? "#00000030" : "#ffffff30"),
+        color: btnColor || "#00000030",
         cancelAutomatically,
         timingFunction: "cubic-bezier(.42,.36,.28,.88)",
         disabled,

@@ -26,7 +26,7 @@ const Pagination: React.FC<PaginationProps> = ({
     variant = "flat",
     size = "sm",
 }) => {
-    const { themeColor, colorMode } = useContext(ThemeContext);
+    const { themeColor } = useContext(ThemeContext);
 
     const paginationRange = usePagination({
         currentPage,
@@ -73,9 +73,9 @@ const Pagination: React.FC<PaginationProps> = ({
         }[rounded] || "rounded-none";
 
     // Define shadow styles based on variant
-    const getShadowStyle = variant === "solid" ? "border border-green-600" : "";
+    const getShadowStyle = variant === "solid" ? "border border-white/50" : "";
 
-    const disabledColor = colorMode === "light" ? "#E0E0E0" : "#6E6E6E"; // Disabled color
+    const disabledColor = "#E0E0E0";
 
     return (
         <div className="flex gap-2">
@@ -86,8 +86,8 @@ const Pagination: React.FC<PaginationProps> = ({
                         style={{
                             width: sizePagination,
                             height: sizePagination,
-                            backgroundColor: colorMode === "light" ? "#BABCBD95" : "#4D535595",
-                            color: colorMode === "light" ? "#171C1E" : "white",
+                            backgroundColor: "#4D535595",
+                            color: "white",
                         }}
                         className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                         onClick={onPrevious}
@@ -108,8 +108,8 @@ const Pagination: React.FC<PaginationProps> = ({
                                     style={{
                                         width: sizePagination,
                                         height: sizePagination,
-                                        backgroundColor: colorMode === "light" ? "#BABCBD95" : "#4D535595",
-                                        color: colorMode === "light" ? "#171C1E" : "white",
+                                        backgroundColor: "#4D535595",
+                                        color: "white",
                                     }}
                                     disabled
                                     className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
@@ -132,15 +132,11 @@ const Pagination: React.FC<PaginationProps> = ({
                                     backgroundColor:
                                         pageNumber === currentPage
                                             ? colorPagination
-                                            : colorMode === "light"
-                                                ? "#BABCBD95"
-                                                : "#4D535595",
+                                            : "#BABCBD90",
                                     color:
                                         pageNumber === currentPage
                                             ? "black"
-                                            : colorMode === "light"
-                                                ? "#171C1E"
-                                                : "white",
+                                            : "white",
                                 }}
                                 className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                                 onClick={() => onPageChange(pageNumber as number)}
@@ -155,8 +151,8 @@ const Pagination: React.FC<PaginationProps> = ({
                         style={{
                             width: sizePagination,
                             height: sizePagination,
-                            backgroundColor: colorMode === "light" ? "#BABCBD95" : "#4D535595",
-                            color: colorMode === "light" ? "#171C1E" : "white",
+                            backgroundColor: "#4D535595",
+                            color: "white",
                         }}
                         className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                         onClick={onNext}

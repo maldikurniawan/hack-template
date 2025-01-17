@@ -1,5 +1,4 @@
-import { ThemeContext } from "@/context/ThemeContext";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useDropzone, FileRejection } from "react-dropzone";
 
 interface FileInputFormProps {
@@ -30,7 +29,7 @@ const FileInputForm = ({
     maxSize,
     multiple = false,
     value = [],
-    setValue = () => {},
+    setValue = () => { },
     id,
     name,
     density = "normal",
@@ -41,7 +40,6 @@ const FileInputForm = ({
     error,
     note,
 }: FileInputFormProps) => {
-    const { colorMode } = useContext(ThemeContext);
     const [isHover, setIsHover] = useState<boolean>(false);
     const [errorRejection, setErrorRejection] = useState<string | null>(null);
 
@@ -101,16 +99,10 @@ const FileInputForm = ({
         borderColor: error
             ? "#ef4444"
             : disabled
-                ? colorMode === "light"
-                    ? "#BABCBA80"
-                    : "#4D535580"
+                ? "#BABCBA80"
                 : isHover
-                    ? colorMode === "light"
-                        ? "#9A9C9A"
-                        : "#6F6F6F"
-                    : colorMode === "light"
-                        ? "#BABCBA"
-                        : "#4D5355",
+                    ? "#9A9C9A"
+                    : "#BABCBA",
         borderWidth: 1,
         borderStyle: "solid",
         outline: "none",
@@ -122,16 +114,10 @@ const FileInputForm = ({
         backgroundColor: error
             ? "#ef4444"
             : disabled
-                ? colorMode === "light"
-                    ? "#BABCBA80"
-                    : "#4D535580"
+                ? "#BABCBA80"
                 : isHover
-                    ? colorMode === "light"
-                        ? "#9A9C9A"
-                        : "#6F6F6F"
-                    : colorMode === "light"
-                        ? "#BABCBA"
-                        : "#4D5355",
+                    ? "#9A9C9A"
+                    : "#BABCBA",
     };
 
     return (

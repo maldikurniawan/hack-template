@@ -67,7 +67,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                     return (
                         <div
                             key={itemIdx}
-                            className="px-3 mt-6 mb-3 m-3 text-xs text-base-200 whitespace-nowrap h-3"
+                            className={`px-3 mt-6 mb-3 m-3 text-xs text-base-200 whitespace-nowrap h-3 transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"}`}
                         >
                             {item.label}
                         </div>
@@ -80,16 +80,16 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                             {({ isActive }) => (
                                 <div className="mb-1 px-3 w-full text-sm">
                                     <div
-                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${isActive
+                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${isActive
                                             ? "bg-[#5ced73] text-black"
                                             : "hover:bg-[#5ced73] hover:text-black"
                                             }`}
                                     >
                                         <span className="flex items-center gap-2">
                                             <span className="text-xl w-5">
-                                                {isActive ? item.iconActive || item.icon : item.icon}
+                                                {item.icon}
                                             </span>
-                                            <span className={`${sideOpen ? "opacity-100" : "opacity-0"}`}>
+                                            <span>
                                                 {item.title}
                                             </span>
                                         </span>
@@ -108,7 +108,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                 className="w-full px-3 mb-1 text-sm"
                             >
                                 <div
-                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${nav[typeof item.name === "string" ? item.name : ""]
+                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${nav[typeof item.name === "string" ? item.name : ""]
                                         ? "bg-[#5ced73] text-black"
                                         : "hover:bg-[#5ced73] hover:text-black"
                                         } ${pathname.split("/")[2] === item.name
@@ -118,14 +118,13 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                 >
                                     <span className="flex items-center gap-2">
                                         <span className="text-xl w-5">{item.icon}</span>
-                                        <span className={`tracking-wide ${sideOpen ? "opacity-100" : "opacity-0"}`}>
+                                        <span className="tracking-wide">
                                             {item.title}
                                         </span>
                                     </span>
 
                                     <div
-                                        className={`flex items-center gap-2 transition-all duration-300 ${nav[typeof item.name === "string" ? item.name : ""] ? "rotate-90" : ""}
-                                            ${sideOpen ? "opacity-100" : "opacity-0"}`}
+                                        className={`flex items-center gap-2 transition-all duration-300  ${nav[typeof item.name === "string" ? item.name : ""] ? "rotate-90" : ""}`}
                                     >
                                         <TbChevronRight />
                                     </div>
@@ -152,7 +151,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                             >
                                                 {({ isActive }) => (
                                                     <div
-                                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden ${isActive
+                                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${isActive
                                                             ? "bg-[#5ced73] text-black"
                                                             : "hover:bg-[#5ced73] hover:text-black"
                                                             }`}
@@ -161,7 +160,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                                             <span className="text-[10px] w-[18px] ml-1">
                                                                 <SiHackaday />
                                                             </span>
-                                                            <span className={`${sideOpen ? "opacity-100" : "opacity-0"}`}>
+                                                            <span>
                                                                 {subItem.title}
                                                             </span>
                                                         </span>

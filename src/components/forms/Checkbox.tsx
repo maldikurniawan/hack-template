@@ -63,7 +63,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     return (
         <div className="flex items-center gap-x-1">
             <ButtonRipple
-                className="relative rounded-full flex items-center justify-center transition-[background] hover:bg-white/30"
+                className="relative rounded-full flex items-center justify-center transition-[background] hover:bg-white/10"
                 color={checkboxColor ? `${checkboxColor}50` : `#989C9D50`}
                 style={{
                     width: checkSize + 16,
@@ -93,7 +93,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
                                 : themeColor
                             : "transparent",
                     }}
-                    className={`appearance-none rounded outline-none pointer-events-none ${checked ? "shadow" : "border border-white"
+                    className={`appearance-none rounded outline-none pointer-events-none ${checked ? "shadow" : "border border-white/30"
                         } ${disabled ? "opacity-50" : ""}`}
                     readOnly
                     checked={checked}

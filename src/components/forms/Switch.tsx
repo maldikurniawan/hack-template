@@ -22,7 +22,7 @@ const Switch: React.FC<SwitchProps> = ({
     disabled = false,
     required = false,
 }) => {
-    const { themeColor, colorMode } = useContext(ThemeContext);
+    const { themeColor } = useContext(ThemeContext);
 
     // Color mapping
     const switchColors: Record<string, string> = {
@@ -62,9 +62,7 @@ const Switch: React.FC<SwitchProps> = ({
                         ? "#BABCBA80"
                         : value
                             ? switchColor
-                            : colorMode === "light"
-                                ? "#BABCBD"
-                                : "#4D5355",
+                            : "#BABCBD",
                     width: switchSize * 2 - 4,
                     height: switchSize,
                     opacity: disabled ? 0.5 : 1,

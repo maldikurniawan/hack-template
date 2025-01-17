@@ -23,7 +23,7 @@ const Modal: React.FC<ModalProps> = ({
     persistent = false,
     children,
 }) => {
-    const { colorMode, themeSkin } = useContext(ThemeContext);
+    const { themeSkin } = useContext(ThemeContext);
     const [animateWiggle, setAnimateWiggle] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
 
@@ -76,7 +76,7 @@ const Modal: React.FC<ModalProps> = ({
                 enterTo="opacity-100"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
-                className="w-full h-full absolute bg-black/50 -z-10 transition-opacity duration-300"
+                className="w-full h-full absolute bg-black/75 -z-10 transition-opacity duration-300"
                 onClick={onBackDropClick}
             />
 
@@ -99,7 +99,7 @@ const Modal: React.FC<ModalProps> = ({
                 {btnClose && (
                     <div className="absolute -top-2 -right-2 hover:-top-1.5 transition-[top,right] duration-100">
                         <ButtonRipple
-                            color={colorMode === "light" ? "#00000030" : "#ffffff30"}
+                            color="#FFFFFF30"
                             onClick={() => setShow(false)}
                             className={`bg-green-950 border border-black w-8 h-8 text-white flex items-center justify-center ${themeSkin === "default" ? "shadow-lg" : themeSkin
                                 }`}

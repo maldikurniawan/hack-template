@@ -176,7 +176,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                             range_start: "rounded-s-full",
                             range_middle: "bg-black/50",
                             range_end: "rounded-e-full",
-                            today: "text-green-600 font-bold",
+                            today: "text-[#5CED73] font-bold",
                         }}
                         mode={mode}
                         captionLayout="dropdown"

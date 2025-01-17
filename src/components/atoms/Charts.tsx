@@ -69,7 +69,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
         area: {
             series: [
                 {
-                    name: 'Income',
+                    name: 'Visitor',
                     data: [16800, 16800, 15500, 17800, 15500, 17000, 19000, 16000, 15000, 17000, 14000, 17000],
                 },
             ],
@@ -370,12 +370,13 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                 fill: {
                     opacity: 0.85,
                 },
+                labels: ['Apples', 'Oranges', 'Bananas', 'Grapes', 'Pineapples', 'Mangoes', 'Peaches', 'Cherries', 'Strawberries'],
             },
         },
         radar: {
             series: [
                 {
-                    name: 'Series 1',
+                    name: 'Visitor',
                     data: [80, 50, 30, 40, 100, 20],
                 },
             ],

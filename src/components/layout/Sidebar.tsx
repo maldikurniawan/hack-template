@@ -27,7 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
                         : "w-0 translate-x-[-100%]"}`
                     }
                 >
-                    <div className={`w-[90%] items-center cursor-pointer gap-1 mx-auto flex border-b-2 leading-[60px] text-left border-[#001e00] ${sideOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5 pointer-events-none"} transition-all duration-300 ease-in-out`}>
+                    <div className={`w-[90%] items-center cursor-pointer gap-1 mx-auto flex border-b-2 leading-[60px] text-left border-[#001e00] ${sideOpen ? "opacity-100" : "opacity-0 pointer-events-none"} transition-opacity duration-300 ease-in-out`}>
                         <img
                             src="/images/anonymous.png"
                             alt="Anonymous"
