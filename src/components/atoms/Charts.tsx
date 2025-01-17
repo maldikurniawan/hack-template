@@ -12,7 +12,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
         line: {
             series: [
                 {
-                    name: 'Sales',
+                    name: 'Visitor',
                     data: [45, 55, 75, 25, 45, 110],
                 },
             ],
@@ -24,9 +24,10 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                 },
                 colors: ['#5CED73'],
                 tooltip: {
+                    marker: { show: false },
                     y: {
                         formatter(number: number) {
-                            return '$' + number;
+                            return '' + number;
                         },
                     },
                     theme: 'dark',
@@ -201,7 +202,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
             },
         },
         pie: {
-            series: [44, 55, 13, 43, 22],
+            series: [44, 55, 13, 22],
             options: {
                 chart: {
                     height: 300,
@@ -213,14 +214,14 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         show: false,
                     },
                 },
-                labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-                colors: ['#4361ee', '#805dca', '#00ab55', '#e7515a', '#e2a03f'],
+                labels: ['Team A', 'Team B', 'Team C', 'Team D'],
+                colors: ['#4361ee', '#805dca', '#00ab55', '#e7515a'],
                 responsive: [
                     {
                         breakpoint: 480,
                         options: {
                             chart: {
-                                width: 200,
+                                width: 300,
                             },
                         },
                     },
@@ -259,7 +260,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         breakpoint: 480,
                         options: {
                             chart: {
-                                width: 200,
+                                width: 300,
                             },
                         },
                     },
