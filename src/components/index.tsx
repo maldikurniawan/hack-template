@@ -1,6 +1,7 @@
 import Alert from "./atoms/Alert";
 import Avatar from "./atoms/Avatar";
 import Badge from "./atoms/Badge";
+import Breadcrumb from "./atoms/Breadcrumb";
 import Button from "./atoms/Button";
 import ButtonLogin from "./molecules/ButtonLogin";
 import ButtonRipple from "./atoms/ButtonRipple";
@@ -46,6 +47,7 @@ export {
     Alert,
     Avatar,
     Badge,
+    Breadcrumb,
     Button,
     ButtonLogin,
     ButtonRipple,

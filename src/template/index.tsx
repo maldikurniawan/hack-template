@@ -4,6 +4,7 @@ import CardStatisticPage from "./cards/CardStatisticPage";
 import AlertPage from "./components/AlertPage";
 import AvatarPage from "./components/AvatarPage";
 import BadgePage from "./components/BadgePage";
+import BreadcrumbPage from "./components/BreadcrumbPage";
 import ButtonPage from "./components/ButtonPage";
 import CalendarPage from "./calendar/CalendarPage";
 import CarouselPage from "./components/CarouselPage";
@@ -42,6 +43,7 @@ export {
     AlertPage,
     AvatarPage,
     BadgePage,
+    BreadcrumbPage,
     ButtonPage,
     CalendarPage,
     CarouselPage,

@@ -67,7 +67,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                     return (
                         <div
                             key={itemIdx}
-                            className={`px-3 mt-6 mb-3 m-3 text-xs text-base-200 whitespace-nowrap h-3 transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"}`}
+                            className={`px-3 mt-6 mb-3 m-3 text-xs whitespace-nowrap h-3 transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"}`}
                         >
                             {item.label}
                         </div>
@@ -156,8 +156,8 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                                             : "hover:bg-[#5ced73] hover:text-black"
                                                             }`}
                                                     >
-                                                        <span className="flex items-center gap-2">
-                                                            <span className="text-[10px] w-[18px] ml-1">
+                                                        <span className="flex items-center gap-1">
+                                                            <span className="text-[10px] w-[18px] ml-2">
                                                                 <SiHackaday />
                                                             </span>
                                                             <span>

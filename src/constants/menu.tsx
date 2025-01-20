@@ -2,6 +2,7 @@ import {
   AlertPage,
   AvatarPage,
   BadgePage,
+  BreadcrumbPage,
   ButtonPage,
   CardBasicPage,
   CardStatisticPage,
@@ -110,6 +111,14 @@ export const menu: MenuItem[] = [
         name: "badge",
         title: "Badge",
         element: <BadgePage />,
+        sub: [],
+      },
+      {
+        icon: null,
+        path: "/ui-elements/components/breadcrumb",
+        name: "breadcrumb",
+        title: "Breadcrumb",
+        element: <BreadcrumbPage />,
         sub: [],
       },
       {

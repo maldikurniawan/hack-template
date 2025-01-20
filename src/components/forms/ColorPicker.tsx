@@ -136,7 +136,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
                     }
                 >
                     <ChromePicker
-                        className="!font-sans font-bold !bg-white dark:!bg-base-800"
+                        className="!font-sans font-bold !bg-white"
                         color={value}
                         onChange={(value: any) => setValue(value.hex)}
                     />
