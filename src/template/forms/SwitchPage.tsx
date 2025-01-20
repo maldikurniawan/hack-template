@@ -3,7 +3,10 @@ import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
 const SwitchPage = () => {
-	const { themeColor } = useContext(ThemeContext);
+	const { colorMode, setColorMode, themeColor } = useContext(ThemeContext);
+	const toggleColorMode = () => {
+		setColorMode((prevMode: any) => (prevMode === "light" ? "dark" : "light"));
+	};
 
 	const [switchColor, setSwitchColor] = useState([
 		{
@@ -128,7 +131,12 @@ const SwitchPage = () => {
 			</Card>
 
 			<Card>
-				<SwitchTheme />
+				<div className="text-lg font-normal mb-4">Theme</div>
+				<div className="text-sm mb-3">
+					The <span style={{ color: themeColor }}>theme</span> prop is used
+					to switch theme.
+				</div>
+				<SwitchTheme toggleColorMode={toggleColorMode} colorMode={colorMode} />
 			</Card>
 		</div>
 	);

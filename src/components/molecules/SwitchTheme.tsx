@@ -1,15 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 interface SwitchThemeProps {
-    toggleColorMode?: () => void; // Function to toggle the color mode
-    colorMode?: "light" | "dark"; // Allowed values for color mode
+    toggleColorMode: () => void;
+    colorMode: "light" | "dark";
 }
 
 const SwitchTheme: React.FC<SwitchThemeProps> = ({ toggleColorMode, colorMode }) => {
     return (
-        <StyledWrapper>
+        <StyledWrapper mode={colorMode}>
             <label className="switch">
-                <input type="checkbox" onChange={toggleColorMode} checked={colorMode === "dark"} className="input" />
+                <input
+                    type="checkbox"
+                    onChange={toggleColorMode}
+                    checked={colorMode === "dark"}
+                    className="input"
+                />
                 <span className="slider">
                     {colorMode === "light" ? (
                         <span className="sun">
@@ -33,7 +38,7 @@ const SwitchTheme: React.FC<SwitchThemeProps> = ({ toggleColorMode, colorMode })
     );
 };
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.div<{ mode: "light" | "dark" }>`
   .switch {
     position: relative;
     display: inline-block;
