@@ -73,9 +73,9 @@ const Pagination: React.FC<PaginationProps> = ({
         }[rounded] || "rounded-none";
 
     // Define shadow styles based on variant
-    const getShadowStyle = variant === "solid" ? "border border-white/50" : "";
+    const getShadowStyle = variant === "solid" ? "border border-[#333]" : "";
 
-    const disabledColor = "#E0E0E0";
+    const disabledColor = "#FFFFFF50";
 
     return (
         <div className="flex gap-2">
@@ -86,7 +86,7 @@ const Pagination: React.FC<PaginationProps> = ({
                         style={{
                             width: sizePagination,
                             height: sizePagination,
-                            backgroundColor: "#4D535595",
+                            backgroundColor: currentPage === 1 ? "#1a1a1a90" : "#1a1a1a",
                             color: "white",
                         }}
                         className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
@@ -108,11 +108,11 @@ const Pagination: React.FC<PaginationProps> = ({
                                     style={{
                                         width: sizePagination,
                                         height: sizePagination,
-                                        backgroundColor: "#4D535595",
+                                        backgroundColor: "#1a1a1a90",
                                         color: "white",
                                     }}
                                     disabled
-                                    className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
+                                    className={`${getShadowStyle} cursor-not-allowed flex justify-center items-center ${pageRounded}`}
                                 >
                                     <TbDots
                                         style={{
@@ -132,7 +132,7 @@ const Pagination: React.FC<PaginationProps> = ({
                                     backgroundColor:
                                         pageNumber === currentPage
                                             ? colorPagination
-                                            : "#BABCBD90",
+                                            : "#1a1a1a",
                                     color:
                                         pageNumber === currentPage
                                             ? "black"
@@ -151,7 +151,7 @@ const Pagination: React.FC<PaginationProps> = ({
                         style={{
                             width: sizePagination,
                             height: sizePagination,
-                            backgroundColor: "#4D535595",
+                            backgroundColor: currentPage === lastPage ? "#1a1a1a90" : "#1a1a1a",
                             color: "white",
                         }}
                         className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}

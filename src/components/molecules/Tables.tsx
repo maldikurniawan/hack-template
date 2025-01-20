@@ -125,7 +125,7 @@ const TableHeader = ({ children, style, center = false }: TableHeaderProps) => {
     return (
         <th
             style={style}
-            className={`border-b border-[#4D5355] bg-black/50 font-normal uppercase tracking-wide px-2 sticky ${center ? "text-center" : "text-left"}`}
+            className={`border-b border-[#333] bg-[#1A1A1A] font-normal uppercase tracking-wide px-2 sticky ${center ? "text-center" : "text-left"}`}
         >
             {children}
         </th>

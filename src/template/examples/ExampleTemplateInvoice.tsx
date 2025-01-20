@@ -83,7 +83,7 @@ const ExampleTemplateInvoice = () => {
 					</div>
 				</div>
 			</div>
-			<div className="shadow-lg bg-[#001e00]/50 overflow-hidden">
+			<div className="bg-[#1A1A1A] border border-[#333] overflow-hidden">
 				<Invoice
 					type={selectedTemplate.value}
 					data={invoice}

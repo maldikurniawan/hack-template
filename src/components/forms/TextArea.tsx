@@ -136,7 +136,7 @@ const TextArea: React.FC<TextAreaProps> = ({
             borderBottomStyle: "solid",
             borderTopLeftRadius: textFieldRounded,
             borderTopRightRadius: textFieldRounded,
-            backgroundColor: "#20282A",
+            backgroundColor: "#1A1A1A",
         };
     } else if (variant === "underlined") {
         containerStyle = {

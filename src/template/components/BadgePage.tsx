@@ -238,7 +238,7 @@ const BadgePage = () => {
 
 				<div className="flex flex-wrap gap-2">
 					<Badge color="lightPurple">
-						<Button color="lightGreen" className="rounded-tr-md">Default</Button>
+						<Button color="lightGreen">Default</Button>
 					</Badge>
 					<Badge spacing={-10} skidding={-4} color="lightYellow">
 						<Button color="lightGreen">-10px & -4px</Button>

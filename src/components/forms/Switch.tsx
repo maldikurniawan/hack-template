@@ -97,7 +97,7 @@ const Switch: React.FC<SwitchProps> = ({
                         fontSize: text,
                     }}
                     className={`cursor-pointer ${disabled
-                        ? "pointer-events-none text-white/50"
+                        ? "pointer-events-none text-white/30"
                         : "text-white"
                         } ${required ? "required" : ""}`}
                 >

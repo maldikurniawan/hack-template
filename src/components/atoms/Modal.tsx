@@ -101,7 +101,7 @@ const Modal: React.FC<ModalProps> = ({
                         <ButtonRipple
                             color="#FFFFFF30"
                             onClick={() => setShow(false)}
-                            className={`bg-green-950 border border-black w-8 h-8 text-white flex items-center justify-center ${themeSkin === "default" ? "shadow-lg" : themeSkin
+                            className={`bg-green-950 border border-[#333] w-8 h-8 text-white flex items-center justify-center ${themeSkin === "default" ? "shadow-lg" : themeSkin
                                 }`}
                         >
                             <FiX />

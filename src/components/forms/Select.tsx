@@ -302,17 +302,17 @@ const Select: React.FC<SelectProps> = ({
                                 }),
                                 menu: (base) => ({
                                     ...base,
-                                    backgroundColor: "#171C1E",
+                                    backgroundColor: "#1A1A1A",
                                     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
                                     borderRadius: selectRounded,
                                     top: "calc(100% + 6px)",
-                                    border: "1px solid #20282A",
+                                    border: "1px solid #333",
                                 }),
                                 option: (base, state) => ({
                                     ...base,
                                     color: state.isSelected
                                         ? "#000000"
-                                        : "#989C9D",
+                                        : "#FFFFFF75",
                                     backgroundColor: state.isSelected
                                         ? selectColor
                                         : "transparent",
@@ -322,13 +322,13 @@ const Select: React.FC<SelectProps> = ({
                                     "&:hover": {
                                         backgroundColor: state.isSelected
                                             ? selectColor
-                                            : "#4D5355",
+                                            : "#FFFFFF10",
                                     },
                                 }),
                                 multiValue: (base) => ({
                                     ...base,
-                                    color: "#E5E7EB",
-                                    backgroundColor: "#171C1E",
+                                    color: "#FFFFFF",
+                                    backgroundColor: "#1A1A1A",
                                     padding: "6px",
                                     fontSize: selectSize - 2,
                                     display: "flex",
@@ -402,16 +402,16 @@ const Select: React.FC<SelectProps> = ({
                                 }),
                                 menu: (base) => ({
                                     ...base,
-                                    backgroundColor: "#171C1E",
+                                    backgroundColor: "#1A1A1A",
                                     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
                                     borderRadius: selectRounded,
-                                    border: "1px solid #20282A",
+                                    border: "1px solid #333",
                                 }),
                                 option: (base, state) => ({
                                     ...base,
                                     color: state.isSelected
                                         ? "#000000"
-                                        : "#989C9D",
+                                        : "#FFFFFF75",
                                     backgroundColor: state.isSelected
                                         ? selectColor
                                         : "transparent",
@@ -421,13 +421,13 @@ const Select: React.FC<SelectProps> = ({
                                     "&:hover": {
                                         backgroundColor: state.isSelected
                                             ? selectColor
-                                            : "#4D5355",
+                                            : "#FFFFFF10",
                                     },
                                 }),
                                 multiValue: (base) => ({
                                     ...base,
-                                    color: "#E5E7EB",
-                                    backgroundColor: "#171C1E",
+                                    color: "#FFFFFF",
+                                    backgroundColor: "#1A1A1A",
                                     padding: "6px",
                                     fontSize: selectSize - 2,
                                     display: "flex",

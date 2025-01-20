@@ -31,10 +31,10 @@ const Kuitansi = forwardRef<HTMLDivElement, KuitansiProps>(function Kuitansi(
         return (
             <div
                 ref={ref}
-                className="border-2 border-white overflow-x-auto scrollbar-hide"
+                className="border-2 border-[#333] overflow-x-auto scrollbar-hide"
             >
                 <div className="flex min-w-full w-max">
-                    <div className="[writing-mode:vertical-lr] [text-orientation:upright] p-6 tracking-tighter font-bold flex justify-center text-white bg-lightGray/50">
+                    <div className="[writing-mode:vertical-lr] [text-orientation:upright] p-6 tracking-tighter font-bold flex justify-center text-white bg-[#333]">
                         K W I T A N S I
                     </div>
                     <div className="flex-1 p-6 text-sm">
@@ -50,7 +50,7 @@ const Kuitansi = forwardRef<HTMLDivElement, KuitansiProps>(function Kuitansi(
                             <div className="flex gap-2 items-start">
                                 <div className="font-semibold w-40 pt-1">Uang Sejumlah</div>
                                 <div className="capitalize flex-1 flex items-start gap-1 pt-1">
-                                    <div className="bg-lightGray/10 w-full pt-0 min-h-[35px] flex gap-1">
+                                    <div className="bg-[#33333390] w-full pt-0 min-h-[35px] flex gap-1">
                                         :{" "}
                                         <span className="font-bold italic">
                                             {angkaTerbilangJs(data.uangSejumlah)}
@@ -109,10 +109,10 @@ const Kuitansi = forwardRef<HTMLDivElement, KuitansiProps>(function Kuitansi(
         return (
             <div
                 ref={ref}
-                className="border-2 border-white overflow-x-auto scrollbar-hide"
+                className="border-2 border-[#333] overflow-x-auto scrollbar-hide"
             >
                 <div className="flex min-w-full w-max">
-                    <div className="[writing-mode:vertical-lr] [text-orientation:upright] p-6 tracking-tighter font-bold flex justify-center bg-lightGray/10">
+                    <div className="[writing-mode:vertical-lr] [text-orientation:upright] p-6 tracking-tighter font-bold flex justify-center bg-[#33333390]">
                         K W I T A N S I
                     </div>
                     <div className="flex-1 p-6 text-sm">
@@ -128,7 +128,7 @@ const Kuitansi = forwardRef<HTMLDivElement, KuitansiProps>(function Kuitansi(
                             <div className="flex gap-2 items-start">
                                 <div className="font-semibold w-40 pt-1">Uang Sejumlah</div>
                                 <div className="capitalize flex-1 flex items-start gap-1 pt-1">
-                                    <div className="bg-lightGray/10 w-full pt-0 min-h-[35px] flex gap-1">
+                                    <div className="bg-[#33333390] w-full pt-0 min-h-[35px] flex gap-1">
                                         :{" "}
                                         <span className="font-bold italic">
                                             {angkaTerbilangJs(data.uangSejumlah)}
@@ -187,7 +187,7 @@ const Kuitansi = forwardRef<HTMLDivElement, KuitansiProps>(function Kuitansi(
         return (
             <div
                 ref={ref}
-                className="border-2 border-white overflow-x-auto scrollbar-hide"
+                className="border-2 border-[#333] overflow-x-auto scrollbar-hide"
             >
                 <div className="flex min-w-full w-max">
                     <div

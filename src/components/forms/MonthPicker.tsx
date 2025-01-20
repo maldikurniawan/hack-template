@@ -122,7 +122,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className={`bg-[#1D2426] w-fit shadow shadow-white z-10 p-4 ${position}`}
+                    className={`bg-[#1a1a1a] w-fit border border-[#333] z-10 p-4 ${position}`}
                 >
                     <div className="flex items-center justify-between mb-2">
                         <Button

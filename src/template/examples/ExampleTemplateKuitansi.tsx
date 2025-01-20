@@ -66,7 +66,7 @@ const ExampleTemplateKuitansi = () => {
                     </div>
                 </div>
             </div>
-            <div className="shadow-lg bg-[#001e00] overflow-hidden">
+            <div className="bg-[#1A1A1A] overflow-hidden">
                 <Kuitansi ref={ref} type={selectedTemplate.value} data={data} />
             </div>
         </div>
