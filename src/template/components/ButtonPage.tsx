@@ -1,4 +1,4 @@
-import { Button, Card } from "@/components";
+import { Button, ButtonLogin, Card } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 
@@ -178,6 +178,23 @@ const ButtonPage = () => {
 					<Button rounded="full" color="lightBlue">
 						Full
 					</Button>
+				</div>
+			</Card>
+
+			{/* Animated */}
+			<Card>
+				<div className="text-lg font-normal mb-4">Animation</div>
+				<div className="text-sm mb-3">
+					The <span style={{ color: themeColor }}>animation</span> prop is used to
+					set the animation of the button.
+				</div>
+
+				<div className="flex flex-wrap gap-2">
+					<ButtonLogin>
+						<div className="px-10">
+							Animation
+						</div>
+					</ButtonLogin>
 				</div>
 			</Card>
 		</div>

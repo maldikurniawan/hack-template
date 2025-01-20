@@ -1,4 +1,4 @@
-import { Card, Switch } from "@/components";
+import { Card, Switch, SwitchTheme } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -125,6 +125,10 @@ const SwitchPage = () => {
 					onChange={() => setSwitchLabel(!switchLabel)}
 					disabled
 				/>
+			</Card>
+
+			<Card>
+				<SwitchTheme />
 			</Card>
 		</div>
 	);

@@ -2,27 +2,27 @@ import React, { ReactNode } from "react";
 import styled from 'styled-components';
 
 interface ButtonLoginProps {
-    children: ReactNode;
-    type: string;
-    disabled: boolean;
-    className: string;
+  children: ReactNode;
+  type?: string;
+  disabled?: boolean;
+  className?: string;
 }
 
 const ButtonLogin: React.FC<ButtonLoginProps> = ({ children }) => {
-    return (
-        <StyledWrapper>
-            <button type="button" className="btn">
-                <strong>{children}</strong>
-                <div id="container-stars">
-                    <div id="stars" />
-                </div>
-                <div id="glow">
-                    <div className="circle" />
-                    <div className="circle" />
-                </div>
-            </button>
-        </StyledWrapper>
-    );
+  return (
+    <StyledWrapper>
+      <button type="button" className="btn">
+        <strong>{children}</strong>
+        <div id="container-stars">
+          <div id="stars" />
+        </div>
+        <div id="glow">
+          <div className="circle" />
+          <div className="circle" />
+        </div>
+      </button>
+    </StyledWrapper>
+  );
 }
 
 const StyledWrapper = styled.div`

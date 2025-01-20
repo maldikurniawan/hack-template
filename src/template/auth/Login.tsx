@@ -86,7 +86,6 @@ const Login: React.FC = () => {
 								<ButtonLogin
 									type="submit"
 									disabled={loading}
-									className="w-full bg-green-600 font-bold text-white p-2 hover:bg-green-900 transition-colors"
 								>
 									{loading ? (
 										<TbLoader2 size={20} className="animate-spin mx-auto" />

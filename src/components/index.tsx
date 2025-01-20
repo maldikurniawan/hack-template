@@ -33,6 +33,7 @@ import Radio from "./forms/Radio";
 import Select from "./forms/Select";
 import Sidebar from "./layout/Sidebar";
 import Switch from "./forms/Switch";
+import SwitchTheme from "./molecules/SwitchTheme";
 import Tables from "./molecules/Tables";
 import Tabs from "./atoms/Tabs";
 import TextArea from "./forms/TextArea";
@@ -76,6 +77,7 @@ export {
     Select,
     Sidebar,
     Switch,
+    SwitchTheme,
     Tables,
     Tabs,
     TextArea,
