@@ -21,6 +21,10 @@ const BreadcrumbPage = () => {
                 <div className="text-lg font-normal mb-4">Dotted</div>
                 <Breadcrumb items={breadcrumbItems} separator="dot" />
             </Card>
+            <Card>
+                <div className="text-lg font-normal mb-4">Arrowed Background</div>
+                <Breadcrumb items={breadcrumbItems} variant="arrowed" />
+            </Card>
         </div>
     )
 }

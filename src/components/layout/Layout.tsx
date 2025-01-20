@@ -9,7 +9,7 @@ const Layout: React.FC = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 100);
+        }, 2000);
 
         setSideOpen(window.innerWidth >= 767);
 
