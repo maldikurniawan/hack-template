@@ -32,6 +32,7 @@ import {
   MapPage,
   ExampleTemplateKuitansi,
   CalendarPage,
+  CarouselPage,
 } from "@/template";
 import {
   PiCalendarDots,
@@ -117,6 +118,14 @@ export const menu: MenuItem[] = [
         name: "button",
         title: "Button",
         element: <ButtonPage />,
+        sub: [],
+      },
+      {
+        icon: null,
+        path: "/ui-elements/components/carousel",
+        name: "carousel",
+        title: "Carousel",
+        element: <CarouselPage />,
         sub: [],
       },
       {
@@ -227,19 +236,19 @@ export const menu: MenuItem[] = [
     ],
   },
   {
-    icon: <PiMapTrifold />,
-    path: "/maps",
-    name: "maps",
-    title: "Maps",
-    element: <MapPage />,
-    sub: [],
-  },
-  {
     icon: <PiCalendarDots />,
     path: "/calendar",
     name: "calendar",
     title: "Calendar",
     element: <CalendarPage />,
+    sub: [],
+  },
+  {
+    icon: <PiMapTrifold />,
+    path: "/maps",
+    name: "maps",
+    title: "Maps",
+    element: <MapPage />,
     sub: [],
   },
   {
