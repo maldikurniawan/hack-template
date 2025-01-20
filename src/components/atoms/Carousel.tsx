@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, Thumbs } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, Thumbs, EffectCards } from 'swiper/modules';
+import { Button } from '..';
 import { useState } from 'react';
 // @ts-ignore
 import 'swiper/css';
@@ -21,7 +22,7 @@ interface CarouselProps {
     loop?: boolean; // Enable or disable infinite looping
     slidesPerView?: number; // Number of slides visible at a time
     spaceBetween?: number; // Space between slides
-    variant?: 'simple' | 'with-caption' | 'thumbnail' | 'fullscreen' | 'stacked'; // Carousel variant
+    variant?: 'simple' | 'caption' | 'thumbnail' | 'EffectCards';
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -44,7 +45,7 @@ const Carousel: React.FC<CarouselProps> = ({
                     modules={[Navigation, Pagination, Autoplay]}
                     autoplay={autoplay ? { delay: 3000, disableOnInteraction: false } : false}
                     navigation={navigation}
-                    pagination={pagination ? { clickable: true } : false}
+                    pagination={pagination}
                     loop={loop}
                     slidesPerView={slidesPerView}
                     spaceBetween={spaceBetween}
@@ -54,19 +55,19 @@ const Carousel: React.FC<CarouselProps> = ({
                             <img
                                 src={image.url}
                                 alt={`Slide ${index + 1}`}
-                                style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+                                className="w-full h-auto object-cover"
                             />
                         </SwiperSlide>
                     ))}
                 </Swiper>
             )}
 
-            {variant === 'with-caption' && (
+            {variant === 'caption' && (
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
                     autoplay={autoplay ? { delay: 3000, disableOnInteraction: false } : false}
                     navigation={navigation}
-                    pagination={pagination ? { clickable: true } : false}
+                    pagination={pagination}
                     loop={loop}
                     slidesPerView={slidesPerView}
                     spaceBetween={spaceBetween}
@@ -77,23 +78,42 @@ const Carousel: React.FC<CarouselProps> = ({
                                 <img
                                     src={image.url}
                                     alt={`Slide ${index + 1}`}
-                                    style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+                                    className="w-full h-auto object-cover"
                                 />
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                                        zIndex: 1,
+                                    }}
+                                ></div>
                                 {image.caption && (
                                     <div
                                         style={{
                                             position: 'absolute',
-                                            bottom: 0,
-                                            left: 0,
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
                                             width: '100%',
-                                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
                                             color: '#fff',
-                                            textAlign: 'center',
-                                            padding: '10px',
+                                            padding: '60px',
                                             fontSize: '14px',
+                                            zIndex: 2,
                                         }}
                                     >
-                                        {image.caption}
+                                        <div className='text-lg xl:text-xl font-bold'>
+                                            {image.caption}
+                                        </div>
+                                        <div className='text-[8px] sm:text-xs xl:text-sm mb-2 text-justify'>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
+                                        </div>
+                                        <Button rounded="none" color="lightGreen" variant="outline">
+                                            Learn More
+                                        </Button>
                                     </div>
                                 )}
                             </div>
@@ -105,10 +125,33 @@ const Carousel: React.FC<CarouselProps> = ({
             {variant === 'thumbnail' && (
                 <>
                     <Swiper
+                        modules={[Navigation, Pagination, Thumbs, Autoplay]}
+                        thumbs={{ swiper: thumbsSwiper }}
+                        autoplay={autoplay ? { delay: 3000, disableOnInteraction: false } : false}
+                        navigation={navigation}
+                        pagination={{
+                            type: 'fraction',
+                        }}
+                        loop={loop}
+                        slidesPerView={slidesPerView}
+                        spaceBetween={spaceBetween}
+                        className='mb-2'
+                    >
+                        {images.map((image, index) => (
+                            <SwiperSlide key={index}>
+                                <img
+                                    src={image.url}
+                                    alt={`Slide ${index + 1}`}
+                                    className="w-full h-auto object-cover"
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <Swiper
                         modules={[Navigation, Pagination, Thumbs]}
                         onSwiper={setThumbsSwiper}
                         slidesPerView={4}
-                        spaceBetween={10}
+                        spaceBetween={8}
                         watchSlidesProgress
                     >
                         {images.map((image, index) => (
@@ -116,32 +159,7 @@ const Carousel: React.FC<CarouselProps> = ({
                                 <img
                                     src={image.url}
                                     alt={`Thumbnail ${index + 1}`}
-                                    style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                        objectFit: 'cover',
-                                        cursor: 'pointer',
-                                    }}
-                                />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                    <Swiper
-                        modules={[Navigation, Pagination, Thumbs]}
-                        thumbs={{ swiper: thumbsSwiper }}
-                        autoplay={autoplay ? { delay: 3000, disableOnInteraction: false } : false}
-                        navigation={navigation}
-                        pagination={pagination ? { clickable: true } : false}
-                        loop={loop}
-                        slidesPerView={slidesPerView}
-                        spaceBetween={spaceBetween}
-                    >
-                        {images.map((image, index) => (
-                            <SwiperSlide key={index}>
-                                <img
-                                    src={image.url}
-                                    alt={`Slide ${index + 1}`}
-                                    style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+                                    className="w-full h-auto object-cover cursor-pointer"
                                 />
                             </SwiperSlide>
                         ))}
@@ -149,58 +167,18 @@ const Carousel: React.FC<CarouselProps> = ({
                 </>
             )}
 
-            {variant === 'fullscreen' && (
+            {variant === 'EffectCards' && (
                 <Swiper
-                    modules={[Navigation, Pagination, Autoplay]}
-                    autoplay={autoplay ? { delay: 3000, disableOnInteraction: false } : false}
-                    navigation={navigation}
-                    pagination={pagination ? { clickable: true } : false}
-                    loop={loop}
-                    slidesPerView={1}
-                    style={{
-                        height: '100vh',
-                        width: '100%',
-                    }}
+                    effect={'cards'}
+                    grabCursor={true}
+                    modules={[EffectCards]}
                 >
                     {images.map((image, index) => (
                         <SwiperSlide key={index}>
                             <img
                                 src={image.url}
                                 alt={`Slide ${index + 1}`}
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                }}
-                            />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            )}
 
-            {variant === 'stacked' && (
-                <Swiper
-                    modules={[Navigation, Pagination, Autoplay]}
-                    autoplay={autoplay ? { delay: 3000, disableOnInteraction: false } : false}
-                    navigation={navigation}
-                    pagination={pagination ? { clickable: true } : false}
-                    loop={loop}
-                    slidesPerView={1.5}
-                    spaceBetween={-30}
-                    centeredSlides
-                >
-                    {images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                            <img
-                                src={image.url}
-                                alt={`Slide ${index + 1}`}
-                                style={{
-                                    width: '100%',
-                                    height: 'auto',
-                                    objectFit: 'cover',
-                                    borderRadius: '10px',
-                                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                                }}
                             />
                         </SwiperSlide>
                     ))}
