@@ -92,7 +92,6 @@ const ExampleTablePage = () => {
 						</div>
 
 						<div className="flex gap-2">
-							<Button color="lightBlue">Filter</Button>
 							<Button onClick={() => setOpen(true)} color="lightGreen">
 								Create
 							</Button>

@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Thumbs, EffectCards } from 'swiper/modules';
-import { Button } from '..';
 import { useState } from 'react';
 // @ts-ignore
 import 'swiper/css';
@@ -111,9 +110,6 @@ const Carousel: React.FC<CarouselProps> = ({
                                         <div className='text-[8px] sm:text-xs xl:text-sm mb-2 text-justify'>
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
                                         </div>
-                                        <Button rounded="none" color="lightGreen" variant="outline">
-                                            Learn More
-                                        </Button>
                                     </div>
                                 )}
                             </div>

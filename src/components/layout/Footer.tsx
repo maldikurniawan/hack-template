@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div className="p-6 text-xs text-white bg-black">
             Copyright ©️ {currentYear}{" "}
-            <span>Queen Network Nusantara</span>
+            <span>Anonymous</span>
             . All rights reserved.
         </div>
     )
