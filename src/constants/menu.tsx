@@ -14,7 +14,7 @@ import {
   DatePickerPage,
   DrawerPage,
   ExampleTablePage,
-  ExampleTemplateInvoice,
+  // ExampleTemplateInvoice,
   FileInputPage,
   ListPage,
   ModalPage,
@@ -31,7 +31,7 @@ import {
   TimelinePage,
   TooltipPage,
   MapPage,
-  ExampleTemplateKuitansi,
+  // ExampleTemplateKuitansi,
   CalendarPage,
   CarouselPage,
 } from "@/template";
