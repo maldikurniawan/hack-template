@@ -3,12 +3,12 @@ import { Card, Carousel } from "@/components";
 
 const CarouselPage = () => {
     const [images] = useState([
-        { url: "/images/cyber-people-1.png", caption: "Caption 1" },
-        { url: "/images/cyber-people-2.png", caption: "Caption 2" },
-        { url: "/images/cyber-people-3.png", caption: "Caption 3" },
-        { url: "/images/cyber-people-4.png", caption: "Caption 4" },
-        { url: "/images/cyber-people-5.png", caption: "Caption 5" },
-        { url: "/images/cyber-people-6.png", caption: "Caption 6" },
+        { url: "/images/cyber-people-1.jpeg", caption: "Caption 1" },
+        { url: "/images/cyber-people-2.jpeg", caption: "Caption 2" },
+        { url: "/images/cyber-people-3.jpeg", caption: "Caption 3" },
+        { url: "/images/cyber-people-4.jpeg", caption: "Caption 4" },
+        { url: "/images/cyber-people-5.jpeg", caption: "Caption 5" },
+        { url: "/images/cyber-people-6.jpeg", caption: "Caption 6" },
     ]);
 
     return (

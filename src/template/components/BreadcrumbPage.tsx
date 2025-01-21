@@ -4,7 +4,8 @@ const BreadcrumbPage = () => {
     const breadcrumbItems = [
         { label: "Home", href: "/" },
         { label: "Components", href: "/" },
-        { label: "UI Kit" },
+        { label: "UI Kit", href: "/" },
+        { label: "Breadcrumb" },
     ];
 
     return (

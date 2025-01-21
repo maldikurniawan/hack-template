@@ -8,7 +8,7 @@ interface BreadcrumbItem {
 interface BreadcrumbProps {
     items: BreadcrumbItem[];
     separator?: "slash" | "arrow" | "dot";
-    variant?: 'separator' | 'arrowed';
+    variant?: "separator" | "arrowed";
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
@@ -29,9 +29,32 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
         }
     };
 
+    const renderArrowedItem = (item: BreadcrumbItem, index: number) => {
+        const isLast = index === items.length - 1;
+        const bgColor = index % 2 === 0 ? "bg-[#1A1A1A]" : "bg-[#333]";
+        const borderColor = index % 2 === 0 ? "#1A1A1A" : "#333";
+
+        return (
+            <li key={index} className={bgColor}>
+                <button
+                    className={`p-1.5 ${isLast ? "pl-6 px-2" : "pl-6 pr-2"
+                        } relative h-full flex items-center text-white hover:text-white/70 before:absolute before:-right-[15px] before:inset-y-0 before:m-auto before:w-0 before:h-0 before:border-[18px] before:border-l-[15px] before:border-r-0 before:border-t-transparent before:border-b-transparent before:border-l-[${borderColor}] before:z-[1]`}
+                >
+                    {item.href ? (
+                        <a href={item.href} className="text-white hover:text-white/70">
+                            {item.label}
+                        </a>
+                    ) : (
+                        item.label
+                    )}
+                </button>
+            </li>
+        );
+    };
+
     return (
         <div>
-            {variant === 'separator' && (
+            {variant === "separator" && (
                 <ol className="flex font-semibold">
                     {items.map((item, index) => (
                         <li key={index} className="flex items-center">
@@ -47,23 +70,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                     ))}
                 </ol>
             )}
-            {variant === 'arrowed' && (
+            {variant === "arrowed" && (
                 <ol className="flex text-white font-semibold">
-                    <li className="bg-[#1A1A1A]">
-                        <button className="p-1.5 pl-3 pr-2 relative h-full flex items-center before:absolute before:-right-[15px] before:inset-y-0 before:m-auto before:w-0 before:h-0 before:border-[18px] before:border-l-[15px] before:border-r-0 before:border-t-transparent before:border-b-transparent before:border-l-[#1A1A1A] before:z-[1] hover:text-white/70">
-                            Home
-                        </button>
-                    </li>
-                    <li className="bg-[#ebedf2]">
-                        <button className="bg-[#333] text-white p-1.5 pl-6 pr-2 relative h-full flex items-center before:absolute before:-right-[15px] before:inset-y-0 before:m-auto before:w-0 before:h-0 before:border-[18px] before:border-l-[15px] before:border-r-0 before:border-t-transparent before:border-b-transparent before:border-l-[#333] before:z-[1]">
-                            Components
-                        </button>
-                    </li>
-                    <li className="bg-[#1A1A1A]">
-                        <button className="p-1.5 px-3 pl-6 relative h-full flex items-center before:absolute before:-right-[15px] before:inset-y-0 before:m-auto before:w-0 before:h-0 before:border-[18px] before:border-l-[15px] before:border-r-0 before:border-t-transparent before:border-b-transparent before:border-l-[#1A1A1A] before:z-[1] hover:text-white/70">
-                            UI Kit
-                        </button>
-                    </li>
+                    {items.map((item, index) => renderArrowedItem(item, index))}
                 </ol>
             )}
         </div>

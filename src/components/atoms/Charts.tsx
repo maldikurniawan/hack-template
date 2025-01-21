@@ -70,7 +70,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
             series: [
                 {
                     name: 'Visitor',
-                    data: [16800, 16800, 15500, 17800, 15500, 17000, 19000, 16000, 15000, 17000, 14000, 17000],
+                    data: [16800, 16800, 15500, 17800, 15500, 17000],
                 },
             ],
             options: {
@@ -107,7 +107,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         },
                     },
                 },
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
                 legend: {
                     horizontalAlign: 'left',
                 },
@@ -128,11 +128,11 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
             series: [
                 {
                     name: 'Net Profit',
-                    data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+                    data: [44, 55, 57, 56, 61, 58],
                 },
                 {
                     name: 'Revenue',
-                    data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+                    data: [76, 85, 101, 98, 87, 105],
                 },
             ],
             options: {
@@ -166,7 +166,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     },
                 },
                 xaxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
                     axisBorder: {
                         color: '#fff',
                     },
