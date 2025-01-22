@@ -1,7 +1,7 @@
 import {
 	Button,
 	ButtonRipple,
-	Card,
+	TerminalCard,
 	Drawer,
 	Limit,
 	Pagination,
@@ -84,7 +84,7 @@ const ExampleTablePage = () => {
 	return (
 		<>
 			<div className="grid grid-cols-1 gap-4">
-				<Card>
+				<TerminalCard title="Example Table">
 					{/* Control Top */}
 					<div className="mb-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
 						<div className="w-full sm:w-60">
@@ -172,7 +172,7 @@ const ExampleTablePage = () => {
 							pageSize={limit}
 						/>
 					</div>
-				</Card>
+				</TerminalCard>
 			</div>
 
 			<Drawer title="Create" dismiss open={open} setOpen={setOpen}>

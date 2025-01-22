@@ -1,4 +1,4 @@
-import { Card, FileInput, FileInputForm } from "@/components";
+import { Card, FileInput, FileInputForm, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -13,8 +13,7 @@ const FileInputPage = () => {
 	return (
 		<div className="grid grid-cols-1 gap-4">
 			{/* Basic */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Basic</div>
+			<TerminalCard title="Basic">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>FileInput</span> component is
 					used to upload files.
@@ -23,11 +22,10 @@ const FileInputPage = () => {
 				<div className="flex flex-wrap gap-2">
 					<FileInput value={value} setValue={setValue} />
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Multiple */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Multiple</div>
+			<TerminalCard title="Multiple">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>multiple</span> prop is used
 					to allow multiple files to be uploaded.
@@ -40,9 +38,9 @@ const FileInputPage = () => {
 						multiple
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
-			<Card>
+			<Card variant="secondary">
 				<FileInputForm value={valueForm} setValue={setValueForm} />
 			</Card>
 		</div>

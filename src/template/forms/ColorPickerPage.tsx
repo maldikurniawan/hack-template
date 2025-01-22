@@ -1,4 +1,4 @@
-import { ColorPicker, Card } from "@/components";
+import { ColorPicker, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -10,8 +10,7 @@ const ColorPickerPage = () => {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20">
             {/* Color */}
-            <Card>
-                <div className="text-lg font-normal mb-4">Color Picker</div>
+            <TerminalCard title="Color Picker">
                 <div className="text-sm mb-3">
                     You can use the{" "}
                     <span style={{ color: themeColor }}>color picker</span> to select a
@@ -26,7 +25,7 @@ const ColorPickerPage = () => {
                         setValue={setValue}
                     />
                 </div>
-            </Card>
+            </TerminalCard>
         </div>
     );
 };

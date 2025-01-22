@@ -179,7 +179,7 @@ const FileInputForm = ({
                     style={{
                         fontSize: fileInputSize - 3,
                     }}
-                    className="leading-none tracking-wide mt-1 text-danger-500"
+                    className="leading-none tracking-wide mt-1 text-red-500"
                 >
                     {error || errorRejection}
                 </div>

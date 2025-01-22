@@ -1,4 +1,4 @@
-import { Checkbox, Card } from "@/components";
+import { Checkbox, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -56,8 +56,7 @@ const CheckboxPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					set the color of the checkbox.
@@ -79,11 +78,10 @@ const CheckboxPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Label */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Label</div>
+			<TerminalCard title="Label">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>label</span> prop is used to
 					set the label of the checkbox.
@@ -97,11 +95,10 @@ const CheckboxPage = () => {
 						onChange={() => setChecked(!checked)}
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Disabled */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Disabled</div>
+			<TerminalCard title="Disabled">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>disabled</span> prop is used
 					to disable the checkbox.
@@ -122,11 +119,10 @@ const CheckboxPage = () => {
 						onChange={() => setChecked(!checked)}
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the checkbox.
@@ -148,7 +144,7 @@ const CheckboxPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

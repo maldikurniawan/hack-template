@@ -1,4 +1,4 @@
-import { Card, TextArea } from "@/components";
+import { TerminalCard, TextArea } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 import { TbDownload, TbRecordMail } from "react-icons/tb";
@@ -151,8 +151,7 @@ const TextAreaPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					set the color of the TextArea.
@@ -174,11 +173,10 @@ const TextAreaPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Density */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Density</div>
+			<TerminalCard title="Density">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>density</span> prop is used to
 					set the density of the TextArea.
@@ -200,11 +198,10 @@ const TextAreaPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Rounded */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Rounded</div>
+			<TerminalCard title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>rounded</span> prop is used to
 					set the rounded of the TextArea.
@@ -226,11 +223,10 @@ const TextAreaPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the TextArea.
@@ -252,12 +248,11 @@ const TextAreaPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Variant */}
 			<div className="col-span-full">
-				<Card>
-					<div className="text-lg font-normal mb-4">Variant</div>
+				<TerminalCard title="Variant">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>variant</span> prop is used
 						to set the variant of the TextArea.
@@ -279,12 +274,11 @@ const TextAreaPage = () => {
 							/>
 						))}
 					</div>
-				</Card>
+				</TerminalCard>
 			</div>
 
 			{/* Disabled & Readonly */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Disabled & Readonly</div>
+			<TerminalCard title="Disabled & Readonly">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>disabled</span> prop is used
 					to disable the TextArea.
@@ -302,11 +296,10 @@ const TextAreaPage = () => {
 						value="Readonly"
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Note & Error */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Note & Error</div>
+			<TerminalCard title="Note & Error">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>note</span> prop is used to
 					set the note of the TextArea.
@@ -331,11 +324,10 @@ const TextAreaPage = () => {
 						onChange={(e) => setValue(e.target.value)}
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Prefix & Suffix */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Prefix & Suffix</div>
+			<TerminalCard title="Prefix & Suffix">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>prefix</span> prop is used to
 					set the prefix of the TextArea.
@@ -360,11 +352,10 @@ const TextAreaPage = () => {
 						onChange={(e) => setValue(e.target.value)}
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Prepend & Append */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Prepend & Append</div>
+			<TerminalCard title="Prepend & Append">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>prepend</span> prop is used to
 					set the prepend of the TextArea.
@@ -389,7 +380,7 @@ const TextAreaPage = () => {
 						onChange={(e) => setValue(e.target.value)}
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

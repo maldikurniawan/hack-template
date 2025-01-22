@@ -1,4 +1,4 @@
-import { Card, Switch, SwitchTheme } from "@/components";
+import { TerminalCard, Switch, SwitchTheme } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -55,8 +55,7 @@ const SwitchPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					set the color of the switch.
@@ -75,11 +74,10 @@ const SwitchPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the switch.
@@ -98,11 +96,10 @@ const SwitchPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Label */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Label</div>
+			<TerminalCard title="Label">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>label</span> prop is used to
 					set the label of the switch.
@@ -113,11 +110,10 @@ const SwitchPage = () => {
 					value={switchLabel}
 					onChange={() => setSwitchLabel(!switchLabel)}
 				/>
-			</Card>
+			</TerminalCard>
 
 			{/* Disabled */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Disabled</div>
+			<TerminalCard title="Disabled">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>disabled</span> prop is used
 					to disable the switch.
@@ -128,16 +124,15 @@ const SwitchPage = () => {
 					onChange={() => setSwitchLabel(!switchLabel)}
 					disabled
 				/>
-			</Card>
+			</TerminalCard>
 
-			<Card>
-				<div className="text-lg font-normal mb-4">Theme</div>
+			<TerminalCard title="Theme">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>theme</span> prop is used
 					to switch theme.
 				</div>
 				<SwitchTheme toggleColorMode={toggleColorMode} colorMode={colorMode} />
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

@@ -268,7 +268,7 @@ const TextArea: React.FC<TextAreaProps> = ({
                             style={{ ...labelStyle }}
                             className={`absolute pointer-events-none transition-[top,font,padding,margin] leading-none whitespace-nowrap ${(isFocus && variant === "outline") ||
                                 (variant === "outline" && value)
-                                ? "bg-transparent backdrop-blur px-1 -ml-1"
+                                ? "bg-black backdrop-blur px-1 -ml-1"
                                 : ""
                                 }`}
                         >

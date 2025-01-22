@@ -1,4 +1,4 @@
-import { Card, Radio } from "@/components";
+import { TerminalCard, Radio } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -11,8 +11,7 @@ const RadioPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					set the color of the radio.
@@ -49,11 +48,10 @@ const RadioPage = () => {
 						},
 					]}
 				/>
-			</Card>
+			</TerminalCard>
 
 			{/* Inline */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Inline</div>
+			<TerminalCard title="Inline">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>inline</span> prop is used to
 					set the radio to be inline. Default is true.
@@ -77,11 +75,10 @@ const RadioPage = () => {
 						]}
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the radio.
@@ -145,7 +142,7 @@ const RadioPage = () => {
 						]}
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

@@ -243,7 +243,7 @@ const Select: React.FC<SelectProps> = ({
                             style={{ ...labelStyle }}
                             className={`absolute pointer-events-none transition-[top,font,padding,margin] leading-none whitespace-nowrap ${(isFocus && variant === "outline") ||
                                 (variant === "outline" && value)
-                                ? "bg-transparent backdrop-blur px-1 -ml-1"
+                                ? "bg-black backdrop-blur px-1 -ml-1"
                                 : ""
                                 }`}
                         >
@@ -302,7 +302,7 @@ const Select: React.FC<SelectProps> = ({
                                 }),
                                 menu: (base) => ({
                                     ...base,
-                                    backgroundColor: "#1A1A1A",
+                                    backgroundColor: "#000000",
                                     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
                                     borderRadius: selectRounded,
                                     top: "calc(100% + 6px)",
@@ -402,7 +402,7 @@ const Select: React.FC<SelectProps> = ({
                                 }),
                                 menu: (base) => ({
                                     ...base,
-                                    backgroundColor: "#1A1A1A",
+                                    backgroundColor: "#000000",
                                     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
                                     borderRadius: selectRounded,
                                     border: "1px solid #333",

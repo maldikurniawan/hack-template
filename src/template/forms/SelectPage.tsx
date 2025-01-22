@@ -1,4 +1,4 @@
-import { Card, Select } from "@/components";
+import { TerminalCard, Select } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 import { TbDownload, TbRecordMail } from "react-icons/tb";
@@ -149,8 +149,7 @@ const SelectPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					set the color of the Select.
@@ -174,11 +173,10 @@ const SelectPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Density */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Density</div>
+			<TerminalCard title="Density">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>density</span> prop is used to
 					set the density of the Select.
@@ -202,11 +200,10 @@ const SelectPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Rounded */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Rounded</div>
+			<TerminalCard title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>rounded</span> prop is used to
 					set the rounded of the Select.
@@ -230,11 +227,10 @@ const SelectPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the Select.
@@ -258,11 +254,10 @@ const SelectPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Variant */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Variant</div>
+			<TerminalCard title="Variant">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>variant</span> prop is used to
 					set the variant of the Select.
@@ -285,11 +280,10 @@ const SelectPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Disabled */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Disabled</div>
+			<TerminalCard title="Disabled">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>disabled</span> prop is used
 					to disable the Select.
@@ -311,11 +305,10 @@ const SelectPage = () => {
 						disabled
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Note & Error */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Note & Error</div>
+			<TerminalCard title="Note & Error">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>note</span> prop is used to
 					set the note of the Select.
@@ -344,11 +337,10 @@ const SelectPage = () => {
 						onChange={(e) => setValue(e)}
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Prepend & Append */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Prepend & Append</div>
+			<TerminalCard title="Prepend & Append">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>prepend</span> prop is used to
 					set the prepend of the Select.
@@ -377,11 +369,10 @@ const SelectPage = () => {
 						append={<TbRecordMail />}
 					/>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Multi */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Multi</div>
+			<TerminalCard title="Multi">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>multi</span> prop is used to
 					set multiple values of the Select.
@@ -396,11 +387,10 @@ const SelectPage = () => {
 					value={multiValue}
 					onChange={(e) => setMultiValue(e)}
 				/>
-			</Card>
+			</TerminalCard>
 
 			{/* Creatable */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Creatable</div>
+			<TerminalCard title="Creatable">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>creatable</span> prop is used
 					to set the creatable of the Select.
@@ -416,11 +406,10 @@ const SelectPage = () => {
 					value={multiValue}
 					onChange={(e) => setMultiValue(e)}
 				/>
-			</Card>
+			</TerminalCard>
 
 			{/* Clearable */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Clearable</div>
+			<TerminalCard title="Clearable">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>clearable</span> prop is used
 					to set the clearable of the Select.
@@ -435,11 +424,10 @@ const SelectPage = () => {
 					value={value}
 					onChange={(e) => setValue(e)}
 				/>
-			</Card>
+			</TerminalCard>
 
 			{/* Searchable */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Searchable</div>
+			<TerminalCard title="Searchable">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>searchable</span> prop is used
 					to set the searchable of the Select.
@@ -454,7 +442,7 @@ const SelectPage = () => {
 					value={value}
 					onChange={(e) => setValue(e)}
 				/>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

@@ -1,4 +1,4 @@
-import { Card, Tables } from "@/components";
+import { TerminalCard, Tables } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -71,8 +71,7 @@ const TablePage = () => {
 	return (
 		<div className="grid grid-cols-1 gap-4">
 			{/* Basic */}
-			<Card>
-				<div className="text-lg mb-4">Basic</div>
+			<TerminalCard title="Basic">
 				<div className="text-sm mb-3">
 					Tables component is a wrapper for HTML table element. It has 3 props:
 					size, density, tablefix, and height.
@@ -99,11 +98,10 @@ const TablePage = () => {
 						))}
 					</Tables.Body>
 				</Tables>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the table. It has 4 options: sm, md, lg, and xl.
@@ -127,11 +125,10 @@ const TablePage = () => {
 						))}
 					</Tables.Body>
 				</Tables>
-			</Card>
+			</TerminalCard>
 
 			{/* Density */}
-			<Card>
-				<div className="text-lg mb-2">Density</div>
+			<TerminalCard title="Density">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>density</span> prop is used to
 					set the density of the table. It has 3 options: tight, normal, and
@@ -198,11 +195,10 @@ const TablePage = () => {
 						))}
 					</Tables.Body>
 				</Tables>
-			</Card>
+			</TerminalCard>
 
 			{/* Table Fix */}
-			<Card>
-				<div className="text-lg mb-4">Table Fix</div>
+			<TerminalCard title="Table Fix">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>tablefix</span> prop is used
 					to set the table layout to fixed.
@@ -226,11 +222,10 @@ const TablePage = () => {
 						))}
 					</Tables.Body>
 				</Tables>
-			</Card>
+			</TerminalCard>
 
 			{/* Height & Sticky */}
-			<Card>
-				<div className="text-lg mb-4">Height & Sticky</div>
+			<TerminalCard title="Height & Sticky">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>height</span> prop is used to
 					set the height of the table. The{" "}
@@ -256,11 +251,10 @@ const TablePage = () => {
 						))}
 					</Tables.Body>
 				</Tables>
-			</Card>
+			</TerminalCard>
 
 			{/* Center */}
-			<Card>
-				<div className="text-lg mb-4">Center</div>
+			<TerminalCard title="Center">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>center</span> prop is used to
 					set the content of the table to center. It used in Tables.Header and
@@ -285,7 +279,7 @@ const TablePage = () => {
 						))}
 					</Tables.Body>
 				</Tables>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

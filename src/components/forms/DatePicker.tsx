@@ -148,7 +148,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className={`bg-[#1a1a1a] w-fit border border-[#333] z-10 ${position}`}
+                    className={`bg-black w-fit border border-[#0F0] z-10 ${position}`}
                 >
                     <DayPicker
                         required
@@ -167,16 +167,15 @@ const DatePicker: React.FC<DatePickerProps> = ({
                         }}
                         styles={{
                             dropdown: {
-                                backgroundColor: "#1D2426",
+                                backgroundColor: "#000",
                             },
                         }}
                         classNames={{
                             selected: datepickerColor,
                             caption_label: "text-white",
                             range_start: "rounded-s-full",
-                            range_middle: "bg-black/50",
                             range_end: "rounded-e-full",
-                            today: "text-[#5CED73] font-bold",
+                            today: "text-[#0F0] font-bold",
                             day: "hover:bg-white/10",
                         }}
                         mode={mode}
