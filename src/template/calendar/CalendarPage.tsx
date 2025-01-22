@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Card } from '@/components';
+import { Calendar, TerminalCard } from '@/components';
 
 const CalendarPage: React.FC = () => {
     // Example events
@@ -19,7 +19,7 @@ const CalendarPage: React.FC = () => {
     };
 
     return (
-        <Card>
+        <TerminalCard title='Calendar'>
             <div className='scroll-hidden calendar-wrapper'>
                 <Calendar
                     events={events}
@@ -33,7 +33,7 @@ const CalendarPage: React.FC = () => {
                     }}
                 />
             </div>
-        </Card>
+        </TerminalCard>
     );
 };
 

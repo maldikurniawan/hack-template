@@ -1,4 +1,4 @@
-import { Button, Card, Popover } from "@/components";
+import { Button, TerminalCard, Popover } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 
@@ -9,8 +9,7 @@ const PopoverPage = () => {
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Placement */}
 			<div className="col-span-full">
-				<Card>
-					<div className="text-lg font-normal mb-4">Placement</div>
+				<TerminalCard title="Placement">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>placement</span> prop is
 						used to set the position of the popover.
@@ -135,12 +134,11 @@ const PopoverPage = () => {
 							</div>
 						</Popover>
 					</div>
-				</Card>
+				</TerminalCard>
 			</div>
 
 			{/* Spacing */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Spacing</div>
+			<TerminalCard title="Spacing">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>spacing</span> prop is used to
 					set the distance between the popover and the button. The default value
@@ -186,11 +184,10 @@ const PopoverPage = () => {
 						</div>
 					</Popover>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Fill */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Fill</div>
+			<TerminalCard title="Fill">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>fill</span> prop is used to
 					set the minimum width of the popover to the width of the button.
@@ -215,12 +212,11 @@ const PopoverPage = () => {
 						</div>
 					</Popover>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Shift & Flip */}
 			<div className="col-span-full">
-				<Card>
-					<div className="text-lg font-normal mb-4">Shift & Flip</div>
+				<TerminalCard title="Shift & Flip">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>isShift</span> prop is used
 						to shift the popover if the popover is out of the screen. Default is
@@ -240,7 +236,7 @@ const PopoverPage = () => {
 							</div>
 						</Popover>
 					</div>
-				</Card>
+				</TerminalCard>
 			</div>
 		</div>
 	);

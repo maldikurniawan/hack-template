@@ -63,7 +63,7 @@ input[type]::-webkit-calendar-picker-indicator {
 }
 
 .calendar-wrapper table>thead {
-  background-color: #1A1A1A;
+  background-color: #000;
 }
 
 @keyframes scroll {

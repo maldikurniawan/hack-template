@@ -1,31 +1,26 @@
-import { Breadcrumb, Card } from "@/components"
+import { Breadcrumb, TerminalCard } from "@/components"
 
 const BreadcrumbPage = () => {
     const breadcrumbItems = [
         { label: "Home", href: "/" },
-        { label: "Components", href: "/" },
         { label: "UI Kit", href: "/" },
         { label: "Breadcrumb" },
     ];
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <Card>
-                <div className="text-lg font-normal mb-4">Basic</div>
+            <TerminalCard title="Basic">
                 <Breadcrumb items={breadcrumbItems} separator="slash" />
-            </Card>
-            <Card>
-                <div className="text-lg font-normal mb-4">Arrowed</div>
+            </TerminalCard>
+            <TerminalCard title="Arrowed">
                 <Breadcrumb items={breadcrumbItems} separator="arrow" />
-            </Card>
-            <Card>
-                <div className="text-lg font-normal mb-4">Dotted</div>
+            </TerminalCard>
+            <TerminalCard title="Dotted">
                 <Breadcrumb items={breadcrumbItems} separator="dot" />
-            </Card>
-            <Card>
-                <div className="text-lg font-normal mb-4">Arrowed Background</div>
+            </TerminalCard>
+            <TerminalCard title="Arrowed Background">
                 <Breadcrumb items={breadcrumbItems} variant="arrowed" />
-            </Card>
+            </TerminalCard>
         </div>
     )
 }

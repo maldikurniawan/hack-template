@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Carousel } from "@/components";
+import { TerminalCard, Carousel } from "@/components";
 
 const CarouselPage = () => {
     const [images] = useState([
@@ -13,50 +13,38 @@ const CarouselPage = () => {
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <Card>
-                <div className="text-lg font-normal mb-4">Basic</div>
-                <div>
-                    <Carousel
-                        images={images}
-                        variant="simple"
-                        navigation={true}
-                        pagination={true}
-                    />
-                </div>
-            </Card>
-            <Card>
-                <div className="text-lg font-normal mb-4">Autopaly</div>
-                <div>
-                    <Carousel
-                        images={images}
-                        variant="caption"
-                        autoplay={true}
-                        navigation={true}
-                    />
-                </div>
-            </Card>
-            <Card>
-                <div className="text-lg font-normal mb-4">Thumbnail</div>
-                <div>
-                    <Carousel
-                        images={images}
-                        variant="thumbnail"
-                        autoplay={true}
-                        loop={true}
-                        navigation={true}
-                        pagination={true}
-                    />
-                </div>
-            </Card>
-            <Card>
-                <div className="text-lg font-normal mb-4">EffectCards</div>
-                <div>
-                    <Carousel
-                        images={images}
-                        variant="EffectCards"
-                    />
-                </div>
-            </Card>
+            <TerminalCard title="Basic">
+                <Carousel
+                    images={images}
+                    variant="simple"
+                    navigation={true}
+                    pagination={true}
+                />
+            </TerminalCard>
+            <TerminalCard title="Autoplay">
+                <Carousel
+                    images={images}
+                    variant="caption"
+                    autoplay={true}
+                    navigation={true}
+                />
+            </TerminalCard>
+            <TerminalCard title="Thumbnail">
+                <Carousel
+                    images={images}
+                    variant="thumbnail"
+                    autoplay={true}
+                    loop={true}
+                    navigation={true}
+                    pagination={true}
+                />
+            </TerminalCard>
+            <TerminalCard title="EffectCards">
+                <Carousel
+                    images={images}
+                    variant="EffectCards"
+                />
+            </TerminalCard>
         </div>
     )
 }

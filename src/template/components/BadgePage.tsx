@@ -1,4 +1,4 @@
-import { Avatar, Badge, Button, Card } from "@/components";
+import { Avatar, Badge, Button, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 import { TbExclamationCircle } from "react-icons/tb";
@@ -8,8 +8,7 @@ const BadgePage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Placement */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Placement</div>
+			<TerminalCard title="Placement">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>placement</span> prop is used
 					to change the placement of the badge.
@@ -77,11 +76,10 @@ const BadgePage = () => {
 						</Avatar>
 					</Badge>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					change the color of the badge.
@@ -119,11 +117,10 @@ const BadgePage = () => {
 						</Avatar>
 					</Badge>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					change the size of the badge.
@@ -156,11 +153,10 @@ const BadgePage = () => {
 						</Avatar>
 					</Badge>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Rounded */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Rounded</div>
+			<TerminalCard title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>rounded</span> prop is used to
 					change the rounded of the badge.
@@ -188,11 +184,10 @@ const BadgePage = () => {
 						</Avatar>
 					</Badge>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Value */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Value</div>
+			<TerminalCard title="Value">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>value</span> prop is used to
 					set the value of the badge.
@@ -223,11 +218,10 @@ const BadgePage = () => {
 						<Button color="lightGreen">Notifikasi</Button>
 					</Badge>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Spacing & Skidding */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Spacing & Skidding</div>
+			<TerminalCard title="Spacing & Skidding">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>spacing</span> prop is used to
 					set the spacing of the badge. Default value is -12px.
@@ -244,7 +238,7 @@ const BadgePage = () => {
 						<Button color="lightGreen">-10px & -4px</Button>
 					</Badge>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

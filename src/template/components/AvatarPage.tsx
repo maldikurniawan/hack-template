@@ -1,4 +1,4 @@
-import { Avatar, Card } from "@/components";
+import { Avatar, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 import {
@@ -15,8 +15,7 @@ const AvatarPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					set the color of the avatar.
@@ -30,11 +29,10 @@ const AvatarPage = () => {
 					<Avatar color="lightRed">DA</Avatar>
 					<Avatar color="lightBlue">IN</Avatar>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Variant */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Variant</div>
+			<TerminalCard title="Variant">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>variant</span> prop is used to
 					set the variant of the avatar. Variant can be solid or tonal.
@@ -60,11 +58,10 @@ const AvatarPage = () => {
 						IN
 					</Avatar>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Rounded */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Rounded</div>
+			<TerminalCard title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>rounded</span> prop is used to
 					set the rounded of the avatar.
@@ -90,11 +87,10 @@ const AvatarPage = () => {
 						FU
 					</Avatar>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the avatar.
@@ -120,11 +116,10 @@ const AvatarPage = () => {
 						70
 					</Avatar>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Icon */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Icon</div>
+			<TerminalCard title="Icon">
 				<div className="text-sm mb-3">
 					You can use icon as avatar. Just put the icon inside the avatar.
 				</div>
@@ -149,11 +144,10 @@ const AvatarPage = () => {
 						<TbInfoCircle className="text-lg" />
 					</Avatar>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Image */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Image</div>
+			<TerminalCard title="Image">
 				<div className="text-sm mb-3">
 					You can use image as avatar. Just put the image inside the avatar.
 				</div>
@@ -175,7 +169,7 @@ const AvatarPage = () => {
 						<img src="https://i.pravatar.cc/500" alt="avatar" />
 					</Avatar>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

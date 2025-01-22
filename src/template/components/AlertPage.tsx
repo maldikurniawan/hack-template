@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
-import { Card, Alert, Button } from "@/components"
+import { TerminalCard, Alert, Button } from "@/components"
 import { PiCheck, PiExclamationMark, PiHouseLine, PiX } from "react-icons/pi";
 
 const AlertPage = () => {
@@ -10,8 +10,7 @@ const AlertPage = () => {
 	return (
 		<div className="flex flex-col gap-4 overflow-y-auto scroll-hidden">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					set the background color of the alert.
@@ -37,11 +36,10 @@ const AlertPage = () => {
 						Good morning! You have successfully logged in.
 					</Alert>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Icon */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Icon</div>
+			<TerminalCard title="Icon">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>icon</span> prop is used to
 					set the icon of the alert.
@@ -61,11 +59,10 @@ const AlertPage = () => {
 						Good morning! You have successfully logged in.
 					</Alert>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Closable */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Closable</div>
+			<TerminalCard title="Closable">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>closable</span> prop is used
 					to set the alert closable.
@@ -88,11 +85,10 @@ const AlertPage = () => {
 						</Button>
 					)}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Variant */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Variant</div>
+			<TerminalCard title="Variant">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>variant</span> prop is used to
 					set the icon of the alert.
@@ -127,11 +123,10 @@ const AlertPage = () => {
 						Good morning! You have successfully logged in.
 					</Alert>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Density */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Density</div>
+			<TerminalCard title="Density">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>density</span> prop is used to
 					set the padding of the alert.
@@ -148,7 +143,7 @@ const AlertPage = () => {
 						Good morning! You have successfully logged in.
 					</Alert>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

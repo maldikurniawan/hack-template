@@ -13,11 +13,11 @@ const Loading = ({ size = 20, loading = false, color = "lightGreen" }: LoadingPr
 
     const loadColors: Record<string, string> = {
         lightGreen: themeColor,
-        lightGray: "#B0B0B0",
-        lightPurple: "#B05CED",
-        lightYellow: "#EDDB5C",
-        lightBlue: "#5CB0ED",
-        lightRed: "#ED5C73",
+        lightGray: "#CCCCCC",
+        lightPurple: "#8000FF",
+        lightYellow: "#CCFF00",
+        lightBlue: "#00FFFF",
+        lightRed: "#FF0F0F",
     };
 
     const loadColor = loadColors[color] || color;

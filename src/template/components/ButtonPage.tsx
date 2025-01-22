@@ -1,4 +1,4 @@
-import { Button, ButtonLogin, Card } from "@/components";
+import { Button, ButtonLogin, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 
@@ -7,8 +7,7 @@ const ButtonPage = () => {
 	return (
 		<div className="grid grid-cols-1 gap-4">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					change the background color of the button.
@@ -22,11 +21,10 @@ const ButtonPage = () => {
 					<Button color="lightRed">Light Red</Button>
 					<Button color="lightBlue">Light Blue</Button>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Variant */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Variant</div>
+			<TerminalCard title="Variant">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>variant</span> prop is used to
 					change the variant of the button.
@@ -119,11 +117,10 @@ const ButtonPage = () => {
 						Light Blue
 					</Button>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the button.
@@ -149,11 +146,10 @@ const ButtonPage = () => {
 						<span className="text-xs">40</span>
 					</Button>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Rounded */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Rounded</div>
+			<TerminalCard title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>rounded</span> prop is used to
 					set the rounded of the button.
@@ -179,11 +175,10 @@ const ButtonPage = () => {
 						Full
 					</Button>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Animated */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Animation</div>
+			<TerminalCard title="Animation">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>animation</span> prop is used to
 					set the animation of the button.
@@ -196,7 +191,7 @@ const ButtonPage = () => {
 						</div>
 					</ButtonLogin>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

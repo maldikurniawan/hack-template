@@ -45,7 +45,7 @@ const CollapsibleItem: FC<CollapsibleItemProps> = ({
             disabled={disabled}
             initialEntered={initialExpanded}
             className={`text-sm mb-2 ${themeSkin === "default"
-                ? "border border-[#333] bg-[#1a1a1a]"
+                ? "border border-[#0F0] bg-black"
                 : themeSkin
                 }`}
             buttonProps={{

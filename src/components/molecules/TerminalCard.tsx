@@ -25,13 +25,13 @@ const TerminalCard: React.FC<TerminalCardProps> = ({
                     {icon && <div className="text-2xl">{icon}</div>}
                     {title && <div className="text-lg">{title}</div>}
                 </div>
-                <div className="text-4xl flex">
+                <div className="text-4xl flex cursor-pointer">
                     <VscChromeMinimize className="hover:bg-black/30 p-2"/>
                     <FaRegWindowMaximize className="hover:bg-black/30 p-2"/>
                     <FaTimes className="hover:bg-red-600 p-2"/>
                 </div>
             </div>
-            <div className="text-white relative border border-[#0F0] border-t-0">{children}</div>
+            <div className="text-white relative border border-[#0F0] border-t-0 p-4">{children}</div>
         </div>
     );
 };

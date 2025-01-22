@@ -30,11 +30,11 @@ const Radio: FC<RadioProps> = ({
     // Color mapping
     const checkboxColors: Record<string, string> = {
         lightGreen: themeColor,
-        lightGray: "#B0B0B0",
-        lightPurple: "#B05CED",
-        lightYellow: "#EDDB5C",
-        lightRed: "#ED5C73",
-        lightBlue: "#5CB0ED",
+        lightGray: "#CCCCCC",
+        lightPurple: "#8000FF",
+        lightYellow: "#CCFF00",
+        lightRed: "#FF0F0F",
+        lightBlue: "#00FFFF",
     };
 
     const checkboxColor = checkboxColors[color] || color;

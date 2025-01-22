@@ -7,6 +7,7 @@ const CardStatisticPage = () => {
 			<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
 				<CardStatistic
 					value={99}
+					color="lightGray"
 					title="Harga Bulan Ini"
 					description="Bulan ini Naik 20%"
 					icon={<TbAddressBook />}
@@ -35,7 +36,9 @@ const CardStatisticPage = () => {
 
 				<div className="col-span-full">
 					<Card variant="secondary">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, at repudiandae ab pariatur et amet quia quam? Veniam repudiandae praesentium, eos laboriosam veritatis consectetur ipsum sunt magni ipsam maiores fugit?
+						<div className="text-white">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, at repudiandae ab pariatur et amet quia quam? Veniam repudiandae praesentium, eos laboriosam veritatis consectetur ipsum sunt magni ipsam maiores fugit?
+						</div>
 					</Card>
 				</div>
 			</div>

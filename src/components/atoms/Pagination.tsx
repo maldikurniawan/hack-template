@@ -40,11 +40,11 @@ const Pagination: React.FC<PaginationProps> = ({
 
     const colorPaginations: Record<string, string> = {
         lightGreen: themeColor,
-        lightGray: "#B0B0B0",
-        lightPurple: "#B05CED",
-        lightYellow: "#EDDB5C",
-        lightRed: "#ED5C73",
-        lightBlue: "#5CB0ED",
+        lightGray: "#CCCCCC",
+        lightPurple: "#8000FF",
+        lightYellow: "#CCFF00",
+        lightRed: "#FF0F0F",
+        lightBlue: "#00FFFF",
     };
 
     const colorPagination = colorPaginations[activeColor] || activeColor;
@@ -73,7 +73,7 @@ const Pagination: React.FC<PaginationProps> = ({
         }[rounded] || "rounded-none";
 
     // Define shadow styles based on variant
-    const getShadowStyle = variant === "solid" ? "border border-[#333]" : "";
+    const getShadowStyle = variant === "solid" ? "border border-[#0F0]" : "";
 
     const disabledColor = "#FFFFFF50";
 

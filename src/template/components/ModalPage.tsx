@@ -1,4 +1,4 @@
-import { Button, Card, Modal } from "@/components";
+import { Button, TerminalCard, Modal } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -12,8 +12,7 @@ const ModalPage = () => {
 	return (
 		<>
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-				<Card>
-					<div className="text-lg font-normal mb-4">Basic</div>
+				<TerminalCard title="Basic">
 					<div className="text-sm mb-3">
 						Basic modal with close button and backdrop click to close. Use{" "}
 						<span style={{ color: themeColor }}>show</span> and{" "}
@@ -26,10 +25,9 @@ const ModalPage = () => {
 							Basic
 						</Button>
 					</div>
-				</Card>
+				</TerminalCard>
 
-				<Card>
-					<div className="text-lg font-normal mb-4">Persistent</div>
+				<TerminalCard title="Persistent">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>persistent</span> prop is
 						used to make the modal cant be closed by backdrop click.
@@ -40,10 +38,9 @@ const ModalPage = () => {
 							Persistent
 						</Button>
 					</div>
-				</Card>
+				</TerminalCard>
 
-				<Card>
-					<div className="text-lg font-normal mb-4">Width & Height</div>
+				<TerminalCard title="Width & Height">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>width</span> and{" "}
 						<span style={{ color: themeColor }}>height</span> props are used to
@@ -60,10 +57,9 @@ const ModalPage = () => {
 							Open Modal
 						</Button>
 					</div>
-				</Card>
+				</TerminalCard>
 
-				<Card>
-					<div className="text-lg font-normal mb-4">Button Close</div>
+				<TerminalCard title="Button Close">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>btnClose</span> prop is used
 						to show the close button. Default is true.
@@ -78,7 +74,7 @@ const ModalPage = () => {
 							Button Close False
 						</Button>
 					</div>
-				</Card>
+				</TerminalCard>
 			</div>
 
 			{/* Basic */}

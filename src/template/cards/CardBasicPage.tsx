@@ -56,7 +56,7 @@ const CardBasicPage = () => {
 						<div>
 							<div className="text-sm font-bold mb-1">{item.title}</div>
 							<div className="text-xs mb-4">{item.description}</div>
-							<div className="text-[10px] flex justify-end items-end text-white/50">
+							<div className="text-[10px] flex justify-end items-end">
 								{item.date}
 							</div>
 						</div>

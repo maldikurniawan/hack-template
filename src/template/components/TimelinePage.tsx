@@ -1,4 +1,4 @@
-import { Card, Timeline } from "@/components";
+import { Card, TerminalCard, Timeline } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import moment from "moment";
 import { useContext, useState } from "react";
@@ -109,8 +109,7 @@ const TimelinePage = () => {
 	return (
 		<div className="grid md:grid-cols-2 gap-4">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					set the color of the timeline dot.
@@ -133,11 +132,10 @@ const TimelinePage = () => {
 						</Timeline.Item>
 					))}
 				</Timeline>
-			</Card>
+			</TerminalCard>
 
 			{/* Variant */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Variant</div>
+			<TerminalCard title="Variant">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>variant</span> prop is used to
 					set the variant of the timeline dot.
@@ -160,18 +158,17 @@ const TimelinePage = () => {
 						</Timeline.Item>
 					))}
 				</Timeline>
-			</Card>
+			</TerminalCard>
 
 			{/* Multi & Position */}
 			<div className="col-span-full">
-				<Card>
-					<div className="text-lg font-normal mb-4">Multi & Position</div>
+				<TerminalCard title="Multi & Position">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>multi</span> prop is set in
 						the Timeline component to enable multi-column layout.
 						<br />
 						The <span style={{ color: themeColor }}>position</span> prop is set
-						in the Timeline.Item component to set the position of the timeline
+						in the Timeline. Item component to set the position of the timeline
 						dot. The default position is right.
 					</div>
 
@@ -187,16 +184,16 @@ const TimelinePage = () => {
 								size="xl"
 							>
 								<Card variant={item.variant}>
-									<div className="text-white">
+									<div className="text-black">
 										<div className="font-bold text-sm">{item.title}</div>
 										<div className="text-xs mb-4">{item.description}</div>
-										<div className="text-[10px] text-white/75">{item.date}</div>
+										<div className="text-[10px] text-black">{item.date}</div>
 									</div>
 								</Card>
 							</Timeline.Item>
 						))}
 					</Timeline>
-				</Card>
+				</TerminalCard>
 			</div>
 		</div>
 	);

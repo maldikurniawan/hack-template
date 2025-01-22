@@ -1,4 +1,4 @@
-import { Collapsible, Card } from "@/components";
+import { Collapsible, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 import { BiCheck } from "react-icons/bi";
@@ -12,8 +12,7 @@ const CollapsiblePage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Collapsible */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Collapsible</div>
+			<TerminalCard title="Collapsible">
 				<div className="text-sm mb-3">
 					Collapsible or known as Accordion is a component that can be used to
 					hide or show content.
@@ -29,11 +28,10 @@ const CollapsiblePage = () => {
 						))}
 					</Collapsible>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Multiple */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Multiple</div>
+			<TerminalCard title="Multiple">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>multiple</span> prop is used
 					to allow multiple items to be opened at the same time.
@@ -49,11 +47,10 @@ const CollapsiblePage = () => {
 						))}
 					</Collapsible>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Header */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Header</div>
+			<TerminalCard title="Header">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>header</span> prop is used to
 					set the header of the collapsible item.
@@ -79,11 +76,10 @@ const CollapsiblePage = () => {
 						</Collapsible.Item>
 					</Collapsible>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Icon */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Icon</div>
+			<TerminalCard title="Icon">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>icon</span> prop is used to
 					custom icon of the collapsible item.
@@ -114,11 +110,10 @@ const CollapsiblePage = () => {
 						</Collapsible.Item>
 					</Collapsible>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Initial Expanded */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Initial Expanded</div>
+			<TerminalCard title="Initial Expanded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>initialexpanded</span> prop is
 					used to make the collapsible item open by default. It can be used in a
@@ -141,11 +136,10 @@ const CollapsiblePage = () => {
 						</Collapsible.Item>
 					</Collapsible>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Disabled */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Disabled</div>
+			<TerminalCard title="Disabled">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>disabled</span> prop is used
 					to make the collapsible item disabled.
@@ -161,13 +155,9 @@ const CollapsiblePage = () => {
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
 							voluptatum.
 						</Collapsible.Item>
-						<Collapsible.Item header={"Item 3"}>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-							voluptatum.
-						</Collapsible.Item>
 					</Collapsible>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

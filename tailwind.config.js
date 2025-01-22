@@ -11,8 +11,8 @@ export default {
       },
       colors: {
         lightGreen: "#0F0",
-        lightGray: "#99CC99",
-        lightPurple: "#99FF99",
+        lightGray: "#CCCCCC",
+        lightPurple: "#8000FF",
         lightBlue: "#00FFFF",
         lightRed: "#FF0F0F",
         lightYellow: "#CCFF00",

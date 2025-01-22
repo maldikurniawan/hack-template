@@ -330,7 +330,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         show: false,
                     },
                 },
-                colors: ['#0F0', '#FF0F0F', '#CCFF00', '#00FFFF', '#99CC99', '#8000FF'],
+                colors: ['#0F0', '#FF0F0F', '#CCFF00', '#00FFFF', '#CCCCCC', '#8000FF'],
                 stroke: {
                     show: false,
                 },

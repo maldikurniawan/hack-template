@@ -1,4 +1,4 @@
-import { Chip, Card } from "@/components";
+import { Chip, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 
@@ -8,8 +8,7 @@ const ChipPage = () => {
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Color */}
 			<div className="col-span-full">
-				<Card>
-					<div className="text-lg font-normal mb-4">Color</div>
+				<TerminalCard title="Color">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>color</span> prop is used to
 						change the background color of the chip.
@@ -23,13 +22,12 @@ const ChipPage = () => {
 						<Chip color="lightRed">Light Red</Chip>
 						<Chip color="lightBlue">Light Blue</Chip>
 					</div>
-				</Card>
+				</TerminalCard>
 			</div>
 
 			{/* Variant */}
 			<div className="row-span-2">
-				<Card>
-					<div className="text-lg font-normal mb-4">Variant</div>
+				<TerminalCard title="Variant">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>variant</span> prop is used
 						to change the variant of the chip.
@@ -100,12 +98,11 @@ const ChipPage = () => {
 							Light Blue
 						</Chip>
 					</div>
-				</Card>
+				</TerminalCard>
 			</div>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the chip.
@@ -128,11 +125,10 @@ const ChipPage = () => {
 						X-Small
 					</Chip>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Rounded */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Rounded</div>
+			<TerminalCard title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>rounded</span> prop is used to
 					set the rounded of the chip.
@@ -158,7 +154,7 @@ const ChipPage = () => {
 						Full
 					</Chip>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

@@ -101,7 +101,7 @@ const Modal: React.FC<ModalProps> = ({
                         <ButtonRipple
                             color="#FFFFFF30"
                             onClick={() => setShow(false)}
-                            className={`bg-green-950 border border-[#333] w-8 h-8 text-white flex items-center justify-center ${themeSkin === "default" ? "shadow-lg" : themeSkin
+                            className={`bg-black border border-[#0F0] w-8 h-8 text-white flex items-center justify-center ${themeSkin === "default" ? "shadow-lg" : themeSkin
                                 }`}
                         >
                             <FiX />
@@ -109,7 +109,7 @@ const Modal: React.FC<ModalProps> = ({
                     </div>
                 )}
                 <div
-                    className={`max-h-[90vh] h-full w-full bg-[#001e00] overflow-y-auto custom-scroll ${themeSkin === "default" ? "shadow-lg" : themeSkin
+                    className={`max-h-[90vh] h-full w-full bg-black border border-[#0F0] overflow-y-auto custom-scroll ${themeSkin === "default" ? "shadow-lg" : themeSkin
                         }`}
                 >
                     {children}

@@ -1,4 +1,4 @@
-import { Button, Card, Tooltip } from "@/components";
+import { Button, TerminalCard, Tooltip } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 
@@ -8,8 +8,7 @@ const TooltipPage = () => {
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Placement */}
 			<div className="col-span-full">
-				<Card>
-					<div className="text-lg font-normal mb-4">Placement</div>
+				<TerminalCard title="Placement">
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>placement</span> prop is
 						used to set the position of the tooltip. The default value is top.
@@ -53,12 +52,11 @@ const TooltipPage = () => {
 							<Button color="lightGreen">Bottom End</Button>
 						</Tooltip>
 					</div>
-				</Card>
+				</TerminalCard>
 			</div>
 
 			{/* Tooltip */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Tooltip</div>
+			<TerminalCard title="Tooltip">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>tooltip</span> prop is used to
 					set the text of the tooltip.
@@ -69,11 +67,10 @@ const TooltipPage = () => {
 						<Button color="lightGreen">Tooltip Text</Button>
 					</Tooltip>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Spacing */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Spacing</div>
+			<TerminalCard title="Spacing">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>spacing</span> prop is used to
 					set the spacing between the tooltip and the reference element. The
@@ -94,11 +91,10 @@ const TooltipPage = () => {
 						<Button color="lightGreen">Spacing 20</Button>
 					</Tooltip>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Fill */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Fill</div>
+			<TerminalCard title="Fill">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>fill</span> prop is used to
 					set the minimum width of the tooltip to the width of the reference
@@ -110,11 +106,10 @@ const TooltipPage = () => {
 						<Button color="lightGreen">Tooltip Fill</Button>
 					</Tooltip>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Delay */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Delay</div>
+			<TerminalCard title="Delay">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>delay</span> prop is used to
 					set the delay of the tooltip to open in milliseconds. The default
@@ -132,7 +127,7 @@ const TooltipPage = () => {
 						<Button color="lightGreen">Delay 1000</Button>
 					</Tooltip>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

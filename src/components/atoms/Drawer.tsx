@@ -57,18 +57,18 @@ const Drawer = ({
     return (
         <div
             ref={ref}
-            className={`fixed z-[999999] bg-[#001e00]/90 backdrop-blur-sm text-white h-screen shadow-2xl transition-[right,top] duration-500`}
+            className={`fixed z-[999999] bg-black/90 backdrop-blur-sm text-[#0F0] h-screen shadow-2xl transition-[right,top] duration-500`}
             style={{
                 ...style,
             }}
         >
-            <div className="sticky top-0 p-4 border-b border-white flex items-center justify-between">
+            <div className="sticky top-0 p-4 border-b border-[#0F0] flex items-center justify-between">
                 <div>
                     <div className="leading-none">{title}</div>
-                    <div className="text-xs text-white leading-none">{description}</div>
+                    <div className="text-xs text-[#0F0] leading-none">{description}</div>
                 </div>
                 <ButtonRipple
-                    className="p-2 rounded-full transition-[background] text-white hover:bg-white hover:text-black"
+                    className="p-2 rounded-full transition-[background] text-[#0F0] hover:bg-[#0F0] hover:text-black"
                     onClick={() => setOpen(false)}
                 >
                     <TbX />

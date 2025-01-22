@@ -1,4 +1,4 @@
-import { Card, List } from "@/components";
+import { TerminalCard, List } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 import { TbExclamationCircle, TbFolder } from "react-icons/tb";
@@ -103,8 +103,7 @@ const ListPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Color</div>
+			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>color</span> prop is used to
 					change the background color of the list.
@@ -128,11 +127,10 @@ const ListPage = () => {
 						</List>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Rounded */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Rounded</div>
+			<TerminalCard title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>rounded</span> prop is used to
 					change the rounded of the list.
@@ -156,11 +154,10 @@ const ListPage = () => {
 						</List>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Density */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Density</div>
+			<TerminalCard title="Density">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>density</span> prop is used to
 					change the density of the list.
@@ -184,11 +181,10 @@ const ListPage = () => {
 						</List>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Prefix & Suffix */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Prefix & Suffix</div>
+			<TerminalCard title="Prefix & Suffix">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>prefix</span> prop is used to
 					add prefix to the list. The{" "}
@@ -200,7 +196,7 @@ const ListPage = () => {
 					<List prefix={<TbFolder />}>List with prefix</List>
 					<List suffix={<TbExclamationCircle />}>List with suffix</List>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

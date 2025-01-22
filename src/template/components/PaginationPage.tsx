@@ -1,4 +1,4 @@
-import { Card, Pagination } from "@/components";
+import { TerminalCard, Pagination } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -104,8 +104,7 @@ const PaginationPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Active Color */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Active Color</div>
+			<TerminalCard title="Active Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>activeColor</span> prop is
 					used to set the color of the active page.
@@ -127,11 +126,10 @@ const PaginationPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Size */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Size</div>
+			<TerminalCard title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>size</span> prop is used to
 					set the size of the pagination.
@@ -153,11 +151,10 @@ const PaginationPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Rounded */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Rounded</div>
+			<TerminalCard title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>rounded</span> prop is used to
 					set the rounded of the pagination.
@@ -179,11 +176,10 @@ const PaginationPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Variant */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Variant</div>
+			<TerminalCard title="Variant">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>variant</span> prop is used to
 					set the variant of the pagination.
@@ -205,7 +201,7 @@ const PaginationPage = () => {
 						/>
 					))}
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

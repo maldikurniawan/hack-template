@@ -1,4 +1,4 @@
-import { Card, Tabs } from "@/components";
+import { Card, Tabs, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 
@@ -7,8 +7,7 @@ const TabsPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Basic */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Basic</div>
+			<TerminalCard title="Basic">
 				<div className="text-sm mb-3">
 					Tabs component is used to create a tabbed interface. It can be used to
 					create horizontal or vertical tabs.
@@ -24,11 +23,10 @@ const TabsPage = () => {
 						</Card>
 					</Tabs>
 				</div>
-			</Card>
+			</TerminalCard>
 
 			{/* Vertical */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Vertical</div>
+			<TerminalCard title="Vertical">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>vertical</span> prop is used
 					to set the tabs to vertical.
@@ -51,7 +49,7 @@ const TabsPage = () => {
 						</Card>
 					</Tabs>
 				</div>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };

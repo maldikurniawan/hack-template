@@ -1,4 +1,4 @@
-import { Button, Card, Drawer } from "@/components";
+import { Button, TerminalCard, Drawer } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
 
@@ -12,8 +12,7 @@ const DrawerPage = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			{/* Title & Description */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Title & Description</div>
+			<TerminalCard title="Title & Description">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>title</span> prop is used to
 					set the title of the drawer. The{" "}
@@ -24,11 +23,10 @@ const DrawerPage = () => {
 				<Button onClick={() => setDrawer(true)} color="lightGreen">
 					Open Drawer
 				</Button>
-			</Card>
+			</TerminalCard>
 
 			{/* Width */}
-			<Card>
-				<div className="text-lg font-normal mb-4">Width</div>
+			<TerminalCard title="Width">
 				<div className="text-sm mb-3">
 					The <span style={{ color: themeColor }}>width</span> prop is used to
 					set the width of the drawer. The default width is 380px.
@@ -71,7 +69,7 @@ const DrawerPage = () => {
 				>
 					50% Drawer
 				</Drawer>
-			</Card>
+			</TerminalCard>
 		</div>
 	);
 };
