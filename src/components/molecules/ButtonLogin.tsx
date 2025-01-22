@@ -42,10 +42,10 @@ const StyledWrapper = styled.div`
     background-image: linear-gradient(#212121, #212121),
       linear-gradient(
         137.48deg,
-        #0b3d0b 10%,
-        #145a32 45%,
-        #1e8449 67%,
-        #28a745 87%
+        #0B3D0B 10%,
+        #145A32 45%,
+        #1E8449 67%,
+        #0F0 87%
       );
     background-origin: border-box;
     background-clip: content-box, border-box;

@@ -1,5 +1,25 @@
-import { Card, Charts } from "@/components"
+import {
+    Charts,
+    FingerPrint,
+    HackLoader,
+    Molecules,
+    TerminalCard
+} from "@/components"
+import { GoCommandPalette } from "react-icons/go";
 import { useState } from "react";
+import {
+    FaChartArea,
+    FaChartBar,
+    FaChartLine,
+    FaChartPie,
+    FaDownload,
+    FaFingerprint
+} from "react-icons/fa";
+import { SiMoleculer } from "react-icons/si";
+import { RiDonutChartFill } from "react-icons/ri";
+import { GrRadialSelected } from "react-icons/gr";
+import { PiChartPolar } from "react-icons/pi";
+import { TbChartRadar } from "react-icons/tb";
 
 const Dashboard = () => {
     const [text] = useState(
@@ -7,57 +27,62 @@ const Dashboard = () => {
     );
     return (
         <div className="text-white gap-4 grid grid-cols-1 lg:grid-cols-3">
-            {[...Array(6)].map((_, index) => (
-                <Card>
-                    <div key={index} className="w-full h-[320px] p-4 flex flex-col">
-                        <div className="font-bold mb-4 truncate">Scanning</div>
+            {[...Array(1)].map((_, index) => (
+                <TerminalCard icon={<GoCommandPalette />} title="Scanning">
+                    <div key={index} className="w-full h-[315px] p-4 flex flex-col">
                         <div className="flex-1 overflow-hidden scroll-hidden text-ellipsis relative">
                             <div className="absolute animate-scroll break-words ">
                                 {text}
                             </div>
                         </div>
                     </div>
-                </Card>
+                </TerminalCard>
             ))}
-            <Card>
-                <div className="font-bold px-4 w-fit mt-2">Monthly Visitors</div>
+            <TerminalCard icon={<FaChartLine />} title="Monthly Visitors">
                 <Charts variant="line" />
-            </Card>
-            <Card>
-                <div className="font-bold px-4 w-fit mt-2">Area Chart</div>
+            </TerminalCard>
+            <TerminalCard icon={<FaFingerprint />} title="Finger Print">
+                <FingerPrint />
+            </TerminalCard>
+            <TerminalCard icon={<FaChartArea />} title="Area Chart">
                 <Charts variant="area" />
-
-            </Card>
-            <Card>
-                <div className="font-bold px-4 w-fit mt-2">Column Chart</div>
+            </TerminalCard>
+            <TerminalCard icon={<FaDownload />} title="Downloading">
+                <div className="flex justify-center items-center">
+                    <HackLoader />
+                </div>
+            </TerminalCard>
+            <TerminalCard icon={<FaChartBar />} title="Bar Chart">
                 <Charts variant="bar" />
-            </Card>
-            <Card>
-                <div className="font-bold px-4 w-fit mt-2">Pie Chart</div>
+            </TerminalCard>
+            <TerminalCard icon={<SiMoleculer />} title="Molecules">
+                <div className="h-[300px]">
+                    <Molecules />
+                </div>
+            </TerminalCard>
+            <TerminalCard icon={<FaChartPie />} title="Pie Chart">
                 <div className="flex justify-center items-center text-center">
                     <Charts variant="pie" />
                 </div>
-            </Card>
-            <Card>
-                <div className="font-bold px-4 w-fit mt-2">Donut Chart</div>
+            </TerminalCard>
+            <TerminalCard icon={<RiDonutChartFill />} title="Donut Chart">
                 <div className="flex justify-center items-center text-center">
                     <Charts variant="donut" />
                 </div>
-            </Card>
-            <Card>
-                <div className="font-bold px-4 w-fit mt-2">Radial Bar Chart</div>
-                <Charts variant="radialBar" />
-            </Card>
-            <Card>
-                <div className="font-bold px-4 w-fit mt-2">Polar Area Chart</div>
-                <div className="flex justify-center items-center text-center">
+            </TerminalCard>
+            <TerminalCard icon={<GrRadialSelected />} title="Radial Bar Chart">
+                <div className="h-[315px]">
+                    <Charts variant="radialBar" />
+                </div>
+            </TerminalCard>
+            <TerminalCard icon={<PiChartPolar />} title="Polar Area Chart">
+                <div className="flex justify-center items-center text-center h-[315px]">
                     <Charts variant="polarArea" />
                 </div>
-            </Card>
-            <Card>
-                <div className="font-bold px-4 w-fit mt-2">Radar Chart</div>
+            </TerminalCard>
+            <TerminalCard icon={<TbChartRadar />} title="Radar Chart">
                 <Charts variant="radar" />
-            </Card>
+            </TerminalCard>
         </div >
     )
 }

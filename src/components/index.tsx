@@ -16,9 +16,11 @@ import ColorPicker from "./forms/ColorPicker";
 import Collapsible from "./atoms/Collapsible";
 import DatePicker from "./forms/DatePicker";
 import Drawer from "./atoms/Drawer";
+import FingerPrint from "./molecules/FingerPrint";
 import FileInput from "./forms/FileInput";
 import FileInputForm from "./forms/FileInputForm";
 import Footer from "./layout/Footer";
+import HackLoader from "./molecules/HackLoader";
 import Header from "./layout/Header";
 import Invoice from "./molecules/Invoice";
 import Kuitansi from "./molecules/Kuitansi";
@@ -28,6 +30,7 @@ import List from "./atoms/List";
 import Loading from "./atoms/Loading";
 import Loader from "./molecules/Loader";
 import Modal from "./atoms/Modal";
+import Molecules from "./molecules/Molecules";
 import MonthPicker from "./forms/MonthPicker";
 import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
@@ -38,6 +41,7 @@ import Switch from "./forms/Switch";
 import SwitchTheme from "./molecules/SwitchTheme";
 import Tables from "./molecules/Tables";
 import Tabs from "./atoms/Tabs";
+import TerminalCard from "./molecules/TerminalCard";
 import TextArea from "./forms/TextArea";
 import TextField from "./forms/TextField";
 import Timeline from "./atoms/Timeline";
@@ -62,9 +66,11 @@ export {
     Collapsible,
     DatePicker,
     Drawer,
+    FingerPrint,
     FileInput,
     FileInputForm,
     Footer,
+    HackLoader,
     Header,
     Invoice,
     Kuitansi,
@@ -74,6 +80,7 @@ export {
     Loading,
     Loader,
     Modal,
+    Molecules,
     MonthPicker,
     Pagination,
     Popover,
@@ -84,6 +91,7 @@ export {
     SwitchTheme,
     Tables,
     Tabs,
+    TerminalCard,
     TextArea,
     TextField,
     Timeline,

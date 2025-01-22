@@ -19,10 +19,10 @@ const Header: React.FC<HeaderProps> = ({
     return (
         <Fragment>
             <div className="p-4 bg-black z-10">
-                <div className="w-full flex bg-[#001e00]/50 py-2 backdrop-blur-xl justify-between items-center px-3 relative border border-[#001e00]">
+                <div className="w-full flex bg-black py-2 backdrop-blur-xl justify-between items-center px-3 relative border border-[#0F0]">
                     <div
                         onClick={() => setSideOpen(!sideOpen)}
-                        className="p-1 border-[#001e00] border-2 hover:bg-[#5ced73] hover:text-black text-white text-xl cursor-pointer transition-all"
+                        className="p-1 border-[#0F0] border-2 hover:bg-[#0F0] hover:text-black text-white text-xl cursor-pointer transition-all"
                     >
                         <HiMenuAlt2 />
                     </div>
@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({
                         }
                     >
                         <div className="text-sm w-full md:min-w-[260px] text-white">
-                            <div className="p-4 border-b">
+                            <div className="p-4 border-b border-[#0F0]">
                                 <div className="flex gap-2 items-center">
                                     <div className="w-fit">
                                         <Avatar color="lightGreen">AD</Avatar>

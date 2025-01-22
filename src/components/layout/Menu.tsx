@@ -81,8 +81,8 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                 <div className="mb-1 px-3 w-full text-sm">
                                     <div
                                         className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${isActive
-                                            ? "bg-[#5ced73] text-black"
-                                            : "hover:bg-[#5ced73] hover:text-black"
+                                            ? "bg-[#0F0] text-black"
+                                            : "hover:bg-[#0F0] hover:text-black"
                                             }`}
                                     >
                                         <span className="flex items-center gap-2">
@@ -109,10 +109,10 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                             >
                                 <div
                                     className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${nav[typeof item.name === "string" ? item.name : ""]
-                                        ? "bg-[#5ced73] text-black"
-                                        : "hover:bg-[#5ced73] hover:text-black"
+                                        ? "bg-[#0F0] text-black"
+                                        : "hover:bg-[#0F0] hover:text-black"
                                         } ${pathname.split("/")[2] === item.name
-                                            ? "bg-[#5ced73] text-black"
+                                            ? "bg-[#0F0] text-black"
                                             : ""
                                         }`}
                                 >
@@ -152,8 +152,8 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                                 {({ isActive }) => (
                                                     <div
                                                         className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${isActive
-                                                            ? "bg-[#5ced73] text-black"
-                                                            : "hover:bg-[#5ced73] hover:text-black"
+                                                            ? "bg-[#0F0] text-black"
+                                                            : "hover:bg-[#0F0] hover:text-black"
                                                             }`}
                                                     >
                                                         <span className="flex items-center gap-1">

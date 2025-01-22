@@ -45,11 +45,11 @@ const Login: React.FC = () => {
 								alt="Logo Anonymous"
 								className="w-20 h-20 rounded-full"
 							/>
-							<div className="text-xl text-green-600 font-bold text-center">
+							<div className="text-xl text-[#0F0] font-bold text-center">
 								Anonymous
 							</div>
 						</Link>
-						<form onSubmit={formik.handleSubmit} className="space-y-4 text-green-600">
+						<form onSubmit={formik.handleSubmit} className="space-y-4 text-[#0F0]">
 							<TextField
 								label="Username"
 								id="username"
@@ -76,7 +76,7 @@ const Login: React.FC = () => {
 									error={formik.touched.password && formik.errors.password}
 								/>
 								<div
-									className="absolute top-7 text-green-600 right-2 cursor-pointer"
+									className="absolute top-7 text-[#0F0] right-2 cursor-pointer"
 									onClick={() => setIsShow(!isShow)}
 								>
 									{isShow ? <TbEyeOff size={24} /> : <TbEye size={24} />}

@@ -22,7 +22,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     type: 'line',
                     toolbar: { show: false },
                 },
-                colors: ['#5CED73'],
+                colors: ['#0F0'],
                 tooltip: {
                     marker: { show: false },
                     y: {
@@ -70,7 +70,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
             series: [
                 {
                     name: 'Visitor',
-                    data: [16800, 16800, 15500, 17800, 15500, 17000],
+                    data: [148, 168, 155, 178, 155],
                 },
             ],
             options: {
@@ -80,7 +80,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     zoom: { enabled: false },
                     toolbar: { show: false },
                 },
-                colors: ['#805dca'],
+                colors: ['#0F0'],
                 dataLabels: {
                     enabled: false,
                 },
@@ -107,7 +107,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         },
                     },
                 },
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
                 legend: {
                     horizontalAlign: 'left',
                 },
@@ -142,7 +142,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     zoom: { enabled: false },
                     toolbar: { show: false },
                 },
-                colors: ['#805dca', '#e7515a'],
+                colors: ['#0F0', '#00FFFF'],
                 dataLabels: {
                     enabled: false,
                 },
@@ -215,7 +215,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     },
                 },
                 labels: ['Team A', 'Team B', 'Team C', 'Team D'],
-                colors: ['#4361ee', '#805dca', '#00ab55', '#e7515a'],
+                colors: ['#0F0', '#FF0F0F', '#CCFF00', '#00FFFF'],
                 responsive: [
                     {
                         breakpoint: 480,
@@ -254,7 +254,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     show: false,
                 },
                 labels: ['Team A', 'Team B', 'Team C'],
-                colors: ['#4361ee', '#805dca', '#e2a03f'],
+                colors: ['#8000FF', '#0F0', '#CCFF00'],
                 responsive: [
                     {
                         breakpoint: 480,
@@ -286,7 +286,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         show: false,
                     },
                 },
-                colors: ['#2563eb', '#9333ea', '#ca8a04'],
+                colors: ['#0F0', '#8000FF', '#CCFF00'],
                 grid: {
                     borderColor: '#FFF',
                 },
@@ -330,7 +330,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         show: false,
                     },
                 },
-                colors: ['#4361ee', '#805dca', '#00ab55', '#e7515a', '#e2a03f', '#2196f3', '#3b3f5c'],
+                colors: ['#0F0', '#FF0F0F', '#CCFF00', '#00FFFF', '#99CC99', '#8000FF'],
                 stroke: {
                     show: false,
                 },
@@ -391,7 +391,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         show: false,
                     },
                 },
-                colors: ['#4361ee'],
+                colors: ['#0F0'],
                 xaxis: {
                     categories: ['January', 'February', 'March', 'April', 'May', 'June'],
                 },
