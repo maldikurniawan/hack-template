@@ -142,7 +142,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     zoom: { enabled: false },
                     toolbar: { show: false },
                 },
-                colors: ['#0F0', '#00FFFF'],
+                colors: ['#0F0', '#0000FF'],
                 dataLabels: {
                     enabled: false,
                 },
@@ -215,7 +215,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     },
                 },
                 labels: ['Team A', 'Team B', 'Team C', 'Team D'],
-                colors: ['#0F0', '#FF0F0F', '#CCFF00', '#00FFFF'],
+                colors: ['#0F0', '#FF0000', '#FFFF00', '#0000FF'],
                 responsive: [
                     {
                         breakpoint: 480,
@@ -254,7 +254,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     show: false,
                 },
                 labels: ['Team A', 'Team B', 'Team C'],
-                colors: ['#8000FF', '#0F0', '#CCFF00'],
+                colors: ['#9B30FF', '#0F0', '#FFFF00'],
                 responsive: [
                     {
                         breakpoint: 480,
@@ -286,7 +286,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         show: false,
                     },
                 },
-                colors: ['#0F0', '#8000FF', '#CCFF00'],
+                colors: ['#0F0', '#9B30FF', '#FFFF00'],
                 grid: {
                     borderColor: '#FFF',
                 },
@@ -330,7 +330,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                         show: false,
                     },
                 },
-                colors: ['#0F0', '#FF0F0F', '#CCFF00', '#00FFFF', '#CCCCCC', '#8000FF'],
+                colors: ['#0F0', '#FF0000', '#FFFF00', '#0000FF', '#BEBEBE', '#9B30FF'],
                 stroke: {
                     show: false,
                 },

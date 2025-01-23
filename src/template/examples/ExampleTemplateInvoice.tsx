@@ -28,13 +28,13 @@ const ExampleTemplateInvoice = () => {
 			address: "Jl. Pulau Legundi gg family no 56",
 			phone: "08123456789",
 		},
-		date: "20 November 2023",
-		dueDate: "5 Desember 2023",
+		date: "20 November 2025",
+		dueDate: "5 Desember 2025",
 		items: [
 			{
 				id: 1,
 				name: "Internet Access Lite Download 10Mbps",
-				description: "Periode 20 November 2023",
+				description: "Periode 20 November 2025",
 				code: "UpTo10",
 				qty: 1,
 				price: 185000,
@@ -42,7 +42,7 @@ const ExampleTemplateInvoice = () => {
 			{
 				id: 2,
 				name: "Internet Access Lite Download 10Mbps",
-				description: "Periode 20 November 2023",
+				description: "Periode 20 November 2025",
 				code: "UpTo10",
 				qty: 2,
 				price: 185000,

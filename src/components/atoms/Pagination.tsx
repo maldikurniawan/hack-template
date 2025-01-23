@@ -40,11 +40,11 @@ const Pagination: React.FC<PaginationProps> = ({
 
     const colorPaginations: Record<string, string> = {
         lightGreen: themeColor,
-        lightGray: "#CCCCCC",
-        lightPurple: "#8000FF",
-        lightYellow: "#CCFF00",
-        lightRed: "#FF0F0F",
-        lightBlue: "#00FFFF",
+        lightGray: "#BEBEBE",
+        lightPurple: "#9B30FF",
+        lightYellow: "#FFFF00",
+        lightRed: "#FF0000",
+        lightBlue: "#0000FF",
     };
 
     const colorPagination = colorPaginations[activeColor] || activeColor;
@@ -83,13 +83,11 @@ const Pagination: React.FC<PaginationProps> = ({
                 <>
                     {/* Left Navigation */}
                     <button
+                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === 1 ? 'bg-[#1A1A1A90] cursor-not-allowed' : 'bg-[#1A1A1A]'} text-white`}
                         style={{
                             width: sizePagination,
                             height: sizePagination,
-                            backgroundColor: currentPage === 1 ? "#1a1a1a90" : "#1a1a1a",
-                            color: "white",
                         }}
-                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                         onClick={onPrevious}
                         disabled={currentPage === 1}
                     >
@@ -148,13 +146,11 @@ const Pagination: React.FC<PaginationProps> = ({
 
                     {/* Right Navigation */}
                     <button
+                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === lastPage ? 'bg-[#1A1A1A90] cursor-not-allowed' : 'bg-[#1A1A1A]'} text-white`}
                         style={{
                             width: sizePagination,
                             height: sizePagination,
-                            backgroundColor: currentPage === lastPage ? "#1a1a1a90" : "#1a1a1a",
-                            color: "white",
                         }}
-                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                         onClick={onNext}
                         disabled={currentPage === lastPage}
                     >

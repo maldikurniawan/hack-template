@@ -7,7 +7,6 @@ const CardStatisticPage = () => {
 			<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
 				<CardStatistic
 					value={99}
-					color="lightGray"
 					title="Harga Bulan Ini"
 					description="Bulan ini Naik 20%"
 					icon={<TbAddressBook />}

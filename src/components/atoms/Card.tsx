@@ -11,12 +11,12 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ children, icon, title, variant = "primary", onClick, }) => {
     // Define card color styles based on the variant
     const cardColors: { [key: string]: string } = {
-        primary: "bg-gradient-to-r from-[#00CC00] via-[#00CC00] to-green-900 text-black",
-        base: "bg-gradient-to-r from-[#CCCCCC] via-[#CCCCCC] to-gray-900 text-black",
-        success: "bg-gradient-to-r from-[#8000FF] via-[#8000FF] to-purple-900 text-black",
-        warning: "bg-gradient-to-r from-[#CCFF00] via-[#CCFF00] to-yellow-900 text-black",
-        danger: "bg-gradient-to-r from-[#FF0F0F] via-[#FF0F0F] to-red-900 text-black",
-        info: "bg-gradient-to-r from-[#00FFFF] via-[#00FFFF] to-blue-900 text-black",
+        primary: "bg-gradient-to-r from-[#00FF00] via-[#00FF00] to-green-900 text-black",
+        base: "bg-gradient-to-r from-[#BEBEBE] via-[#BEBEBE] to-gray-900 text-black",
+        success: "bg-gradient-to-r from-[#9B30FF] via-[#9B30FF] to-purple-900 text-black",
+        warning: "bg-gradient-to-r from-[#FFFF00] via-[#FFFF00] to-yellow-900 text-black",
+        danger: "bg-gradient-to-r from-[#FF0000] via-[#FF0000] to-red-900 text-black",
+        info: "bg-gradient-to-r from-[#0000FF] via-[#0000FF] to-blue-900 text-black",
         secondary: "border border-[#0F0] bg-black",
     };
 

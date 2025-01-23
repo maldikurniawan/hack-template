@@ -74,7 +74,7 @@ const TablePage = () => {
 			<TerminalCard title="Basic">
 				<div className="text-sm mb-3">
 					Tables component is a wrapper for HTML table element. It has 3 props:
-					size, density, tablefix, and height.
+					size, density, table fix, and height.
 				</div>
 
 				<Tables>
@@ -200,7 +200,7 @@ const TablePage = () => {
 			{/* Table Fix */}
 			<TerminalCard title="Table Fix">
 				<div className="text-sm mb-3">
-					The <span style={{ color: themeColor }}>tablefix</span> prop is used
+					The <span style={{ color: themeColor }}>table fix</span> prop is used
 					to set the table layout to fixed.
 				</div>
 

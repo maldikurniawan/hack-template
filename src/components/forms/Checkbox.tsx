@@ -30,11 +30,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
             ? themeColor
             : {
                 lightGreen: themeColor,
-                lightGray: "#CCCCCC",
-                lightPurple: "#8000FF",
-                lightYellow: "#CCFF00",
-                lightRed: "#FF0F0F",
-                lightBlue: "#00FFFF",
+                lightGray: "#BEBEBE",
+                lightPurple: "#9B30FF",
+                lightYellow: "#FFFF00",
+                lightRed: "#FF0000",
+                lightBlue: "#0000FF",
             }[color] || color;
 
     // Size
