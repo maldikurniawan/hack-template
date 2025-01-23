@@ -21,6 +21,8 @@ import FileInput from "./forms/FileInput";
 import FileInputForm from "./forms/FileInputForm";
 import Footer from "./layout/Footer";
 import HackLoader from "./molecules/HackLoader";
+import HexaLoader from "./molecules/HexaLoader";
+import WaveLoader from "./molecules/WaveLoader";
 import Header from "./layout/Header";
 import Invoice from "./molecules/Invoice";
 import Kuitansi from "./molecules/Kuitansi";
@@ -30,6 +32,7 @@ import List from "./atoms/List";
 import Loading from "./atoms/Loading";
 import Loader from "./molecules/Loader";
 import Modal from "./atoms/Modal";
+import MoeCounter from "./molecules/MoeCounter";
 import Molecules from "./molecules/Molecules";
 import MonthPicker from "./forms/MonthPicker";
 import Pagination from "./atoms/Pagination";
@@ -71,6 +74,8 @@ export {
     FileInputForm,
     Footer,
     HackLoader,
+    HexaLoader,
+    WaveLoader,
     Header,
     Invoice,
     Kuitansi,
@@ -80,6 +85,7 @@ export {
     Loading,
     Loader,
     Modal,
+    MoeCounter,
     Molecules,
     MonthPicker,
     Pagination,

@@ -2,8 +2,11 @@ import {
     Charts,
     FingerPrint,
     HackLoader,
+    HexaLoader,
+    MoeCounter,
     Molecules,
-    TerminalCard
+    TerminalCard,
+    WaveLoader
 } from "@/components"
 import { GoCommandPalette } from "react-icons/go";
 import { useState } from "react";
@@ -18,6 +21,8 @@ import {
 import { SiMoleculer } from "react-icons/si";
 import { RiDonutChartFill } from "react-icons/ri";
 import { GrRadialSelected } from "react-icons/gr";
+import { BsSoundwave } from "react-icons/bs";
+import { GiNestedHexagons, GiSamuraiHelmet } from "react-icons/gi";
 import { PiChartPolar } from "react-icons/pi";
 import { TbChartRadar } from "react-icons/tb";
 
@@ -27,17 +32,15 @@ const Dashboard = () => {
     );
     return (
         <div className="text-white gap-4 grid grid-cols-1 lg:grid-cols-3">
-            {[...Array(1)].map((_, index) => (
-                <TerminalCard icon={<GoCommandPalette />} title="Scanning">
-                    <div key={index} className="w-full h-[315px] p-4 flex flex-col">
-                        <div className="flex-1 overflow-hidden scroll-hidden text-ellipsis relative">
-                            <div className="absolute animate-scroll break-words ">
-                                {text}
-                            </div>
+            <TerminalCard icon={<GoCommandPalette />} title="Encrypting">
+                <div className="w-full h-[315px] p-4 flex flex-col">
+                    <div className="flex-1 overflow-hidden scroll-hidden text-ellipsis relative">
+                        <div className="absolute animate-scroll break-words ">
+                            {text}
                         </div>
                     </div>
-                </TerminalCard>
-            ))}
+                </div>
+            </TerminalCard>
             <TerminalCard icon={<FaChartLine />} title="Monthly Visitors">
                 <Charts variant="line" />
             </TerminalCard>
@@ -65,9 +68,24 @@ const Dashboard = () => {
                     <Charts variant="pie" />
                 </div>
             </TerminalCard>
+            <TerminalCard icon={<GiSamuraiHelmet />} title="Counter">
+                <div className="flex justify-center items-center text-center h-[300px]">
+                    <MoeCounter />
+                </div>
+            </TerminalCard>
+            <TerminalCard icon={<GiNestedHexagons />} title="Hexa Loader">
+                <div className="flex justify-center items-center text-center h-[300px]">
+                    <HexaLoader />
+                </div>
+            </TerminalCard>
             <TerminalCard icon={<RiDonutChartFill />} title="Donut Chart">
                 <div className="flex justify-center items-center text-center">
                     <Charts variant="donut" />
+                </div>
+            </TerminalCard>
+            <TerminalCard icon={<BsSoundwave />} title="Wave Loader">
+                <div className="h-[300px]">
+                    <WaveLoader />
                 </div>
             </TerminalCard>
             <TerminalCard icon={<GrRadialSelected />} title="Radial Bar Chart">
