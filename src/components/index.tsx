@@ -23,6 +23,7 @@ import Footer from "./layout/Footer";
 import HackLoader from "./molecules/HackLoader";
 import HexaLoader from "./molecules/HexaLoader";
 import WaveLoader from "./molecules/WaveLoader";
+import SearchLoader from "./molecules/SearchLoader";
 import Header from "./layout/Header";
 import Invoice from "./molecules/Invoice";
 import Kuitansi from "./molecules/Kuitansi";
@@ -76,6 +77,7 @@ export {
     HackLoader,
     HexaLoader,
     WaveLoader,
+    SearchLoader,
     Header,
     Invoice,
     Kuitansi,

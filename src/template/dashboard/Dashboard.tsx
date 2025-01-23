@@ -6,7 +6,7 @@ import {
     MoeCounter,
     Molecules,
     TerminalCard,
-    WaveLoader
+    SearchLoader
 } from "@/components"
 import { GoCommandPalette } from "react-icons/go";
 import { useState } from "react";
@@ -83,9 +83,9 @@ const Dashboard = () => {
                     <Charts variant="donut" />
                 </div>
             </TerminalCard>
-            <TerminalCard icon={<BsSoundwave />} title="Wave Loader">
-                <div className="h-[300px]">
-                    <WaveLoader />
+            <TerminalCard icon={<BsSoundwave />} title="Searching">
+                <div className="flex justify-center items-center text-center h-[300px]">
+                    <SearchLoader />
                 </div>
             </TerminalCard>
             <TerminalCard icon={<GrRadialSelected />} title="Radial Bar Chart">

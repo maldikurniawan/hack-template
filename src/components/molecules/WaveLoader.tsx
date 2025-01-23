@@ -34,13 +34,12 @@ const WaveLoader = () => {
 const StyledWrapper = styled.div`
   .container {
     position: absolute;
-    top: 40%;
-    height: 90%;
+    top: 80%;
     left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 10;
   }
 
   .item {
