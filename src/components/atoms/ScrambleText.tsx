@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 
 const CYCLES_PER_LETTER = 3;
 const SHUFFLE_TIME = 75;
-const CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890';
+const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%&?';
 
 type Props = {
     children: React.ReactNode;
