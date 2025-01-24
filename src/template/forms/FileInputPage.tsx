@@ -1,5 +1,6 @@
 import { Card, FileInput, FileInputForm, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
+import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 
 const FileInputPage = () => {
@@ -11,7 +12,13 @@ const FileInputPage = () => {
 	const [valueForm, setValueForm] = useState([]);
 
 	return (
-		<div className="grid grid-cols-1 gap-4">
+		<motion.div
+			className="grid grid-cols-1 gap-4"
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			{/* Basic */}
 			<TerminalCard title="Basic">
 				<div className="text-sm mb-3">
@@ -43,7 +50,7 @@ const FileInputPage = () => {
 			<Card variant="secondary">
 				<FileInputForm value={valueForm} setValue={setValueForm} />
 			</Card>
-		</div>
+		</motion.div>
 	);
 };
 

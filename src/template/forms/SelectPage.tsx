@@ -1,5 +1,6 @@
 import { TerminalCard, Select } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
+import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { TbDownload, TbRecordMail } from "react-icons/tb";
 
@@ -147,7 +148,13 @@ const SelectPage = () => {
 	]);
 
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20">
+		<motion.div
+			className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20"
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			{/* Color */}
 			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
@@ -443,7 +450,7 @@ const SelectPage = () => {
 					onChange={(e) => setValue(e)}
 				/>
 			</TerminalCard>
-		</div>
+		</motion.div>
 	);
 };
 

@@ -1,6 +1,7 @@
 import { Button, Kuitansi, Select } from "@/components";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
+import { motion } from "framer-motion";
 
 // Define types for Select options and data
 interface TemplateOption {
@@ -48,7 +49,12 @@ const ExampleTemplateKuitansi = () => {
     });
 
     return (
-        <div>
+        <motion.div
+            initial={{ y: window.innerHeight, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+        >
             <div className="flex items-start justify-between mb-3">
                 <div>{selectedTemplate.label}</div>
 
@@ -69,7 +75,7 @@ const ExampleTemplateKuitansi = () => {
             <div className="bg-black overflow-hidden">
                 <Kuitansi ref={ref} type={selectedTemplate.value} data={data} />
             </div>
-        </div>
+        </motion.div>
     );
 };
 

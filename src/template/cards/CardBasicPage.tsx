@@ -1,5 +1,6 @@
 import { Card } from "@/components";
 import moment from "moment";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const CardBasicPage = () => {
@@ -49,7 +50,13 @@ const CardBasicPage = () => {
 	]);
 
 	return (
-		<div className="flex flex-col gap-4">
+		<motion.div
+			className="flex flex-col gap-4"
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
 				{cardBasic.map((item, itemIdx) => (
 					<Card key={itemIdx} variant={item.variant}>
@@ -63,7 +70,7 @@ const CardBasicPage = () => {
 					</Card>
 				))}
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

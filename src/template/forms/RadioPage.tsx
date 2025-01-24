@@ -1,5 +1,6 @@
 import { TerminalCard, Radio } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
+import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 
 const RadioPage = () => {
@@ -9,7 +10,13 @@ const RadioPage = () => {
 	const [selectedInline, setSelectedInline] = useState<boolean>(true);
 
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+		<motion.div
+			className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			{/* Color */}
 			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
@@ -143,7 +150,7 @@ const RadioPage = () => {
 					/>
 				</div>
 			</TerminalCard>
-		</div>
+		</motion.div>
 	);
 };
 

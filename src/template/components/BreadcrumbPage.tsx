@@ -1,4 +1,5 @@
 import { Breadcrumb, TerminalCard } from "@/components"
+import { motion } from "framer-motion";
 
 const BreadcrumbPage = () => {
     const breadcrumbItems = [
@@ -8,7 +9,13 @@ const BreadcrumbPage = () => {
     ];
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+            initial={{ y: window.innerHeight, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+        >
             <TerminalCard title="Basic">
                 <Breadcrumb items={breadcrumbItems} separator="slash" />
             </TerminalCard>
@@ -21,7 +28,7 @@ const BreadcrumbPage = () => {
             <TerminalCard title="Arrowed Background">
                 <Breadcrumb items={breadcrumbItems} variant="arrowed" />
             </TerminalCard>
-        </div>
+        </motion.div>
     )
 }
 

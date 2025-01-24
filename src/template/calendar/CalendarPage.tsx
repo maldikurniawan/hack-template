@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, TerminalCard } from '@/components';
+import { motion } from "framer-motion";
 
 const CalendarPage: React.FC = () => {
     // Example events
@@ -19,21 +20,28 @@ const CalendarPage: React.FC = () => {
     };
 
     return (
-        <TerminalCard title='Calendar'>
-            <div className='scroll-hidden calendar-wrapper'>
-                <Calendar
-                    events={events}
-                    onEventClick={handleEventClick}
-                    onDateSelect={handleDateSelect}
-                    initialView="dayGridMonth"
-                    headerToolbar={{
-                        left: 'prev next today',
-                        center: 'title',
-                        right: 'buttonAdd'
-                    }}
-                />
-            </div>
-        </TerminalCard>
+        <motion.div
+            initial={{ y: window.innerHeight, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+        >
+            <TerminalCard title='Calendar'>
+                <div className='scroll-hidden calendar-wrapper'>
+                    <Calendar
+                        events={events}
+                        onEventClick={handleEventClick}
+                        onDateSelect={handleDateSelect}
+                        initialView="dayGridMonth"
+                        headerToolbar={{
+                            left: 'prev next today',
+                            center: 'title',
+                            right: 'buttonAdd'
+                        }}
+                    />
+                </div>
+            </TerminalCard>
+        </motion.div>
     );
 };
 

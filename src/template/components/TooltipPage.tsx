@@ -1,11 +1,18 @@
 import { Button, TerminalCard, Tooltip } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
+import { motion } from "framer-motion";
 
 const TooltipPage = () => {
 	const { themeColor } = useContext(ThemeContext);
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+		<motion.div
+			className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			{/* Placement */}
 			<div className="col-span-full">
 				<TerminalCard title="Placement">
@@ -128,7 +135,7 @@ const TooltipPage = () => {
 					</Tooltip>
 				</div>
 			</TerminalCard>
-		</div>
+		</motion.div>
 	);
 };
 

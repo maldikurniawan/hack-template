@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { TerminalCard, Carousel } from "@/components";
 
 const CarouselPage = () => {
@@ -12,7 +13,13 @@ const CarouselPage = () => {
     ]);
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+            initial={{ y: window.innerHeight, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+        >
             <TerminalCard title="Basic">
                 <Carousel
                     images={images}
@@ -45,7 +52,7 @@ const CarouselPage = () => {
                     variant="EffectCards"
                 />
             </TerminalCard>
-        </div>
+        </motion.div>
     )
 }
 

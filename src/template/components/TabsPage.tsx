@@ -1,11 +1,18 @@
 import { Card, Tabs, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
+import { motion } from "framer-motion";
 import { useContext } from "react";
 
 const TabsPage = () => {
 	const { themeColor } = useContext(ThemeContext);
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+		<motion.div
+			className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			{/* Basic */}
 			<TerminalCard title="Basic">
 				<div className="text-sm mb-3">
@@ -50,7 +57,7 @@ const TabsPage = () => {
 					</Tabs>
 				</div>
 			</TerminalCard>
-		</div>
+		</motion.div>
 	);
 };
 

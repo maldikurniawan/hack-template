@@ -11,6 +11,7 @@ import {
 } from "@/components";
 import { useState } from "react";
 import { TbDotsVertical, TbEye, TbTrash } from "react-icons/tb";
+import { motion } from "framer-motion";
 
 const ExampleTablePage = () => {
 	const [limit, setLimit] = useState(10);
@@ -83,7 +84,13 @@ const ExampleTablePage = () => {
 
 	return (
 		<>
-			<div className="grid grid-cols-1 gap-4">
+			<motion.div
+				className="grid grid-cols-1 gap-4"
+				initial={{ y: window.innerHeight, opacity: 0 }}
+				animate={{ y: 0, opacity: 1 }}
+				transition={{ duration: 0.3 }}
+				viewport={{ once: true }}
+			>
 				<TerminalCard title="Example Table">
 					{/* Control Top */}
 					<div className="mb-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
@@ -173,7 +180,7 @@ const ExampleTablePage = () => {
 						/>
 					</div>
 				</TerminalCard>
-			</div>
+			</motion.div>
 
 			<Drawer title="Create" dismiss open={open} setOpen={setOpen}>
 				<div className="h-screen">Halo Dunia</div>

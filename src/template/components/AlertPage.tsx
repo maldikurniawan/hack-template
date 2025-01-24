@@ -1,14 +1,21 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
-import { TerminalCard, Alert, Button } from "@/components"
+import { TerminalCard, Alert, Button } from "@/components";
 import { PiCheck, PiExclamationMark, PiHouseLine, PiX } from "react-icons/pi";
+import { motion } from "framer-motion";
 
 const AlertPage = () => {
 	const { themeColor } = useContext(ThemeContext);
 	const [show, setShow] = useState<boolean>(true);
 
 	return (
-		<div className="flex flex-col gap-4 overflow-y-auto scroll-hidden">
+		<motion.div
+			className="flex flex-col gap-4 overflow-y-auto scroll-hidden"
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			{/* Color */}
 			<TerminalCard title="Color">
 				<div className="text-sm mb-3">
@@ -144,7 +151,7 @@ const AlertPage = () => {
 					</Alert>
 				</div>
 			</TerminalCard>
-		</div>
+		</motion.div>
 	);
 };
 

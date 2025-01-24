@@ -1,6 +1,7 @@
 import { Button, Invoice, Select } from "@/components";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
+import { motion } from "framer-motion";
 
 const ExampleTemplateInvoice = () => {
 	const [template] = useState<{ value: number; label: string }[]>([
@@ -65,7 +66,12 @@ const ExampleTemplateInvoice = () => {
 	});
 
 	return (
-		<div>
+		<motion.div
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			<div className="flex items-start justify-between mb-3">
 				<div>{selectedTemplate.label}</div>
 
@@ -91,7 +97,7 @@ const ExampleTemplateInvoice = () => {
 					ref={ref}
 				/>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

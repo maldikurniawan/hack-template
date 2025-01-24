@@ -1,6 +1,7 @@
 import { Collapsible, TerminalCard } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
+import { motion } from "framer-motion";
 import { BiCheck } from "react-icons/bi";
 import {
 	HiOutlineExclamation,
@@ -10,7 +11,12 @@ import {
 const CollapsiblePage = () => {
 	const { themeColor } = useContext(ThemeContext);
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+		<motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			{/* Collapsible */}
 			<TerminalCard title="Collapsible">
 				<div className="text-sm mb-3">
@@ -158,7 +164,7 @@ const CollapsiblePage = () => {
 					</Collapsible>
 				</div>
 			</TerminalCard>
-		</div>
+		</motion.div>
 	);
 };
 

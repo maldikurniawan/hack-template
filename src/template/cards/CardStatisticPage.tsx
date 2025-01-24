@@ -1,9 +1,16 @@
 import { Card, CardStatistic } from "@/components";
+import { motion } from "framer-motion";
 import { TbAdCircle, TbAddressBook, TbCrown, TbSettings } from "react-icons/tb";
 
 const CardStatisticPage = () => {
 	return (
-		<div className="flex flex-col gap-4">
+		<motion.div
+			className="flex flex-col gap-4"
+			initial={{ y: window.innerHeight, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: true }}
+		>
 			<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
 				<CardStatistic
 					value={99}
@@ -41,7 +48,7 @@ const CardStatisticPage = () => {
 					</Card>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
