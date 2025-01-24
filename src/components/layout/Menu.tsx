@@ -68,7 +68,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                     return (
                         <div
                             key={itemIdx}
-                            className={`px-3 mt-6 mb-3 m-3 text-xs whitespace-nowrap h-3 transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"}`}
+                            className={`px-3 mt-6 mb-3 m-3 text-xs text-[#0F0] whitespace-nowrap h-3 transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"}`}
                         >
                             <ScrambleText>
                                 {item.label}
@@ -83,7 +83,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                             {({ isActive }) => (
                                 <div className="mb-1 px-3 w-full text-sm">
                                     <div
-                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${isActive
+                                        className={`flex items-center text-[#0F0] justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${isActive
                                             ? "bg-[#0F0] text-black"
                                             : "hover:bg-[#0F0] hover:text-black"
                                             }`}
@@ -113,7 +113,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                 className="w-full px-3 mb-1 text-sm"
                             >
                                 <div
-                                    className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${nav[typeof item.name === "string" ? item.name : ""]
+                                    className={`flex items-center text-[#0F0] justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${nav[typeof item.name === "string" ? item.name : ""]
                                         ? "bg-[#0F0] text-black"
                                         : "hover:bg-[#0F0] hover:text-black"
                                         } ${pathname.split("/")[2] === item.name
@@ -158,7 +158,7 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                             >
                                                 {({ isActive }) => (
                                                     <div
-                                                        className={`flex items-center justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${isActive
+                                                        className={`flex items-center text-[#0F0] justify-between w-full h-10 px-[18px] py-2 overflow-hidden transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"} ${isActive
                                                             ? "bg-[#0F0] text-black"
                                                             : "hover:bg-[#0F0] hover:text-black"
                                                             }`}

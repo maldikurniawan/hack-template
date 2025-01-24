@@ -27,7 +27,7 @@ const StyledWrapper = styled.div`
   #wifi-loader {
     --background: #62ABFF;
     --front-color: #0F0;
-    --back-color: #FFF;
+    --back-color: #333;
     --text-color: #333;
     width: 64px;
     height: 64px;

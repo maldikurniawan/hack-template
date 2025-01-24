@@ -93,7 +93,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
                                 : themeColor
                             : "transparent",
                     }}
-                    className={`appearance-none rounded outline-none pointer-events-none ${checked ? "shadow" : "border border-white/30"
+                    className={`appearance-none outline-none pointer-events-none ${checked ? "shadow" : "border border-white/30"
                         } ${disabled ? "opacity-50" : ""}`}
                     readOnly
                     checked={checked}

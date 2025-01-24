@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({
                 <div className="w-full flex bg-black py-2 backdrop-blur-xl justify-between items-center px-3 relative border border-[#0F0]">
                     <div
                         onClick={() => setSideOpen(!sideOpen)}
-                        className="p-1 border-[#0F0] border-2 hover:bg-[#0F0] hover:text-black text-white text-xl cursor-pointer transition-all"
+                        className="p-1 border-[#0F0] border-2 hover:bg-[#0F0] hover:text-black text-[#0F0] text-xl cursor-pointer transition-all"
                     >
                         <HiMenuAlt2 />
                     </div>
@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({
                             </ButtonRipple>
                         }
                     >
-                        <div className="text-sm w-full md:min-w-[260px] text-white">
+                        <div className="text-sm w-full md:min-w-[260px] text-[#0F0]">
                             <div className="p-4 border-b border-[#0F0]">
                                 <div className="flex gap-2 items-center">
                                     <div className="w-fit">

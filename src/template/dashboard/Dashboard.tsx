@@ -8,17 +8,18 @@ import {
     TerminalCard,
     SearchLoader,
     HandScanning,
-    Radar,
     SpinningCube
 } from "@/components"
 import { GoCommandPalette } from "react-icons/go";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
+    FaCat,
     FaChartArea,
     FaChartBar,
     FaChartLine,
     FaChartPie,
+    FaCube,
     FaDownload,
     FaFingerprint,
     FaHandPaper
@@ -28,7 +29,6 @@ import { RiDonutChartFill } from "react-icons/ri";
 import { GrRadialSelected } from "react-icons/gr";
 import { BsSoundwave } from "react-icons/bs";
 import { GiNestedHexagons, GiSamuraiHelmet } from "react-icons/gi";
-import { MdOutlineRadar } from "react-icons/md";
 import { PiChartPolar } from "react-icons/pi";
 import { TbChartRadar } from "react-icons/tb";
 
@@ -48,7 +48,7 @@ const Dashboard = () => {
             <TerminalCard icon={<GoCommandPalette />} title="Encrypting">
                 <div className="w-full h-[315px] p-4 flex flex-col">
                     <div className="flex-1 overflow-hidden scroll-hidden text-ellipsis relative">
-                        <div className="absolute animate-scroll break-words ">
+                        <div className="absolute animate-scroll break-words text-[#0F0]">
                             {text}
                         </div>
                     </div>
@@ -88,20 +88,20 @@ const Dashboard = () => {
                     <MoeCounter />
                 </div>
             </TerminalCard>
-            <TerminalCard icon={<MdOutlineRadar />} title="Radar">
+            <TerminalCard icon={<FaCat />} title="Binary Cat">
                 <div className="flex justify-center items-center text-center h-[315px]">
-                    <Radar />
+                    <img src="/images/cat.gif" alt="Binary Cat" />
                 </div>
             </TerminalCard>
             <TerminalCard icon={<FaChartLine />} title="Monthly Visitors">
                 <Charts variant="line" />
             </TerminalCard>
-            <TerminalCard icon={<GiNestedHexagons />} title="Hexa Loader">
+            <TerminalCard icon={<GiNestedHexagons />} title="Abstract Binary">
                 <div className="flex justify-center items-center text-center h-[315px]">
-                    <HexaLoader />
+                    <img src="/images/abstrak.gif" alt="Abstract" />
                 </div>
             </TerminalCard>
-            <TerminalCard icon={<RiDonutChartFill />} title="Cube">
+            <TerminalCard icon={<FaCube />} title="Cube">
                 <div className="flex justify-center items-center text-center h-[300px]">
                     <SpinningCube />
                 </div>
