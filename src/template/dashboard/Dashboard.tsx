@@ -2,7 +2,6 @@ import {
     Charts,
     FingerPrint,
     HackLoader,
-    HexaLoader,
     MoeCounter,
     Molecules,
     TerminalCard,
