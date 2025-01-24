@@ -6,10 +6,13 @@ import {
     MoeCounter,
     Molecules,
     TerminalCard,
-    SearchLoader
+    SearchLoader,
+    HandScanning,
+    Radar,
+    SpinningCube
 } from "@/components"
 import { GoCommandPalette } from "react-icons/go";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { useState } from "react";
 import {
     FaChartArea,
@@ -17,13 +20,15 @@ import {
     FaChartLine,
     FaChartPie,
     FaDownload,
-    FaFingerprint
+    FaFingerprint,
+    FaHandPaper
 } from "react-icons/fa";
 import { SiMoleculer } from "react-icons/si";
 import { RiDonutChartFill } from "react-icons/ri";
 import { GrRadialSelected } from "react-icons/gr";
 import { BsSoundwave } from "react-icons/bs";
 import { GiNestedHexagons, GiSamuraiHelmet } from "react-icons/gi";
+import { MdOutlineRadar } from "react-icons/md";
 import { PiChartPolar } from "react-icons/pi";
 import { TbChartRadar } from "react-icons/tb";
 
@@ -31,13 +36,13 @@ const Dashboard = () => {
     const [text] = useState(
         "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"
     );
-    
+
     return (
         <motion.div
             className="text-white gap-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
             initial={{ y: window.innerHeight, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3}}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
         >
             <TerminalCard icon={<GoCommandPalette />} title="Encrypting">
@@ -49,8 +54,10 @@ const Dashboard = () => {
                     </div>
                 </div>
             </TerminalCard>
-            <TerminalCard icon={<FaChartLine />} title="Monthly Visitors">
-                <Charts variant="line" />
+            <TerminalCard icon={<FaHandPaper />} title="Hand Scanning">
+                <div className="flex justify-center items-center text-center h-[315px]">
+                    <HandScanning />
+                </div>
             </TerminalCard>
             <TerminalCard icon={<FaFingerprint />} title="Finger Print">
                 <FingerPrint />
@@ -81,9 +88,22 @@ const Dashboard = () => {
                     <MoeCounter />
                 </div>
             </TerminalCard>
+            <TerminalCard icon={<MdOutlineRadar />} title="Radar">
+                <div className="flex justify-center items-center text-center h-[315px]">
+                    <Radar />
+                </div>
+            </TerminalCard>
+            <TerminalCard icon={<FaChartLine />} title="Monthly Visitors">
+                <Charts variant="line" />
+            </TerminalCard>
             <TerminalCard icon={<GiNestedHexagons />} title="Hexa Loader">
-                <div className="flex justify-center items-center text-center h-[300px]">
+                <div className="flex justify-center items-center text-center h-[315px]">
                     <HexaLoader />
+                </div>
+            </TerminalCard>
+            <TerminalCard icon={<RiDonutChartFill />} title="Cube">
+                <div className="flex justify-center items-center text-center h-[300px]">
+                    <SpinningCube />
                 </div>
             </TerminalCard>
             <TerminalCard icon={<RiDonutChartFill />} title="Donut Chart">

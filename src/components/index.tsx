@@ -20,6 +20,7 @@ import FingerPrint from "./molecules/FingerPrint";
 import FileInput from "./forms/FileInput";
 import FileInputForm from "./forms/FileInputForm";
 import Footer from "./layout/Footer";
+import HandScanning from "./molecules/HandScanning";
 import HackLoader from "./molecules/HackLoader";
 import HexaLoader from "./molecules/HexaLoader";
 import WaveLoader from "./molecules/WaveLoader";
@@ -39,8 +40,10 @@ import MonthPicker from "./forms/MonthPicker";
 import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
 import Radio from "./forms/Radio";
+import Radar from "./molecules/Radar";
 import ScrambleText from "./atoms/ScrambleText";
 import Select from "./forms/Select";
+import SpinningCube from "./molecules/SpinningCube";
 import Sidebar from "./layout/Sidebar";
 import Switch from "./forms/Switch";
 import SwitchTheme from "./molecules/SwitchTheme";
@@ -75,6 +78,7 @@ export {
     FileInput,
     FileInputForm,
     Footer,
+    HandScanning,
     HackLoader,
     HexaLoader,
     WaveLoader,
@@ -94,8 +98,10 @@ export {
     Pagination,
     Popover,
     Radio,
+    Radar,
     ScrambleText,
     Select,
+    SpinningCube,
     Sidebar,
     Switch,
     SwitchTheme,
