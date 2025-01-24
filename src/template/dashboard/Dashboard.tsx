@@ -37,7 +37,7 @@ const Dashboard = () => {
             className="text-white gap-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
             initial={{ y: window.innerHeight, scale: 0 }}
             animate={{ y: 0, scale: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
         >
             <TerminalCard icon={<GoCommandPalette />} title="Encrypting">
