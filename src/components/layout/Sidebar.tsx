@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useRef } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
 import Menu from "./Menu";
+import ScrambleText from "../atoms/ScrambleText";
 
 interface SidebarProps {
     sideOpen: boolean;
@@ -33,7 +34,11 @@ const Sidebar: React.FC<SidebarProps> = ({ sideOpen, setSideOpen }) => {
                             alt="Anonymous"
                             className="w-10 h-10"
                         />
-                        <span style={{ color: themeColor }}>Anonymous</span>
+                        <span style={{ color: themeColor }}>
+                            <ScrambleText>
+                                Anonymous
+                            </ScrambleText>
+                        </span>
                     </div>
 
                     <div

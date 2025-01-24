@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { SiHackaday } from "react-icons/si";
 import { TbChevronRight } from "react-icons/tb";
 import { NavLink, useLocation } from "react-router-dom";
+import { ScrambleText } from "@/components";
 
 interface MenuProps {
     sideOpen: boolean;
@@ -69,7 +70,9 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                             key={itemIdx}
                             className={`px-3 mt-6 mb-3 m-3 text-xs whitespace-nowrap h-3 transition-opacity duration-300 ${sideOpen ? "opacity-100" : "opacity-0"}`}
                         >
-                            {item.label}
+                            <ScrambleText>
+                                {item.label}
+                            </ScrambleText>
                         </div>
                     );
                 }
@@ -90,7 +93,9 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                                 {item.icon}
                                             </span>
                                             <span>
-                                                {item.title}
+                                                <ScrambleText>
+                                                    {item.title}
+                                                </ScrambleText>
                                             </span>
                                         </span>
                                     </div>
@@ -119,7 +124,9 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                     <span className="flex items-center gap-2">
                                         <span className="text-xl w-5">{item.icon}</span>
                                         <span className="tracking-wide">
-                                            {item.title}
+                                            <ScrambleText>
+                                                {item.title}
+                                            </ScrambleText>
                                         </span>
                                     </span>
 
@@ -161,7 +168,9 @@ const Menu: React.FC<MenuProps> = ({ sideOpen }) => {
                                                                 <SiHackaday />
                                                             </span>
                                                             <span>
-                                                                {subItem.title}
+                                                                <ScrambleText>
+                                                                    {subItem.title}
+                                                                </ScrambleText>
                                                             </span>
                                                         </span>
                                                     </div>

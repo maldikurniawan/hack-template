@@ -39,6 +39,7 @@ import MonthPicker from "./forms/MonthPicker";
 import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
 import Radio from "./forms/Radio";
+import ScrambleText from "./atoms/ScrambleText";
 import Select from "./forms/Select";
 import Sidebar from "./layout/Sidebar";
 import Switch from "./forms/Switch";
@@ -93,6 +94,7 @@ export {
     Pagination,
     Popover,
     Radio,
+    ScrambleText,
     Select,
     Sidebar,
     Switch,
