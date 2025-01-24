@@ -40,11 +40,11 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
                     labels: {
                         style: {
-                            colors: '#FFF',
+                            colors: '#00FF00',
                         },
                     },
                     axisBorder: {
-                        color: '#FFF',
+                        color: '#00FF00',
                     },
                 },
                 yaxis: {
@@ -52,12 +52,12 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     labels: {
                         offsetX: 0,
                         style: {
-                            colors: '#FFF',
+                            colors: '#00FF00',
                         },
                     },
                 },
                 grid: {
-                    borderColor: '#FFF',
+                    borderColor: '#00FF00',
                     xaxis: {
                         lines: {
                             show: false,
@@ -90,11 +90,11 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                 },
                 xaxis: {
                     axisBorder: {
-                        color: '#FFF',
+                        color: '#00FF00',
                     },
                     labels: {
                         style: {
-                            colors: '#FFF',
+                            colors: '#00FF00',
                         },
                     },
                 },
@@ -103,7 +103,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     labels: {
                         offsetX: 0,
                         style: {
-                            colors: '#FFF',
+                            colors: '#00FF00',
                         },
                     },
                 },
@@ -112,7 +112,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     horizontalAlign: 'left',
                 },
                 grid: {
-                    borderColor: '#FFF',
+                    borderColor: '#00FF00',
                     xaxis: {
                         lines: {
                             show: false,
@@ -158,7 +158,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                     },
                 },
                 grid: {
-                    borderColor: '#fff',
+                    borderColor: '#FFF',
                     xaxis: {
                         lines: {
                             show: false,
@@ -168,7 +168,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                 xaxis: {
                     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
                     axisBorder: {
-                        color: '#fff',
+                        color: '#FFF',
                     },
                     labels: {
                         style: {
@@ -288,7 +288,7 @@ const Charts: React.FC<ChartsProps> = ({ variant }) => {
                 },
                 colors: ['#0F0', '#9B30FF', '#FFFF00'],
                 grid: {
-                    borderColor: '#FFF',
+                    borderColor: '#00FF00',
                 },
                 plotOptions: {
                     radialBar: {
