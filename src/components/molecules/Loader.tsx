@@ -41,16 +41,15 @@ const StyledWrapper = styled.div`
   }
 
   .terminal-loader {
-    border: 0.1em solid #333;
-    background-color: #1a1a1a;
-    color: #0f0;
+    border: 0.1em solid #00FF00;
+    background-color: #000000;
+    color: #0F0;
     font-family: "Courier New", Courier, monospace;
     font-size: 1em;
     padding: 1.5em 1em;
     width: 12em;
     margin: 100px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
@@ -62,9 +61,7 @@ const StyledWrapper = styled.div`
     left: 0;
     right: 0;
     height: 1.5em;
-    background-color: #333;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    background-color: #0F0;
     padding: 0 0.4em;
     box-sizing: border-box;
   }
@@ -78,7 +75,6 @@ const StyledWrapper = styled.div`
     width: 0.6em;
     height: 0.6em;
     margin-left: 0.4em;
-    border-radius: 50%;
     background-color: #777;
   }
 
@@ -97,7 +93,7 @@ const StyledWrapper = styled.div`
   .terminal-title {
     float: left;
     line-height: 1.5em;
-    color: #eee;
+    color: #000;
   }
 
   .text {

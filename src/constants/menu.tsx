@@ -34,6 +34,7 @@ import {
   ExampleTemplateKuitansi,
   CalendarPage,
   CarouselPage,
+  SweetAlertPage,
 } from "@/template";
 import {
   PiCalendarDots,
@@ -191,6 +192,14 @@ export const menu: MenuItem[] = [
         name: "popover",
         title: "Popover",
         element: <PopoverPage />,
+        sub: [],
+      },
+      {
+        icon: null,
+        path: "/ui-elements/components/sweetalert",
+        name: "sweetalert",
+        title: "SweetAlert",
+        element: <SweetAlertPage />,
         sub: [],
       },
       {

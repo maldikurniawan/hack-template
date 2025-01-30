@@ -32,6 +32,7 @@ import MonthPickerPage from "./forms/MonthPickerPage";
 import RadioPage from "./forms/RadioPage";
 import SelectPage from "./forms/SelectPage";
 import SwitchPage from "./forms/SwitchPage";
+import SweetAlertPage from "./components/SweetAlertPage";
 import TextAreaPage from "./forms/TextAreaPage";
 import TextFieldPage from "./forms/TextFieldPage";
 import TablePage from "./tables/TablePage";
@@ -71,6 +72,7 @@ export {
     RadioPage,
     SelectPage,
     SwitchPage,
+    SweetAlertPage,
     TextAreaPage,
     TextFieldPage,
     TablePage,

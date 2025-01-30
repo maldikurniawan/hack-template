@@ -12,8 +12,8 @@ const MatrixRainingCode: React.FC = () => {
 
         let width = (canvas.width = window.innerWidth);
         let height = (canvas.height = window.innerHeight);
-        let columns = Math.floor(width / 20); // Number of columns based on character width
-        const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+        let columns = Math.floor(width / 20);
+        const characters = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん";
         const charArray = characters.split("");
         let drops: number[] = [];
 
@@ -30,7 +30,7 @@ const MatrixRainingCode: React.FC = () => {
             ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
             ctx.fillRect(0, 0, width, height);
 
-            ctx.fillStyle = "#0f0"; // Green color for characters
+            ctx.fillStyle = "#0F0";
 
             // Draw the characters
             ctx.font = "15px monospace";
