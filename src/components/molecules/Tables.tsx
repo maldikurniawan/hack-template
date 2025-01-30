@@ -125,7 +125,7 @@ const TableHeader = ({ children, style, center = false }: TableHeaderProps) => {
     return (
         <th
             style={style}
-            className={`border-b border-[#333] bg-[#1A1A1A] font-normal uppercase tracking-wide px-2 sticky ${center ? "text-center" : "text-left"}`}
+            className={`border-b border-[#0F0] bg-[#0F0] text-black font-normal uppercase tracking-wide px-2 sticky ${center ? "text-center" : "text-left"}`}
         >
             {children}
         </th>
@@ -144,7 +144,7 @@ const TableData = ({ children, style, center = false, colspan }: TableDataProps)
         <td
             style={style}
             colSpan={colspan}
-            className={`border-b border-[#4D5355] px-2 ${center ? "text-center" : "text-left"}`}
+            className={`border-b border-[#0F0] px-2 ${center ? "text-center" : "text-left"}`}
         >
             {children}
         </td>
