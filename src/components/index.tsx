@@ -47,6 +47,7 @@ import SpinningCube from "./molecules/SpinningCube";
 import Sidebar from "./layout/Sidebar";
 import Switch from "./forms/Switch";
 import SwitchTheme from "./molecules/SwitchTheme";
+import SweetAlert from "./atoms/SweetAlert";
 import Tables from "./molecules/Tables";
 import Tabs from "./atoms/Tabs";
 import TerminalCard from "./molecules/TerminalCard";
@@ -105,6 +106,7 @@ export {
     Sidebar,
     Switch,
     SwitchTheme,
+    SweetAlert,
     Tables,
     Tabs,
     TerminalCard,

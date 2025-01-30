@@ -82,3 +82,50 @@ input[type]::-webkit-calendar-picker-indicator {
   white-space: normal;
   line-height: 1.5;
 }
+
+/* SweetAlert */
+.custom-popup {
+  background-color: #000000;
+  border: 2px solid #00FF00;
+  border-radius: unset;
+}
+
+.custom-title {
+  color: #00FF00;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.custom-val {
+  color: #00FF0090;
+}
+
+.custom-confirm-button {
+  background-color: #00FF00;
+  color: black;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-weight: bold;
+}
+
+.custom-delete-button {
+  background-color: #FF0000;
+  color: black;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-weight: bold;
+}
+
+.custom-cancel-button {
+  background-color: #1A1A1A;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-weight: bold;
+}
+
+.custom-icon {
+  font-size: 20px;
+  padding-left: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
