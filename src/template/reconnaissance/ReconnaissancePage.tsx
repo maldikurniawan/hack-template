@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { useGetData } from "@/actions";
 import { API_URL_whois } from "@/constants";
-import { Button, TextField } from "@/components";
+import { Button, Loader, Tables, TerminalCard, TextField } from "@/components";
 
 const ReconnaissancePage = () => {
     const [domain, setDomain] = useState("");
     const [inputDomain, setInputDomain] = useState("");
     const [shouldFetch, setShouldFetch] = useState(false);
-    const [limit, setLimit] = useState(10);
-	const [pageActive, setPageActive] = useState(1);
 
     // Fetch data only when `shouldFetch` is true
     const getWhois = useGetData(
@@ -59,84 +57,101 @@ const ReconnaissancePage = () => {
                 {!shouldFetch ? (
                     <p>Enter a domain and click Submit to fetch data.</p>
                 ) : getWhois.isLoading ? (
-                    <p>Loading...</p>
+                    <p><Loader /></p>
                 ) : getWhois.isError ? (
-                    <p>Error loading data</p>
+                    <p className="text-lightRed">Error loading data</p>
                 ) : (
                     <div className="mt-4">
                         <h2 className="text-lg font-bold mb-2">Whois data for {domain}</h2>
-                        <table className="min-w-full bg-black border">
-                            <thead>
-                                <tr className="bg-black">
-                                    <th className="py-2 px-4 border text-left">Field</th>
-                                    <th className="py-2 px-4 border text-left">Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className="py-2 px-4 border">Domain Name</td>
-                                    <td className="py-2 px-4 border">{getWhois.data?.domain_name || "N/A"}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">Registrar</td>
-                                    <td className="py-2 px-4 border">{getWhois.data?.registrar || "N/A"}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">Registrar URL</td>
-                                    <td className="py-2 px-4 border">{getWhois.data?.registrar_url || "N/A"}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">WHOIS Server</td>
-                                    <td className="py-2 px-4 border">{getWhois.data?.whois_server || "N/A"}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">Updated Date</td>
-                                    <td className="py-2 px-4 border">{formatDate(getWhois.data?.updated_date)}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">Creation Date</td>
-                                    <td className="py-2 px-4 border">{formatDate(getWhois.data?.creation_date)}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">Expiration Date</td>
-                                    <td className="py-2 px-4 border">{formatDate(getWhois.data?.expiration_date)}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">Name Servers</td>
-                                    <td className="py-2 px-4 border">
-                                        {Array.isArray(getWhois.data?.name_servers)
-                                            ? getWhois.data.name_servers.join(", ")
-                                            : getWhois.data?.name_servers || "N/A"
-                                        }
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">Emails</td>
-                                    <td className="py-2 px-4 border">
-                                        {Array.isArray(getWhois.data?.emails)
-                                            ? getWhois.data.emails.join(", ")
-                                            : getWhois.data?.emails || "N/A"
-                                        }
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">DNSSEC</td>
-                                    <td className="py-2 px-4 border">{getWhois.data?.dnssec || "N/A"}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">ORG</td>
-                                    <td className="py-2 px-4 border">{getWhois.data?.org || "N/A"}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">State</td>
-                                    <td className="py-2 px-4 border">{getWhois.data?.state || "N/A"}</td>
-                                </tr>
-                                <tr>
-                                    <td className="py-2 px-4 border">Country</td>
-                                    <td className="py-2 px-4 border">{getWhois.data?.country || "N/A"}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                            <TerminalCard title="Domain Information">
+                                {/* Tables */}
+                                <Tables>
+                                    <Tables.Head>
+                                        <Tables.Row>
+                                            <Tables.Header>Field</Tables.Header>
+                                            <Tables.Header>Value</Tables.Header>
+                                        </Tables.Row>
+                                    </Tables.Head>
+                                    <Tables.Body>
+                                        <Tables.Row>
+                                            <Tables.Data>Domain Name</Tables.Data>
+                                            <Tables.Data>{getWhois.data?.domain_name ?? "N/A"}</Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>Registrar</Tables.Data>
+                                            <Tables.Data>{getWhois.data?.registrar ?? "N/A"}</Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>Registrar URL</Tables.Data>
+                                            <Tables.Data>{getWhois.data?.registrar_url ?? "N/A"}</Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>WHOIS Server</Tables.Data>
+                                            <Tables.Data>{getWhois.data?.whois_server ?? "N/A"}</Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>Created</Tables.Data>
+                                            <Tables.Data>{formatDate(getWhois.data?.creation_date)}</Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>Updated</Tables.Data>
+                                            <Tables.Data>{formatDate(getWhois.data?.updated_date)}</Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>Expired</Tables.Data>
+                                            <Tables.Data>{formatDate(getWhois.data?.expiration_date)}</Tables.Data>
+                                        </Tables.Row>
+                                    </Tables.Body>
+                                </Tables>
+                            </TerminalCard>
+                            <TerminalCard title="Technical Information">
+                                {/* Tables */}
+                                <Tables>
+                                    <Tables.Head>
+                                        <Tables.Row>
+                                            <Tables.Header>Field</Tables.Header>
+                                            <Tables.Header>Value</Tables.Header>
+                                        </Tables.Row>
+                                    </Tables.Head>
+                                    <Tables.Body>
+                                        <Tables.Row>
+                                            <Tables.Data>Server Name</Tables.Data>
+                                            <Tables.Data>
+                                                {Array.isArray(getWhois.data?.name_servers)
+                                                    ? getWhois.data.name_servers.join(", ")
+                                                    : getWhois.data?.name_servers ?? "N/A"}
+                                            </Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>Emails</Tables.Data>
+                                            <Tables.Data>
+                                                {Array.isArray(getWhois.data?.emails)
+                                                    ? getWhois.data.emails.join(", ")
+                                                    : getWhois.data?.emails || "N/A"
+                                                }
+                                            </Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>DNSSEC</Tables.Data>
+                                            <Tables.Data>{getWhois.data?.dnssec ?? "N/A"}</Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>ORG</Tables.Data>
+                                            <Tables.Data>{getWhois.data?.org ?? "N/A"}</Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>State</Tables.Data>
+                                            <Tables.Data>{getWhois.data?.state ?? "N/A"}</Tables.Data>
+                                        </Tables.Row>
+                                        <Tables.Row>
+                                            <Tables.Data>Country</Tables.Data>
+                                            <Tables.Data>{getWhois.data?.country ?? "N/A"}</Tables.Data>
+                                        </Tables.Row>
+                                    </Tables.Body>
+                                </Tables>
+                            </TerminalCard>
+                        </div>
                     </div>
                 )}
             </div>

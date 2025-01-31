@@ -118,7 +118,7 @@ const ExampleTablePage = () => {
 						<Tables.Body>
 							{data
 								.slice((pageActive - 1) * limit, limit * pageActive)
-								.map((item, idx) => (
+								.map((item: any, idx: any) => (
 									<Tables.Row
 										expandable={<div className="p-2">{item.name}</div>}
 										key={idx}
