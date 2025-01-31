@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGetData } from "@/actions";
 import { API_URL_whois } from "@/constants";
 import { Button, Loader, Tables, TerminalCard, TextField } from "@/components";
@@ -7,6 +7,7 @@ const ReconnaissancePage = () => {
     const [domain, setDomain] = useState("");
     const [inputDomain, setInputDomain] = useState("");
     const [shouldFetch, setShouldFetch] = useState(false);
+    const [error, setError] = useState(""); // State for error message
 
     // Fetch data only when `shouldFetch` is true
     const getWhois = useGetData(
@@ -16,13 +17,42 @@ const ReconnaissancePage = () => {
         { domain }
     );
 
+    // Save WHOIS data to local storage whenever it changes
+    useEffect(() => {
+        if (getWhois.data) {
+            localStorage.setItem(`whoisData_${domain}`, JSON.stringify(getWhois.data));
+        }
+    }, [getWhois.data, domain]);
+
+    // Retrieve WHOIS data from local storage when the component mounts
+    useEffect(() => {
+        const savedData = localStorage.getItem(`whoisData_${domain}`);
+        if (savedData) {
+            getWhois.data = JSON.parse(savedData);
+        }
+    }, [domain]);
+
     // Handle form submission
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (inputDomain.trim()) {
-            setDomain(inputDomain);
-            setShouldFetch(true);
+        setError(""); // Clear any previous error
+
+        const trimmedDomain = inputDomain.trim();
+        if (!trimmedDomain) {
+            setError("Please enter a domain.");
+            return;
         }
+
+        // Check if the domain already exists in local storage
+        const savedData = localStorage.getItem(`whoisData_${trimmedDomain}`);
+        if (savedData) {
+            setError("This domain has already been queried. Please enter a different domain.");
+            return;
+        }
+
+        // If the domain is new, proceed with fetching data
+        setDomain(trimmedDomain);
+        setShouldFetch(true);
     };
 
     // Function to format dates (handles both single values and arrays)
@@ -53,9 +83,12 @@ const ReconnaissancePage = () => {
                 <Button type="submit">Submit</Button>
             </form>
 
+            {/* Display error message if any */}
+            {error && <p className="text-lightRed mt-2">{error}</p>}
+
             <div>
                 {!shouldFetch ? (
-                    <p>Enter a domain and click Submit to fetch data.</p>
+                    <p></p>
                 ) : getWhois.isLoading ? (
                     <p><Loader /></p>
                 ) : getWhois.isError ? (
