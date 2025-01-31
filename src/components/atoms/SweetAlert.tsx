@@ -189,7 +189,7 @@ export const showSweetAlert = async (variant: number) => {
                 if (result.value) {
                     swalWithBootstrapButtons.fire('Deleted!', 'Your file has been deleted.', 'success');
                 } else if (result.dismiss === Swal.DismissReason.cancel) {
-                    swalWithBootstrapButtons.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
+                    swalWithBootstrapButtons.fire('Cancelled', 'Your imaginary file is safe.', 'error');
                 }
             });
     } else if (variant === 8) {

@@ -1,0 +1,1 @@
+export const API_URL_whois = "https://api.api-ninjas.com/v1/whois";

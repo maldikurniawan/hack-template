@@ -30,12 +30,14 @@ import MapPage from "./maps/MapPage";
 import MatrixRainingEffect from "./components/MatrixRainingEffect";
 import MonthPickerPage from "./forms/MonthPickerPage";
 import RadioPage from "./forms/RadioPage";
+import ReconnaissancePage from "./reconnaissance/ReconnaissancePage";
 import SelectPage from "./forms/SelectPage";
 import SwitchPage from "./forms/SwitchPage";
 import SweetAlertPage from "./components/SweetAlertPage";
 import TextAreaPage from "./forms/TextAreaPage";
 import TextFieldPage from "./forms/TextFieldPage";
 import TablePage from "./tables/TablePage";
+import VulneranalysisPage from "./vulneranalysis/VulneranalysisPage";
 
 export {
     Login,
@@ -70,10 +72,12 @@ export {
     MatrixRainingEffect,
     MonthPickerPage,
     RadioPage,
+    ReconnaissancePage,
     SelectPage,
     SwitchPage,
     SweetAlertPage,
     TextAreaPage,
     TextFieldPage,
     TablePage,
+    VulneranalysisPage,
 };
