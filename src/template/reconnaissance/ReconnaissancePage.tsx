@@ -1,70 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useGetData } from "@/actions";
-import { API_URL_whois } from "@/constants";
+import { API_URL_domainInfo } from "@/constants";
+import moment from "moment";
 import { Button, Loader, Tables, TerminalCard, TextField } from "@/components";
-
-interface WhoisData {
-    domain: string;
-    registrar?: string;
-    creation_date?: number | number[];
-    expiration_date?: number | number[];
-}
 
 const ReconnaissancePage = () => {
     const [domain, setDomain] = useState("");
     const [inputDomain, setInputDomain] = useState("");
     const [shouldFetch, setShouldFetch] = useState(false);
-    const [error, setError] = useState("");
-    const [localStorageData, setLocalStorageData] = useState<WhoisData[]>([]);
 
     const getWhois = useGetData(
-        shouldFetch ? API_URL_whois : null,
+        shouldFetch ? API_URL_domainInfo : null,
         ["whois", domain],
         true,
         { domain }
     );
 
-    useEffect(() => {
-        if (getWhois.data) {
-            localStorage.setItem(`whoisData_${domain}`, JSON.stringify(getWhois.data));
-            loadLocalStorageData();
-        }
-    }, [getWhois.data, domain]);
-
-    const loadLocalStorageData = () => {
-        const data: WhoisData[] = [];
-
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            if (key && key.startsWith("whoisData_")) {
-                const item = localStorage.getItem(key);
-                if (item) {
-                    const domainData = JSON.parse(item);
-                    data.push({ domain: key.replace("whoisData_", ""), ...domainData });
-                }
-            }
-        }
-
-        setLocalStorageData(data);
-    };
-
-    useEffect(() => {
-        loadLocalStorageData();
-    }, []);
+    const whoisData = getWhois.data?.data || {};
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        setError("");
 
         const trimmedDomain = inputDomain.trim();
         if (!trimmedDomain) {
-            setError("Please enter a domain.");
-            return;
-        }
-
-        const savedData = localStorage.getItem(`whoisData_${trimmedDomain}`);
-        if (savedData) {
-            setError("This domain has already been queried. Please enter a different domain.");
             return;
         }
 
@@ -72,158 +30,210 @@ const ReconnaissancePage = () => {
         setShouldFetch(true);
     };
 
-    const formatDate = (date: number | number[] | undefined) => {
-        if (!date) return "N/A";
-
-        if (Array.isArray(date)) {
-            return date.map((timestamp) => new Date(timestamp * 1000).toLocaleString()).join(", ");
-        }
-
-        return new Date(date * 1000).toLocaleString();
-    };
-
     return (
         <div>
-            <form onSubmit={handleSubmit} className="flex gap-2">
-                <TextField
-                    type="text"
-                    variant="outline"
-                    label="Enter Domain"
-                    color="lightGreen"
-                    value={inputDomain}
-                    onChange={(e) => setInputDomain(e.target.value)}
-                    placeholder="Enter Domain"
-                />
-                <Button type="submit">Submit</Button>
-            </form>
-
-            {error && <p className="text-lightRed mt-2">{error}</p>}
-
-            <div>
-                {!shouldFetch ? (
-                    <p></p>
-                ) : getWhois.isLoading ? (
-                    <p><Loader /></p>
-                ) : getWhois.isError ? (
-                    <p className="text-lightRed">Error loading data</p>
-                ) : (
-                    <div className="mt-4">
-                        <h2 className="text-lg font-bold mb-2">Whois data for {domain}</h2>
-                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-                            <TerminalCard title="Domain Information">
-                                <Tables>
-                                    <Tables.Head>
-                                        <Tables.Row>
-                                            <Tables.Header>Field</Tables.Header>
-                                            <Tables.Header>Value</Tables.Header>
-                                        </Tables.Row>
-                                    </Tables.Head>
-                                    <Tables.Body>
-                                        <Tables.Row>
-                                            <Tables.Data>Domain Name</Tables.Data>
-                                            <Tables.Data>{getWhois.data?.domain_name ?? "N/A"}</Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>Registrar</Tables.Data>
-                                            <Tables.Data>{getWhois.data?.registrar ?? "N/A"}</Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>Registrar URL</Tables.Data>
-                                            <Tables.Data>{getWhois.data?.registrar_url ?? "N/A"}</Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>WHOIS Server</Tables.Data>
-                                            <Tables.Data>{getWhois.data?.whois_server ?? "N/A"}</Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>Created</Tables.Data>
-                                            <Tables.Data>{formatDate(getWhois.data?.creation_date)}</Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>Updated</Tables.Data>
-                                            <Tables.Data>{formatDate(getWhois.data?.updated_date)}</Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>Expired</Tables.Data>
-                                            <Tables.Data>{formatDate(getWhois.data?.expiration_date)}</Tables.Data>
-                                        </Tables.Row>
-                                    </Tables.Body>
-                                </Tables>
-                            </TerminalCard>
-                            <TerminalCard title="Technical Information">
-                                <Tables>
-                                    <Tables.Head>
-                                        <Tables.Row>
-                                            <Tables.Header>Field</Tables.Header>
-                                            <Tables.Header>Value</Tables.Header>
-                                        </Tables.Row>
-                                    </Tables.Head>
-                                    <Tables.Body>
-                                        <Tables.Row>
-                                            <Tables.Data>Server Name</Tables.Data>
-                                            <Tables.Data>
-                                                {Array.isArray(getWhois.data?.name_servers)
-                                                    ? getWhois.data.name_servers.join(", ")
-                                                    : getWhois.data?.name_servers ?? "N/A"}
-                                            </Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>Emails</Tables.Data>
-                                            <Tables.Data>
-                                                {Array.isArray(getWhois.data?.emails)
-                                                    ? getWhois.data.emails.join(", ")
-                                                    : getWhois.data?.emails || "N/A"
-                                                }
-                                            </Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>DNSSEC</Tables.Data>
-                                            <Tables.Data>{getWhois.data?.dnssec ?? "N/A"}</Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>ORG</Tables.Data>
-                                            <Tables.Data>{getWhois.data?.org ?? "N/A"}</Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>State</Tables.Data>
-                                            <Tables.Data>{getWhois.data?.state ?? "N/A"}</Tables.Data>
-                                        </Tables.Row>
-                                        <Tables.Row>
-                                            <Tables.Data>Country</Tables.Data>
-                                            <Tables.Data>{getWhois.data?.country ?? "N/A"}</Tables.Data>
-                                        </Tables.Row>
-                                    </Tables.Body>
-                                </Tables>
-                            </TerminalCard>
+            <TerminalCard title="Domain Info">
+                <form onSubmit={handleSubmit} className="flex gap-2">
+                    <TextField
+                        type="text"
+                        variant="outline"
+                        label="Enter Domain"
+                        color="lightGreen"
+                        value={inputDomain}
+                        onChange={(e) => setInputDomain(e.target.value)}
+                        placeholder="Enter Domain"
+                    />
+                    <Button type="submit">Submit</Button>
+                </form>
+                <div>
+                    {!shouldFetch ? (
+                        <div></div>
+                    ) : getWhois.isLoading ? (
+                        <div><Loader /></div>
+                    ) : getWhois.isError ? (
+                        <div className="text-lightRed">Error loading data</div>
+                    ) : (
+                        <div className="mt-4">
+                            <Tables>
+                                <Tables.Head>
+                                    <Tables.Row>
+                                        <Tables.Header>Field</Tables.Header>
+                                        <Tables.Header>Value</Tables.Header>
+                                    </Tables.Row>
+                                </Tables.Head>
+                                <Tables.Body>
+                                    <Tables.Row>
+                                        <Tables.Data>Domain ID</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                whoisData.domain_id ??
+                                                whoisData.domain__id ??
+                                                "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Domain Name</Tables.Data>
+                                        <Tables.Data>{whoisData.domain_name ?? "N/A"}</Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Registrar</Tables.Data>
+                                        <Tables.Data>{whoisData.registrar ?? "N/A"}</Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Registrar URL</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                Array.isArray(whoisData.registrar_url)
+                                                    ? whoisData.registrar_url.join(", ")
+                                                    : whoisData.registrar_url ?? "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Updated</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                Array.isArray(whoisData.updated_date)
+                                                    ? whoisData.updated_date.map((date: string) => moment(date).format("DD-MM-YYYY HH:mm:ss")).join(", ")
+                                                    : moment(whoisData.updated_date).format("DD-MM-YYYY HH:mm:ss")
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Created</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                Array.isArray(whoisData.creation_date)
+                                                    ? whoisData.creation_date.map((date: string) => moment(date).format("DD-MM-YYYY HH:mm:ss")).join(", ")
+                                                    : moment(whoisData.creation_date).format("DD-MM-YYYY HH:mm:ss")
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Expired</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                Array.isArray(whoisData.expiration_date)
+                                                    ? whoisData.expiration_date.map((date: string) => moment(date).format("DD-MM-YYYY HH:mm:ss")).join(", ")
+                                                    : moment(whoisData.expiration_date).format("DD-MM-YYYY HH:mm:ss")
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Name Servers</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                Array.isArray(whoisData.name_servers)
+                                                    ? whoisData.name_servers.join(", ")
+                                                    : whoisData.name_servers ?? "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Status</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                Array.isArray(whoisData.status)
+                                                    ? whoisData.status.join(", ")
+                                                    : whoisData.status ?? "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Emails</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                whoisData.emails ??
+                                                whoisData.email ??
+                                                whoisData.registrar_email ??
+                                                whoisData.registrant_email ??
+                                                "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Phone</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                whoisData.registrar_phone ??
+                                                whoisData.registrant_phone ??
+                                                "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>DNSSEC</Tables.Data>
+                                        <Tables.Data>{whoisData.dnssec ?? "N/A"}</Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Name</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                whoisData.name ??
+                                                whoisData.registrant_name ??
+                                                "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>ORG</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                whoisData.org ??
+                                                whoisData.registrant_organization ??
+                                                "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Address</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                Array.isArray(whoisData.address)
+                                                    ? whoisData.address.join(", ")
+                                                    : whoisData.address ?? "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>City</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                whoisData.city ??
+                                                whoisData.registrar_city ??
+                                                whoisData.registrant_city ?? "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>State</Tables.Data>
+                                        <Tables.Data>{whoisData.state ?? "N/A"}</Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Postal Code</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                whoisData.registrar_postal_code ??
+                                                whoisData.registrant_postal_code ?? "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                    <Tables.Row>
+                                        <Tables.Data>Country</Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                whoisData.registrar_country ??
+                                                whoisData.country ?? "N/A"
+                                            }
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                </Tables.Body>
+                            </Tables>
                         </div>
-                    </div>
-                )}
-            </div>
-
-            <div className="mt-4">
-                <TerminalCard title="Previously Queried Domains">
-                    <Tables>
-                        <Tables.Head>
-                            <Tables.Row>
-                                <Tables.Header>Domain</Tables.Header>
-                                <Tables.Header>Registrar</Tables.Header>
-                                <Tables.Header>Created</Tables.Header>
-                                <Tables.Header>Expired</Tables.Header>
-                            </Tables.Row>
-                        </Tables.Head>
-                        <Tables.Body>
-                            {localStorageData.map((data, index) => (
-                                <Tables.Row key={index}>
-                                    <Tables.Data>{data.domain}</Tables.Data>
-                                    <Tables.Data>{data.registrar ?? "N/A"}</Tables.Data>
-                                    <Tables.Data>{formatDate(data.creation_date)}</Tables.Data>
-                                    <Tables.Data>{formatDate(data.expiration_date)}</Tables.Data>
-                                </Tables.Row>
-                            ))}
-                        </Tables.Body>
-                    </Tables>
-                </TerminalCard>
-            </div>
+                    )}
+                </div>
+            </TerminalCard>
         </div>
     );
 };

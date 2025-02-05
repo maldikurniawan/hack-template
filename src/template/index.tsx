@@ -14,6 +14,7 @@ import ColorPickerPage from "./forms/ColorPickerPage";
 import DrawerPage from "./components/DrawerPage";
 import ListPage from "./components/ListPage";
 import ModalPage from "./components/ModalPage";
+import NotFoundPage from "./404/NotFoundPage";
 import PaginationPage from "./components/PaginationPage";
 import PopoverPage from "./components/PopoverPage";
 import TabsPage from "./components/TabsPage";
@@ -56,6 +57,7 @@ export {
     DrawerPage,
     ListPage,
     ModalPage,
+    NotFoundPage,
     PaginationPage,
     PopoverPage,
     TabsPage,

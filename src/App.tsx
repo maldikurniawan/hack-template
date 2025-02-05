@@ -1,6 +1,6 @@
 import { Layout } from "@/components"
 import { menu } from "@/constants/menu";
-import { Login } from "@/template";
+import { Login, NotFoundPage } from "@/template";
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { ThemeProvider } from "@/context/ThemeContext";
 
@@ -25,7 +25,7 @@ export default function App() {
             })}
           </Route>
           <Route path="/login" element={<Login />} />
-          <Route path="*" element={<h1>404</h1>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

@@ -37,6 +37,7 @@ import Modal from "./atoms/Modal";
 import MoeCounter from "./molecules/MoeCounter";
 import Molecules from "./molecules/Molecules";
 import MonthPicker from "./forms/MonthPicker";
+import NotFound from "./molecules/NotFound";
 import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
 import Radio from "./forms/Radio";
@@ -96,6 +97,7 @@ export {
     MoeCounter,
     Molecules,
     MonthPicker,
+    NotFound,
     Pagination,
     Popover,
     Radio,

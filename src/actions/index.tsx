@@ -15,15 +15,15 @@ export const useGetData = (
     params = {},
     options = {}
 ) => {
-    const apiKey = "rCQH/XdHa4SWHv/D/XMDKQ==wKROhGcDgEhsElbZ";
+    // const apiKey = "rCQH/XdHa4SWHv/D/XMDKQ==wKROhGcDgEhsElbZ";
     return useQuery({
         queryKey,
         queryFn: async () => {
             const headers: Record<string, string> = {};
 
-            if (apiKey) {
-                headers["X-Api-Key"] = apiKey;
-            }
+            // if (apiKey) {
+            //     headers["X-Api-Key"] = apiKey;
+            // }
 
             if (withToken) {
                 const token = window.localStorage.getItem("access");
