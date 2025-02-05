@@ -1,53 +1,24 @@
-import { useState } from "react";
 import { useGetData } from "@/actions";
 import { API_URL_domainInfo } from "@/constants";
 import moment from "moment";
-import { Button, Loader, Tables, TerminalCard, TextField } from "@/components";
+import { Loader, Tables, TerminalCard } from "@/components";
 
-const DomainInfo = () => {
-    const [domain, setDomain] = useState("");
-    const [inputDomain, setInputDomain] = useState("");
-    const [shouldFetch, setShouldFetch] = useState(false);
-
+const DomainInfo = ({ domain }: { domain: string }) => {
     const getWhois = useGetData(
-        shouldFetch ? API_URL_domainInfo : null,
-        ["whois", domain],
+        domain ? API_URL_domainInfo : null,
+        ["domainInfo", domain],
         true,
         { domain }
     );
 
     const whoisData = getWhois.data?.data || {};
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const trimmedDomain = inputDomain.trim();
-        if (!trimmedDomain) {
-            return;
-        }
-
-        setDomain(trimmedDomain);
-        setShouldFetch(true);
-    };
-
     return (
         <div>
             <TerminalCard title="Domain Info">
-                <form onSubmit={handleSubmit} className="flex gap-2">
-                    <TextField
-                        type="text"
-                        variant="outline"
-                        label="Enter Domain"
-                        color="lightGreen"
-                        value={inputDomain}
-                        onChange={(e) => setInputDomain(e.target.value)}
-                        placeholder="Enter Domain"
-                    />
-                    <Button type="submit">Submit</Button>
-                </form>
                 <div>
-                    {!shouldFetch ? (
-                        <div></div>
+                    {!domain ? (
+                        <div>Please enter a domain</div>
                     ) : getWhois.isLoading ? (
                         <div><Loader /></div>
                     ) : getWhois.isError ? (

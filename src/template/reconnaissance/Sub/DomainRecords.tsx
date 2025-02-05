@@ -1,52 +1,25 @@
-import { useState } from "react";
 import { useGetData } from "@/actions";
 import { API_URL_domainRecords } from "@/constants";
-import { Button, Loader, Tables, TerminalCard, TextField } from "@/components";
+import { Loader, Tables, TerminalCard } from "@/components";
 
-const DomainRecords = () => {
-    const [domain, setDomain] = useState("");
-    const [inputDomain, setInputDomain] = useState("");
-    const [shouldFetch, setShouldFetch] = useState(false);
-
+const DomainRecords = ({ domain }: { domain: string }) => {
     const getWhois = useGetData(
-        shouldFetch ? API_URL_domainRecords : null,
-        ["whois", domain],
+        domain ? API_URL_domainRecords : null,
+        ["domainRecords", domain],
         true,
         { domain }
     );
 
     const whoisData = getWhois.data?.data || {};
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const trimmedDomain = inputDomain.trim();
-        if (!trimmedDomain) {
-            return;
-        }
-
-        setDomain(trimmedDomain);
-        setShouldFetch(true);
-    };
+    
+    console.log(getWhois.data)
 
     return (
         <div>
             <TerminalCard title="Domain Records">
-                <form onSubmit={handleSubmit} className="flex gap-2">
-                    <TextField
-                        type="text"
-                        variant="outline"
-                        label="Enter Domain"
-                        color="lightGreen"
-                        value={inputDomain}
-                        onChange={(e) => setInputDomain(e.target.value)}
-                        placeholder="Enter Domain"
-                    />
-                    <Button type="submit">Submit</Button>
-                </form>
                 <div>
-                    {!shouldFetch ? (
-                        <div></div>
+                    {!domain ? (
+                        <div>Please enter a domain</div>
                     ) : getWhois.isLoading ? (
                         <div><Loader /></div>
                     ) : getWhois.isError ? (
