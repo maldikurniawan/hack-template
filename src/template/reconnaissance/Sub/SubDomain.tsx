@@ -33,12 +33,12 @@ const SubDomain = ({ domain }: { domain: string }) => {
                                 </Tables.Head>
                                 <Tables.Body>
                                     <Tables.Row>
-                                        <Tables.Data>Domain ID</Tables.Data>
+                                        <Tables.Data>Sub Domain</Tables.Data>
                                         <Tables.Data>
                                             {
-                                                whoisData.domain_id ??
-                                                whoisData.domain__id ??
-                                                "N/A"
+                                                Array.isArray(whoisData)
+                                                    ? whoisData.join(", ")
+                                                    : whoisData ?? "N/A"
                                             }
                                         </Tables.Data>
                                     </Tables.Row>
