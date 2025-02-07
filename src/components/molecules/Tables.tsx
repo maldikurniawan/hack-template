@@ -55,7 +55,7 @@ const TableHead = ({ children, style, sticky = false }: TableHeadProps) => {
     return (
         <thead
             style={style}
-            className={`${sticky ? "sticky top-0 bg-green-950 shadow-sm" : ""}`}
+            className={`${sticky ? "sticky top-0 bg-[#00FF00] text-black shadow-sm" : ""}`}
         >
             {children}
         </thead>

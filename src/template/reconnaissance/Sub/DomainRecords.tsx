@@ -27,12 +27,14 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                             <Tables>
                                 <Tables.Head>
                                     <Tables.Row>
+                                        <Tables.Header center>No</Tables.Header>
                                         <Tables.Header>Field</Tables.Header>
                                         <Tables.Header>Value</Tables.Header>
                                     </Tables.Row>
                                 </Tables.Head>
                                 <Tables.Body>
                                     <Tables.Row>
+                                        <Tables.Data center>1</Tables.Data>
                                         <Tables.Data>IPv4 Address</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -43,6 +45,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>2</Tables.Data>
                                         <Tables.Data>IPv6 Address</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -53,6 +56,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>3</Tables.Data>
                                         <Tables.Data>Canonical Name</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -63,6 +67,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>4</Tables.Data>
                                         <Tables.Data>Mail Exchange</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -73,6 +78,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>5</Tables.Data>
                                         <Tables.Data>Server Name</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -83,6 +89,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>6</Tables.Data>
                                         <Tables.Data>Pointer</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -93,6 +100,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>7</Tables.Data>
                                         <Tables.Data>Start of Authority</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -103,6 +111,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>8</Tables.Data>
                                         <Tables.Data>Text</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -113,6 +122,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>9</Tables.Data>
                                         <Tables.Data>Certification Authority Authorization</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -123,6 +133,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>10</Tables.Data>
                                         <Tables.Data>Delegation Signer</Tables.Data>
                                         <Tables.Data>
                                             {
@@ -133,6 +144,7 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                                         </Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
+                                        <Tables.Data center>11</Tables.Data>
                                         <Tables.Data>DNSSEC Key</Tables.Data>
                                         <Tables.Data>
                                             {

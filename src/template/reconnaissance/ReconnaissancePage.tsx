@@ -18,7 +18,7 @@ const ReconnaissancePage = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+            <form onSubmit={handleSubmit} className="flex gap-4 mb-4">
                 <TextField
                     type="text"
                     variant="outline"
@@ -31,7 +31,7 @@ const ReconnaissancePage = () => {
                 <Button type="submit">Submit</Button>
             </form>
             {domain ? (
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     <DomainInfo domain={domain} />
                     <DomainRecords domain={domain} />
                     <SubDomain domain={domain} />

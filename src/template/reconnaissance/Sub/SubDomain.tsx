@@ -10,7 +10,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
         { domain }
     );
 
-    const whoisData = getWhois.data?.data || {};
+    const whoisData = getWhois.data?.data || [];
 
     return (
         <div>
@@ -27,21 +27,24 @@ const SubDomain = ({ domain }: { domain: string }) => {
                             <Tables>
                                 <Tables.Head>
                                     <Tables.Row>
-                                        <Tables.Header>Field</Tables.Header>
-                                        <Tables.Header>Value</Tables.Header>
+                                        <Tables.Header>No</Tables.Header>
+                                        <Tables.Header>Sub Domain</Tables.Header>
                                     </Tables.Row>
                                 </Tables.Head>
                                 <Tables.Body>
-                                    <Tables.Row>
-                                        <Tables.Data>Sub Domain</Tables.Data>
-                                        <Tables.Data>
-                                            {
-                                                Array.isArray(whoisData)
-                                                    ? whoisData.join(", ")
-                                                    : whoisData ?? "N/A"
-                                            }
-                                        </Tables.Data>
-                                    </Tables.Row>
+                                    {Array.isArray(whoisData) && whoisData.length > 0 ? (
+                                        whoisData.map((subDomain, index) => (
+                                            <Tables.Row key={index}>
+                                                <Tables.Data>{index + 1}</Tables.Data>
+                                                <Tables.Data>{subDomain}</Tables.Data>
+                                            </Tables.Row>
+                                        ))
+                                    ) : (
+                                        <Tables.Row>
+                                            <Tables.Data>N/A</Tables.Data>
+                                            <Tables.Data>N/A</Tables.Data>
+                                        </Tables.Row>
+                                    )}
                                 </Tables.Body>
                             </Tables>
                         </div>
