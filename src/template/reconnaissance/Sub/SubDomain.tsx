@@ -38,7 +38,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
                             <Tables>
                                 <Tables.Head>
                                     <Tables.Row>
-                                        <Tables.Header>No</Tables.Header>
+                                        <Tables.Header center>No</Tables.Header>
                                         <Tables.Header>Sub Domain</Tables.Header>
                                     </Tables.Row>
                                 </Tables.Head>
@@ -46,7 +46,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
                                     {paginatedData.length > 0 ? (
                                         paginatedData.map((subDomain: any, index: any) => (
                                             <Tables.Row key={index}>
-                                                <Tables.Data>{(pageActive - 1) * limit + index + 1}</Tables.Data>
+                                                <Tables.Data center>{(pageActive - 1) * limit + index + 1}</Tables.Data>
                                                 <Tables.Data>{subDomain}</Tables.Data>
                                             </Tables.Row>
                                         ))
