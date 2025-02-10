@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetData } from "@/actions";
 import { API_URL_subDomain } from "@/constants";
-import { Loader, Tables, TerminalCard, Limit, Pagination } from "@/components";
+import { Loader, Tables, TerminalCardV2, Limit, Pagination } from "@/components";
 
 const SubDomain = ({ domain }: { domain: string }) => {
     const [pageActive, setPageActive] = useState(1);
@@ -25,23 +25,17 @@ const SubDomain = ({ domain }: { domain: string }) => {
 
     return (
         <div>
-            <TerminalCard title="Sub Domain">
+            <TerminalCardV2 title="Sub Domain">
                 <div>
                     {!domain ? (
                         <div>Please enter a domain</div>
                     ) : getWhois.isLoading ? (
-                        <div><Loader /></div>
+                        <div className="p-4"><Loader /></div>
                     ) : getWhois.isError ? (
                         <div className="text-lightRed">Error loading data</div>
                     ) : (
-                        <div className="mt-4">
+                        <div>
                             <Tables>
-                                <Tables.Head>
-                                    <Tables.Row>
-                                        <Tables.Header center>No</Tables.Header>
-                                        <Tables.Header>Sub Domain</Tables.Header>
-                                    </Tables.Row>
-                                </Tables.Head>
                                 <Tables.Body>
                                     {paginatedData.length > 0 ? (
                                         paginatedData.map((subDomain: any, index: any) => (
@@ -52,7 +46,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
                                         ))
                                     ) : (
                                         <Tables.Row>
-                                            <Tables.Data>N/A</Tables.Data>
+                                            <Tables.Data center>N/A</Tables.Data>
                                             <Tables.Data>N/A</Tables.Data>
                                         </Tables.Row>
                                     )}
@@ -61,7 +55,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
 
                             {/* Pagination Controls */}
                             {totalEntries > limit && (
-                                <div className="mt-4 flex flex-col justify-center sm:justify-between items-center gap-4">
+                                <div className="mt-4 mb-4 flex flex-col justify-center sm:justify-between items-center gap-4">
                                     <div className="flex gap-2 items-baseline text-sm">
                                         <Limit
                                             limit={limit}
@@ -82,7 +76,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
                         </div>
                     )}
                 </div>
-            </TerminalCard>
+            </TerminalCardV2>
         </div>
     );
 };

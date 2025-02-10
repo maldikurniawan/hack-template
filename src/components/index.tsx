@@ -52,6 +52,7 @@ import SweetAlert from "./atoms/SweetAlert";
 import Tables from "./molecules/Tables";
 import Tabs from "./atoms/Tabs";
 import TerminalCard from "./molecules/TerminalCard";
+import TerminalCardV2 from "./molecules/TerminalCardV2";
 import TextArea from "./forms/TextArea";
 import TextField from "./forms/TextField";
 import Timeline from "./atoms/Timeline";
@@ -112,6 +113,7 @@ export {
     Tables,
     Tabs,
     TerminalCard,
+    TerminalCardV2,
     TextArea,
     TextField,
     Timeline,

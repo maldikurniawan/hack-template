@@ -55,7 +55,7 @@ const TableHead = ({ children, style, sticky = false }: TableHeadProps) => {
     return (
         <thead
             style={style}
-            className={`${sticky ? "sticky top-0 bg-[#00FF00] text-black shadow-sm" : ""}`}
+            className={`${sticky ? "sticky top-0 text-white backdrop-blur-xl shadow-sm" : ""}`}
         >
             {children}
         </thead>
@@ -125,7 +125,7 @@ const TableHeader = ({ children, style, center = false }: TableHeaderProps) => {
     return (
         <th
             style={style}
-            className={`border-b border-[#00FF00] bg-[#00FF00] text-black font-normal uppercase tracking-wide px-2 sticky ${center ? "text-center" : "text-left"}`}
+            className={`border-b border-[#00FF00] text-white font-normal uppercase tracking-wide px-2 sticky ${center ? "text-center" : "text-left"}`}
         >
             {children}
         </th>
