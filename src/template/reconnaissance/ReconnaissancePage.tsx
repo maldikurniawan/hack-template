@@ -37,7 +37,7 @@ const ReconnaissancePage = () => {
                     <SubDomain domain={domain} />
                 </div>
             ) : (
-                <div>Please enter a domain to proceed</div>
+                <div>Please enter a domain to proceed!</div>
             )}
         </div>
     );

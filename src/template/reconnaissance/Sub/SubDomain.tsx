@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useGetData } from "@/actions";
 import { API_URL_subDomain } from "@/constants";
-import { Loader, Tables, TerminalCardV2, Limit, Pagination } from "@/components";
+import { Loader, Tables, TerminalCard, Limit, Pagination, TextField } from "@/components";
+import debounce from "lodash/debounce";
 
 const SubDomain = ({ domain }: { domain: string }) => {
     const [pageActive, setPageActive] = useState(1);
     const [limit, setLimit] = useState(10);
+    const [searchTerm, setSearchTerm] = useState("");
 
     const getWhois = useGetData(
         domain ? API_URL_subDomain : null,
@@ -16,16 +18,26 @@ const SubDomain = ({ domain }: { domain: string }) => {
 
     const whoisData = getWhois.data?.data || [];
 
+    // Filter data based on search term
+    const filteredData = whoisData.filter((subDomain: string) =>
+        subDomain.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     // Pagination logic
-    const totalEntries = whoisData.length;
-    const paginatedData = whoisData.slice(
+    const totalEntries = filteredData.length;
+    const paginatedData = filteredData.slice(
         (pageActive - 1) * limit,
         pageActive * limit
     );
 
+    const handleSearch = debounce((value) => {
+        setSearchTerm(value);
+        setPageActive(1);
+    });
+
     return (
         <div>
-            <TerminalCardV2 title="Sub Domain">
+            <TerminalCard title="Sub Domain">
                 <div>
                     {!domain ? (
                         <div>Please enter a domain</div>
@@ -35,6 +47,16 @@ const SubDomain = ({ domain }: { domain: string }) => {
                         <div className="text-lightRed">Error loading data</div>
                     ) : (
                         <div>
+                            <div className="mb-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
+                                <div className="w-full sm:w-60">
+                                    <TextField
+                                        type="text"
+                                        placeholder="Search"
+                                        value={searchTerm}
+                                        onChange={(e) => handleSearch(e.target.value)}
+                                    />
+                                </div>
+                            </div>
                             <Tables>
                                 <Tables.Body>
                                     {paginatedData.length > 0 ? (
@@ -46,8 +68,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
                                         ))
                                     ) : (
                                         <Tables.Row>
-                                            <Tables.Data center>N/A</Tables.Data>
-                                            <Tables.Data>N/A</Tables.Data>
+                                            <Tables.Data>No Data</Tables.Data>
                                         </Tables.Row>
                                     )}
                                 </Tables.Body>
@@ -55,7 +76,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
 
                             {/* Pagination Controls */}
                             {totalEntries > limit && (
-                                <div className="mt-4 mb-4 flex flex-col justify-center sm:justify-between items-center gap-4">
+                                <div className="my-4 flex flex-col justify-center sm:justify-between items-center gap-4">
                                     <div className="flex gap-2 items-baseline text-sm">
                                         <Limit
                                             limit={limit}
@@ -76,7 +97,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
                         </div>
                     )}
                 </div>
-            </TerminalCardV2>
+            </TerminalCard>
         </div>
     );
 };
