@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetData } from "@/actions";
 import { API_URL_subDomain } from "@/constants";
-import { Loader, Tables, TerminalCard, Limit, Pagination, TextField } from "@/components";
+import { LoaderV2, Tables, TerminalCardV2, Limit, Pagination, TextField } from "@/components";
 import debounce from "lodash/debounce";
 
 const SubDomain = ({ domain }: { domain: string }) => {
@@ -37,17 +37,17 @@ const SubDomain = ({ domain }: { domain: string }) => {
 
     return (
         <div>
-            <TerminalCard title="Sub Domain">
+            <TerminalCardV2 title="Sub Domain">
                 <div>
                     {!domain ? (
                         <div>Please enter a domain</div>
                     ) : getWhois.isLoading ? (
-                        <div className="p-4"><Loader /></div>
+                        <div className="px-4"><LoaderV2 /></div>
                     ) : getWhois.isError ? (
-                        <div className="text-lightRed">Error loading data</div>
+                        <div className="text-lightRed p-4">Error loading data</div>
                     ) : (
                         <div>
-                            <div className="mb-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
+                            <div className="p-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
                                 <div className="w-full sm:w-60">
                                     <TextField
                                         type="text"
@@ -97,7 +97,7 @@ const SubDomain = ({ domain }: { domain: string }) => {
                         </div>
                     )}
                 </div>
-            </TerminalCard>
+            </TerminalCardV2>
         </div>
     );
 };

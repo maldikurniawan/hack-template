@@ -1,7 +1,7 @@
 import { useGetData } from "@/actions";
 import { API_URL_domainInfo } from "@/constants";
 import moment from "moment";
-import { Loader, Tables, TerminalCardV2 } from "@/components";
+import { LoaderV2, Tables, TerminalCardV2 } from "@/components";
 
 const DomainInfo = ({ domain }: { domain: string }) => {
     const getWhois = useGetData(
@@ -20,9 +20,9 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                     {!domain ? (
                         <div>Please enter a domain</div>
                     ) : getWhois.isLoading ? (
-                        <div className="p-4"><Loader /></div>
+                        <div className="px-4"><LoaderV2 /></div>
                     ) : getWhois.isError ? (
-                        <div className="text-lightRed">Error loading data</div>
+                        <div className="text-lightRed p-4">Error loading data</div>
                     ) : (
                         <div>
                             <Tables>
@@ -36,17 +36,17 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                                                 "N/A"
                                             }
                                         </Tables.Data>
-                                    </Tables.Row>
-                                    <Tables.Row>
-                                        <Tables.Data>Domain Name</Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">Domain Name</p>
+                                        </Tables.Data>
                                         <Tables.Data>{whoisData.domain_name ?? "N/A"}</Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
                                         <Tables.Data>Registrar</Tables.Data>
                                         <Tables.Data>{whoisData.registrar ?? "N/A"}</Tables.Data>
-                                    </Tables.Row>
-                                    <Tables.Row>
-                                        <Tables.Data>Registrar URL</Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">Registrar URL</p>
+                                        </Tables.Data>
                                         <Tables.Data>
                                             {
                                                 Array.isArray(whoisData.registrar_url)
@@ -64,9 +64,9 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                                                     : moment(whoisData.updated_date).format("DD MMM YYYY HH:mm:ss")
                                             }
                                         </Tables.Data>
-                                    </Tables.Row>
-                                    <Tables.Row>
-                                        <Tables.Data>Created</Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">Created</p>
+                                        </Tables.Data>
                                         <Tables.Data>
                                             {
                                                 Array.isArray(whoisData.creation_date)
@@ -84,9 +84,9 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                                                     : moment(whoisData.expiration_date).format("DD MMM YYYY HH:mm:ss")
                                             }
                                         </Tables.Data>
-                                    </Tables.Row>
-                                    <Tables.Row>
-                                        <Tables.Data>Name Servers</Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">Name Servers</p>
+                                        </Tables.Data>
                                         <Tables.Data>
                                             {
                                                 Array.isArray(whoisData.name_servers)
@@ -104,9 +104,9 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                                                     : whoisData.status ?? "N/A"
                                             }
                                         </Tables.Data>
-                                    </Tables.Row>
-                                    <Tables.Row>
-                                        <Tables.Data>Emails</Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">Emails</p>
+                                        </Tables.Data>
                                         <Tables.Data>
                                             {
                                                 whoisData.emails ??
@@ -126,9 +126,9 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                                                 "N/A"
                                             }
                                         </Tables.Data>
-                                    </Tables.Row>
-                                    <Tables.Row>
-                                        <Tables.Data>DNSSEC</Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">DNSSEC</p>
+                                        </Tables.Data>
                                         <Tables.Data>{whoisData.dnssec ?? "N/A"}</Tables.Data>
                                     </Tables.Row>
                                     <Tables.Row>
@@ -140,9 +140,9 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                                                 "N/A"
                                             }
                                         </Tables.Data>
-                                    </Tables.Row>
-                                    <Tables.Row>
-                                        <Tables.Data>ORG</Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">ORG</p>
+                                        </Tables.Data>
                                         <Tables.Data>
                                             {
                                                 whoisData.org ??
@@ -160,9 +160,9 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                                                     : whoisData.address ?? "N/A"
                                             }
                                         </Tables.Data>
-                                    </Tables.Row>
-                                    <Tables.Row>
-                                        <Tables.Data>City</Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">City</p>
+                                        </Tables.Data>
                                         <Tables.Data>
                                             {
                                                 whoisData.city ??
@@ -174,9 +174,9 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                                     <Tables.Row>
                                         <Tables.Data>State</Tables.Data>
                                         <Tables.Data>{whoisData.state ?? "N/A"}</Tables.Data>
-                                    </Tables.Row>
-                                    <Tables.Row>
-                                        <Tables.Data>Postal Code</Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">Postal Code</p>
+                                        </Tables.Data>
                                         <Tables.Data>
                                             {
                                                 whoisData.registrar_postal_code ??
@@ -190,6 +190,14 @@ const DomainInfo = ({ domain }: { domain: string }) => {
                                             {
                                                 whoisData.registrar_country ??
                                                 whoisData.country ?? "N/A"
+                                            }
+                                        </Tables.Data>
+                                        <Tables.Data style={{ borderLeft: "1px solid #00FF00" }}>
+                                            <p className="pl-1">Whois Server</p>
+                                        </Tables.Data>
+                                        <Tables.Data>
+                                            {
+                                                whoisData.whois_server ?? "N/A"
                                             }
                                         </Tables.Data>
                                     </Tables.Row>

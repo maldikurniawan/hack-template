@@ -33,6 +33,7 @@ import Limit from "./atoms/Limit";
 import List from "./atoms/List";
 import Loading from "./atoms/Loading";
 import Loader from "./molecules/Loader";
+import LoaderV2 from "./molecules/LoaderV2";
 import Modal from "./atoms/Modal";
 import MoeCounter from "./molecules/MoeCounter";
 import Molecules from "./molecules/Molecules";
@@ -94,6 +95,7 @@ export {
     List,
     Loading,
     Loader,
+    LoaderV2,
     Modal,
     MoeCounter,
     Molecules,

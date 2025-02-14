@@ -1,6 +1,6 @@
 import { useGetData } from "@/actions";
 import { API_URL_domainRecords } from "@/constants";
-import { Loader, Tables, TerminalCardV2 } from "@/components";
+import { LoaderV2, Tables, TerminalCardV2 } from "@/components";
 
 const DomainRecords = ({ domain }: { domain: string }) => {
     const getWhois = useGetData(
@@ -19,9 +19,9 @@ const DomainRecords = ({ domain }: { domain: string }) => {
                     {!domain ? (
                         <div>Please enter a domain</div>
                     ) : getWhois.isLoading ? (
-                        <div className="p-4"><Loader /></div>
+                        <div className="px-4"><LoaderV2 /></div>
                     ) : getWhois.isError ? (
-                        <div className="text-lightRed">Error loading data</div>
+                        <div className="text-lightRed p-4">Error loading data</div>
                     ) : (
                         <div>
                             <Tables>

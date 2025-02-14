@@ -51,7 +51,7 @@ const ModalPage = () => {
 					<div className="text-sm mb-3">
 						The <span style={{ color: themeColor }}>width</span> and{" "}
 						<span style={{ color: themeColor }}>height</span> props are used to
-						set the modal size. If not set, the modal will be auto sized lightRedd
+						set the modal size. If not set, the modal will be auto sized based
 						on the content.
 					</div>
 

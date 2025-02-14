@@ -1,0 +1,102 @@
+import styled from 'styled-components';
+
+const LoaderV2 = () => {
+  return (
+    <StyledWrapper>
+      <div>
+        <div className="text">Loading...</div>
+      </div>
+    </StyledWrapper>
+  );
+}
+
+const StyledWrapper = styled.div`
+  @keyframes blinkCursor {
+    50% {
+      border-right-color: transparent;
+    }
+  }
+
+  @keyframes typeAndDelete {
+    0%,
+    10% {
+      width: 0;
+    }
+    45%,
+    55% {
+      width: 6.2em;
+    } /* adjust width based on content */
+    90%,
+    100% {
+      width: 0;
+    }
+  }
+
+  .terminal-loader {
+    border: 0.1em solid #00FF00;
+    background-color: #000000;
+    color: #0F0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1em;
+    padding: 1.5em 1em;
+    width: 12em;
+    margin: 100px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .terminal-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1.5em;
+    background-color: #0F0;
+    padding: 0 0.4em;
+    box-sizing: border-box;
+  }
+
+  .terminal-controls {
+    float: right;
+  }
+
+  .control {
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    margin-left: 0.4em;
+    background-color: #777;
+  }
+
+  .control.close {
+    background-color: #e33;
+  }
+
+  .control.minimize {
+    background-color: #ee0;
+  }
+
+  .control.maximize {
+    background-color: #0b0;
+  }
+
+  .terminal-title {
+    float: left;
+    line-height: 1.5em;
+    color: #000;
+  }
+
+  .text {
+    display: inline-block;
+    white-space: nowrap;
+    color: #0F0;
+    overflow: hidden;
+    border-right: 0.2em solid green; /* Cursor */
+    animation: typeAndDelete 4s steps(11) infinite,
+      blinkCursor 0.5s step-end infinite alternate;
+    margin-top: 1.5em;
+  }`;
+
+export default LoaderV2;
