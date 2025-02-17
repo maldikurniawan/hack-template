@@ -5,8 +5,10 @@ import DomainRecords from './Sub/DomainRecords'
 import SubDomain from './Sub/SubDomain'
 import { MdHistory } from "react-icons/md";
 import { useGetData } from "@/actions";
+import moment from "moment";
 import { API_URL_allScan, API_URL_getDomain } from "@/constants";
 import { debounce } from "lodash";
+import { FaLink } from "react-icons/fa";
 
 const ReconnaissancePage = () => {
     const [inputDomain, setInputDomain] = useState("");
@@ -32,8 +34,8 @@ const ReconnaissancePage = () => {
     );
 
     const getDomain = useGetData(API_URL_getDomain, ["getDomain"], true);
-
     const domainData = getDomain.data || {};
+    const domainPaginate = domainData.data || {};
 
     // console.log(domainData)
 
@@ -44,7 +46,7 @@ const ReconnaissancePage = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+            <form onSubmit={handleSubmit} id="domainForm" className="flex gap-2 mb-4">
                 <TextField
                     type="text"
                     variant="outline"
@@ -75,7 +77,7 @@ const ReconnaissancePage = () => {
             {/* Modal */}
             <Modal show={historyModal} setShow={setHistoryModal} width="lg" height="auto">
                 <div className="text-lg font-normal p-5">
-                    <div className="mb-2">History</div>
+                    <div className="mb-2">Domain History</div>
                     <div className="mb-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
                         <div className="w-full sm:w-60">
                             <TextField
@@ -91,20 +93,42 @@ const ReconnaissancePage = () => {
                     <Tables>
                         <Tables.Head>
                             <Tables.Row>
-                                <Tables.Header>Domain ID</Tables.Header>
-                                <Tables.Header>Domain Name</Tables.Header>
+                                <Tables.Header>ID</Tables.Header>
+                                <Tables.Header>Name</Tables.Header>
+                                <Tables.Header>Created At</Tables.Header>
+                                <Tables.Header center>Actions</Tables.Header>
                             </Tables.Row>
                         </Tables.Head>
                         <Tables.Body>
                             {domainData.data?.map((item: any, idx: any) => (
-                                    <Tables.Row
-                                        expandable={<div className="p-2">{item.name}</div>}
-                                        key={idx}
-                                    >
-                                        <Tables.Data>{item.domain_id}</Tables.Data>
-                                        <Tables.Data>{item.domain_name}</Tables.Data>
-                                    </Tables.Row>
-                                ))}
+                                <Tables.Row key={idx}>
+                                    <Tables.Data>
+                                        <div className="whitespace-nowrap">{item.domain_id ?? "N/A"}</div>
+                                    </Tables.Data>
+                                    <Tables.Data>
+                                        <div className="whitespace-nowrap">{item.domain_name ?? "N/A"}</div>
+                                    </Tables.Data>
+                                    <Tables.Data>
+                                        <div className="whitespace-nowrap">{moment(item.created_at).format("D MMM YYYY")}</div>
+                                    </Tables.Data>
+                                    <Tables.Data center>
+                                        <Button
+                                            size="40"
+                                            className="p-1.5"
+                                            onClick={() => {
+                                                setInputDomain(item.domain_name ?? "");
+                                                setHistoryModal(false);
+                                                setTimeout(() => {
+                                                    const form = document.getElementById("domainForm") as HTMLFormElement;
+                                                    if (form) form.requestSubmit();
+                                                }, 100);
+                                            }}
+                                        >
+                                            <FaLink className="w-4 h-4" />
+                                        </Button>
+                                    </Tables.Data>
+                                </Tables.Row>
+                            ))}
                         </Tables.Body>
                     </Tables>
 
@@ -116,11 +140,11 @@ const ReconnaissancePage = () => {
                                 setLimit={setLimit}
                                 onChange={() => setPageActive(1)}
                             />
-                            {domainData.data.length} entries
+                            {domainPaginate.length} entries
                         </div>
 
                         <Pagination
-                            totalCount={domainData.data.length}
+                            totalCount={domainPaginate.length}
                             onPageChange={(page) => {
                                 setPageActive(page);
                             }}
