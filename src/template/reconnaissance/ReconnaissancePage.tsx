@@ -33,11 +33,25 @@ const ReconnaissancePage = () => {
         { domain }
     );
 
-    const getDomain = useGetData(API_URL_getDomain, ["getDomain"], true);
-    const domainData = getDomain.data || {};
-    const domainPaginate = domainData.data || {};
+    
 
-    // console.log(domainData)
+    const getDomain = useGetData(API_URL_getDomain, ["getDomain"], true);
+    const domainPaginate = getDomain.data?.data || [];
+
+    // Filter data based on search term
+    const filteredData = domainPaginate.filter((item: any) =>
+        (item.domain_name?.toString().toLowerCase() || "").includes(searchTerm.toLowerCase())
+    );
+
+    // Pagination logic
+    const totalEntries = filteredData.length;
+    const paginatedData = filteredData.slice(
+        (pageActive - 1) * limit,
+        pageActive * limit
+    );
+
+
+    // console.log(paginatedData)
 
     const handleSearch = debounce((value) => {
         setSearchTerm(value);
@@ -100,35 +114,41 @@ const ReconnaissancePage = () => {
                             </Tables.Row>
                         </Tables.Head>
                         <Tables.Body>
-                            {domainData.data?.map((item: any, idx: any) => (
-                                <Tables.Row key={idx}>
-                                    <Tables.Data>
-                                        <div className="whitespace-nowrap">{item.domain_id ?? "N/A"}</div>
-                                    </Tables.Data>
-                                    <Tables.Data>
-                                        <div className="whitespace-nowrap">{item.domain_name ?? "N/A"}</div>
-                                    </Tables.Data>
-                                    <Tables.Data>
-                                        <div className="whitespace-nowrap">{moment(item.created_at).format("D MMM YYYY")}</div>
-                                    </Tables.Data>
-                                    <Tables.Data center>
-                                        <Button
-                                            size="40"
-                                            className="p-1.5"
-                                            onClick={() => {
-                                                setInputDomain(item.domain_name ?? "");
-                                                setHistoryModal(false);
-                                                setTimeout(() => {
-                                                    const form = document.getElementById("domainForm") as HTMLFormElement;
-                                                    if (form) form.requestSubmit();
-                                                }, 100);
-                                            }}
-                                        >
-                                            <FaLink className="w-4 h-4" />
-                                        </Button>
-                                    </Tables.Data>
+                            {paginatedData.length > 0 ? (
+                                paginatedData.map((item: any, idx: any) => (
+                                    <Tables.Row key={idx}>
+                                        <Tables.Data>
+                                            <div className="whitespace-nowrap">{item.domain_id ?? "N/A"}</div>
+                                        </Tables.Data>
+                                        <Tables.Data>
+                                            <div className="whitespace-nowrap">{item.domain_name ?? "N/A"}</div>
+                                        </Tables.Data>
+                                        <Tables.Data>
+                                            <div className="whitespace-nowrap">{moment(item.created_at).format("D MMM YYYY")}</div>
+                                        </Tables.Data>
+                                        <Tables.Data center>
+                                            <Button
+                                                size="40"
+                                                className="p-1.5"
+                                                onClick={() => {
+                                                    setInputDomain(item.domain_name ?? "");
+                                                    setHistoryModal(false);
+                                                    setTimeout(() => {
+                                                        const form = document.getElementById("domainForm") as HTMLFormElement;
+                                                        if (form) form.requestSubmit();
+                                                    }, 100);
+                                                }}
+                                            >
+                                                <FaLink className="w-4 h-4" />
+                                            </Button>
+                                        </Tables.Data>
+                                    </Tables.Row>
+                                ))
+                            ) : (
+                                <Tables.Row>
+                                    <Tables.Data>No Data</Tables.Data>
                                 </Tables.Row>
-                            ))}
+                            )}
                         </Tables.Body>
                     </Tables>
 
@@ -140,11 +160,11 @@ const ReconnaissancePage = () => {
                                 setLimit={setLimit}
                                 onChange={() => setPageActive(1)}
                             />
-                            {domainPaginate.length} entries
+                            {totalEntries} entries
                         </div>
 
                         <Pagination
-                            totalCount={domainPaginate.length}
+                            totalCount={totalEntries}
                             onPageChange={(page) => {
                                 setPageActive(page);
                             }}
