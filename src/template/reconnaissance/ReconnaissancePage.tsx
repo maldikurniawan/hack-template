@@ -1,40 +1,81 @@
 import { useState } from "react";
-import { Button, Limit, Modal, Pagination, Tables, TextField } from "@/components";
-import DomainInfo from './Sub/DomainInfo'
-import DomainRecords from './Sub/DomainRecords'
-import SubDomain from './Sub/SubDomain'
+import { Button, Limit, LoaderV2, Modal, Pagination, Tables, TerminalCardV2, TextField } from "@/components";
 import { MdHistory } from "react-icons/md";
-import { useGetData } from "@/actions";
+import { useGetData, usePostData } from "@/actions";
 import moment from "moment";
-import { API_URL_allScan, API_URL_getDomain } from "@/constants";
+import {
+    API_URL_reconnaissance,
+    API_URL_domainInfo,
+    API_URL_domainRecords,
+    API_URL_subDomain,
+    API_URL_getDomain,
+} from "@/constants";
 import { debounce } from "lodash";
 import { FaLink } from "react-icons/fa";
+import DomainInfo from "./Sub/DomainInfo";
+import DomainRecords from "./Sub/DomainRecords";
+import SubDomain from "./Sub/SubDomain";
 
 const ReconnaissancePage = () => {
-    const [inputDomain, setInputDomain] = useState("");
-    const [domain, setDomain] = useState("");
     const [limit, setLimit] = useState(10);
     const [searchTerm, setSearchTerm] = useState("");
     const [pageActive, setPageActive] = useState(1);
     const [historyModal, setHistoryModal] = useState<boolean>(false);
+    const [domain, setDomain] = useState("");
+    const [data, setData] = useState({
+        domainInfo: null,
+        domainRecords: null,
+        subdomains: null,
+        reconId: null,
+    });
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        const trimmedDomain = inputDomain.trim();
-        if (trimmedDomain) {
-            setDomain(trimmedDomain);
-        }
-    };
+    const createReconMutation = usePostData(API_URL_reconnaissance, true);
 
-    useGetData(
-        domain ? API_URL_allScan : null,
-        ["allDomain", domain],
+    const { data: domainInfoData, isLoading: isDomainInfoLoading } = useGetData(
+        API_URL_domainInfo,
+        ["domainInfo"],
         true,
-        { domain }
+        { id: data.reconId },
+        { enabled: !!data.reconId }
     );
 
-    
+    const { data: domainRecordsData, isLoading: isDomainRecordsLoading } = useGetData(
+        API_URL_domainRecords,
+        ["domainRecords"],
+        true,
+        { id: data.reconId },
+        { enabled: !!data.reconId }
+    );
 
+    const { data: subdomainsData, isLoading: isSubdomainsLoading } = useGetData(
+        API_URL_subDomain,
+        ["subdomains"],
+        true,
+        { id: data.reconId },
+        { enabled: !!data.reconId }
+    );
+
+    // Fungsi untuk menangani submit form dan trigger createRecon
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+
+        createReconMutation.mutate(
+            { domain_name: domain } as any,
+            {
+                onSuccess: (response) => {
+                    setData({
+                        ...data,
+                        reconId: response.data.id,
+                    });
+                },
+                onError: (error) => {
+                    console.error("Error creating reconnaissance:", error);
+                },
+            }
+        );
+    };
+
+    // Get Domain
     const getDomain = useGetData(API_URL_getDomain, ["getDomain"], true);
     const domainPaginate = getDomain.data?.data || [];
 
@@ -50,9 +91,6 @@ const ReconnaissancePage = () => {
         pageActive * limit
     );
 
-
-    // console.log(paginatedData)
-
     const handleSearch = debounce((value) => {
         setSearchTerm(value);
         setPageActive(1);
@@ -66,8 +104,8 @@ const ReconnaissancePage = () => {
                     variant="outline"
                     label="Enter Domain"
                     color="lightGreen"
-                    value={inputDomain}
-                    onChange={(e) => setInputDomain(e.target.value)}
+                    value={domain}
+                    onChange={(e) => setDomain(e.target.value)}
                     placeholder="Enter Domain"
                 />
                 <Button type="submit">Submit</Button>
@@ -78,11 +116,31 @@ const ReconnaissancePage = () => {
             {domain ? (
                 <div className="space-y-4">
                     <div>
-                        <DomainInfo domain={domain} />
+                        {isDomainInfoLoading ? (
+                            <TerminalCardV2 title="Domain Info">
+                                <div className="px-4"><LoaderV2 /></div>
+                            </TerminalCardV2>
+                        ) : (
+                            domainInfoData && <DomainInfo data={domainInfoData} />
+                        )}
                     </div>
+
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <DomainRecords domain={domain} />
-                        <SubDomain domain={domain} />
+                        {isDomainRecordsLoading ? (
+                            <TerminalCardV2 title="Domain Records">
+                                <div className="px-4"><LoaderV2 /></div>
+                            </TerminalCardV2>
+                        ) : (
+                            domainRecordsData && <DomainRecords data={domainRecordsData} />
+                        )}
+
+                        {isSubdomainsLoading ? (
+                            <TerminalCardV2 title="Sub Domain">
+                                <div className="px-4"><LoaderV2 /></div>
+                            </TerminalCardV2>
+                        ) : (
+                            subdomainsData && <SubDomain data={subdomainsData} />
+                        )}
                     </div>
                 </div>
             ) : (
@@ -130,14 +188,6 @@ const ReconnaissancePage = () => {
                                             <Button
                                                 size="40"
                                                 className="p-1.5"
-                                                onClick={() => {
-                                                    setInputDomain(item.domain_name ?? "");
-                                                    setHistoryModal(false);
-                                                    setTimeout(() => {
-                                                        const form = document.getElementById("domainForm") as HTMLFormElement;
-                                                        if (form) form.requestSubmit();
-                                                    }, 100);
-                                                }}
                                             >
                                                 <FaLink className="w-4 h-4" />
                                             </Button>
@@ -146,7 +196,7 @@ const ReconnaissancePage = () => {
                                 ))
                             ) : (
                                 <Tables.Row>
-                                    <Tables.Data>No Data</Tables.Data>
+                                    <Tables.Data colspan={4} center>No Data</Tables.Data>
                                 </Tables.Row>
                             )}
                         </Tables.Body>

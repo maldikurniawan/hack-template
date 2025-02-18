@@ -1,25 +1,20 @@
 import { useState } from "react";
-import { useGetData } from "@/actions";
-import { API_URL_subDomain } from "@/constants";
-import { LoaderV2, Tables, TerminalCardV2, Limit, Pagination, TextField } from "@/components";
+import { Tables, TerminalCardV2, Limit, Pagination, TextField } from "@/components";
 import debounce from "lodash/debounce";
 
-const SubDomain = ({ domain }: { domain: string }) => {
+interface SubDomainProps {
+    data: any;
+}
+
+const SubDomain: React.FC<SubDomainProps> = ({ data }) => {
     const [pageActive, setPageActive] = useState(1);
     const [limit, setLimit] = useState(10);
     const [searchTerm, setSearchTerm] = useState("");
 
-    const getWhois = useGetData(
-        domain ? API_URL_subDomain : null,
-        ["subDomain", domain],
-        true,
-        { domain }
-    );
-
-    const whoisData = getWhois.data?.data || [];
+    const domainData = data?.data ?? {};
 
     // Filter data based on search term
-    const filteredData = whoisData.filter((subDomain: string) =>
+    const filteredData = domainData.filter((subDomain: string) =>
         subDomain.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -36,69 +31,55 @@ const SubDomain = ({ domain }: { domain: string }) => {
     });
 
     return (
-        <div>
-            <TerminalCardV2 title="Sub Domain">
-                <div>
-                    {!domain ? (
-                        <div>Please enter a domain</div>
-                    ) : getWhois.isLoading ? (
-                        <div className="px-4"><LoaderV2 /></div>
-                    ) : getWhois.isError ? (
-                        <div className="text-lightRed p-4">Error loading data</div>
-                    ) : (
-                        <div>
-                            <div className="p-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
-                                <div className="w-full sm:w-60">
-                                    <TextField
-                                        type="text"
-                                        placeholder="Search"
-                                        value={searchTerm}
-                                        onChange={(e) => handleSearch(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            <Tables>
-                                <Tables.Body>
-                                    {paginatedData.length > 0 ? (
-                                        paginatedData.map((subDomain: any, index: any) => (
-                                            <Tables.Row key={index}>
-                                                <Tables.Data center>{(pageActive - 1) * limit + index + 1}</Tables.Data>
-                                                <Tables.Data>{subDomain}</Tables.Data>
-                                            </Tables.Row>
-                                        ))
-                                    ) : (
-                                        <Tables.Row>
-                                            <Tables.Data>No Data</Tables.Data>
-                                        </Tables.Row>
-                                    )}
-                                </Tables.Body>
-                            </Tables>
-
-                            {/* Pagination Controls */}
-                            {totalEntries > limit && (
-                                <div className="my-4 flex flex-col justify-center sm:justify-between items-center gap-4">
-                                    <div className="flex gap-2 items-baseline text-sm">
-                                        <Limit
-                                            limit={limit}
-                                            setLimit={setLimit}
-                                            onChange={() => setPageActive(1)}
-                                        />
-                                        {totalEntries} entries
-                                    </div>
-
-                                    <Pagination
-                                        totalCount={totalEntries}
-                                        onPageChange={(page) => setPageActive(page)}
-                                        currentPage={pageActive}
-                                        pageSize={limit}
-                                    />
-                                </div>
-                            )}
-                        </div>
-                    )}
+        <TerminalCardV2 title="Sub Domain">
+            <div className="p-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
+                <div className="w-full sm:w-60">
+                    <TextField
+                        type="text"
+                        placeholder="Search"
+                        value={searchTerm}
+                        onChange={(e) => handleSearch(e.target.value)}
+                    />
                 </div>
-            </TerminalCardV2>
-        </div>
+            </div>
+            <Tables>
+                <Tables.Body>
+                    {paginatedData.length > 0 ? (
+                        paginatedData.map((subDomain: any, index: any) => (
+                            <Tables.Row key={index}>
+                                <Tables.Data center>{(pageActive - 1) * limit + index + 1}</Tables.Data>
+                                <Tables.Data>{subDomain}</Tables.Data>
+                            </Tables.Row>
+                        ))
+                    ) : (
+                        <Tables.Row>
+                            <Tables.Data>No Data</Tables.Data>
+                        </Tables.Row>
+                    )}
+                </Tables.Body>
+            </Tables>
+
+            {/* Pagination Controls */}
+            {totalEntries > limit && (
+                <div className="my-4 flex flex-col justify-center sm:justify-between items-center gap-4">
+                    <div className="flex gap-2 items-baseline text-sm">
+                        <Limit
+                            limit={limit}
+                            setLimit={setLimit}
+                            onChange={() => setPageActive(1)}
+                        />
+                        {totalEntries} entries
+                    </div>
+
+                    <Pagination
+                        totalCount={totalEntries}
+                        onPageChange={(page) => setPageActive(page)}
+                        currentPage={pageActive}
+                        pageSize={limit}
+                    />
+                </div>
+            )}
+        </TerminalCardV2 >
     );
 };
 
