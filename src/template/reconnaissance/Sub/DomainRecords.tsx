@@ -6,7 +6,6 @@ interface DomainRecordsProps {
 
 const DomainRecords: React.FC<DomainRecordsProps> = ({ data }) => {
     const domainData = data?.data ?? {};
-    console.log(domainData)
 
     return (
         <TerminalCardV2 title="Domain Records">

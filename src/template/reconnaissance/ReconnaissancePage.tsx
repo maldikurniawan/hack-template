@@ -31,7 +31,7 @@ const ReconnaissancePage = () => {
 
     const createReconMutation = usePostData(API_URL_reconnaissance, true);
 
-    const { data: domainInfoData, isLoading: isDomainInfoLoading } = useGetData(
+    const { data: domainInfoData, isLoading: isDomainInfoLoading, isError: isDomainInfoError } = useGetData(
         API_URL_domainInfo,
         ["domainInfo", data.reconId],
         true,
@@ -39,7 +39,7 @@ const ReconnaissancePage = () => {
         { enabled: !!data.reconId }
     );
 
-    const { data: domainRecordsData, isLoading: isDomainRecordsLoading } = useGetData(
+    const { data: domainRecordsData, isLoading: isDomainRecordsLoading, isError: isDomainRecordsError } = useGetData(
         API_URL_domainRecords,
         ["domainRecords", data.reconId],
         true,
@@ -47,7 +47,7 @@ const ReconnaissancePage = () => {
         { enabled: !!data.reconId }
     );
 
-    const { data: subdomainsData, isLoading: isSubdomainsLoading } = useGetData(
+    const { data: subdomainsData, isLoading: isSubdomainsLoading, isError: isSubdomainsError } = useGetData(
         API_URL_subDomain,
         ["subdomains", data.reconId],
         true,
@@ -96,7 +96,14 @@ const ReconnaissancePage = () => {
         setPageActive(1);
     });
 
-    console.log(paginatedData)
+    // Fungsi untuk menangani klik pada tombol Actions
+    const handleViewDetails = (id: string) => {
+        // Set reconId ke state untuk memicu pengambilan data baru
+        setData({
+            ...data,
+            reconId: id as any,
+        });
+    };
 
     return (
         <div>
@@ -121,6 +128,10 @@ const ReconnaissancePage = () => {
                         <TerminalCardV2 title="Domain Info">
                             <div className="px-4"><LoaderV2 /></div>
                         </TerminalCardV2>
+                    ) : isDomainInfoError ? (
+                        <TerminalCardV2 title="Domain Info">
+                            <div className="px-4">Error loading domain info</div>
+                        </TerminalCardV2>
                     ) : (
                         domainInfoData && <DomainInfo data={domainInfoData} />
                     )}
@@ -131,6 +142,10 @@ const ReconnaissancePage = () => {
                         <TerminalCardV2 title="Domain Records">
                             <div className="px-4"><LoaderV2 /></div>
                         </TerminalCardV2>
+                    ) : isDomainRecordsError ? (
+                        <TerminalCardV2 title="Domain Records">
+                            <div className="px-4">Error loading domain records</div>
+                        </TerminalCardV2>
                     ) : (
                         domainRecordsData && <DomainRecords data={domainRecordsData} />
                     )}
@@ -138,6 +153,10 @@ const ReconnaissancePage = () => {
                     {isSubdomainsLoading ? (
                         <TerminalCardV2 title="Sub Domain">
                             <div className="px-4"><LoaderV2 /></div>
+                        </TerminalCardV2>
+                    ) : isSubdomainsError ? (
+                        <TerminalCardV2 title="Sub Domain">
+                            <div className="px-4">Error loading subdomains</div>
                         </TerminalCardV2>
                     ) : (
                         subdomainsData && <SubDomain data={subdomainsData} />
@@ -186,6 +205,7 @@ const ReconnaissancePage = () => {
                                             <Button
                                                 size="40"
                                                 className="p-1.5"
+                                                onClick={() => handleViewDetails(item.id)}
                                             >
                                                 <FaLink className="w-4 h-4" />
                                             </Button>

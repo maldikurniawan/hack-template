@@ -96,7 +96,7 @@ const StyledWrapper = styled.div`
     border-right: 0.2em solid green; /* Cursor */
     animation: typeAndDelete 4s steps(11) infinite,
       blinkCursor 0.5s step-end infinite alternate;
-    margin-top: 1.5em;
+    margin-top: 4px;
   }`;
 
 export default LoaderV2;
