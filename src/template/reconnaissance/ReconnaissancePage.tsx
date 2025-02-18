@@ -33,7 +33,7 @@ const ReconnaissancePage = () => {
 
     const { data: domainInfoData, isLoading: isDomainInfoLoading } = useGetData(
         API_URL_domainInfo,
-        ["domainInfo"],
+        ["domainInfo", data.reconId],
         true,
         { id: data.reconId },
         { enabled: !!data.reconId }
@@ -41,7 +41,7 @@ const ReconnaissancePage = () => {
 
     const { data: domainRecordsData, isLoading: isDomainRecordsLoading } = useGetData(
         API_URL_domainRecords,
-        ["domainRecords"],
+        ["domainRecords", data.reconId],
         true,
         { id: data.reconId },
         { enabled: !!data.reconId }
@@ -49,7 +49,7 @@ const ReconnaissancePage = () => {
 
     const { data: subdomainsData, isLoading: isSubdomainsLoading } = useGetData(
         API_URL_subDomain,
-        ["subdomains"],
+        ["subdomains", data.reconId],
         true,
         { id: data.reconId },
         { enabled: !!data.reconId }
@@ -69,7 +69,7 @@ const ReconnaissancePage = () => {
                     });
                 },
                 onError: (error) => {
-                    console.error("Error creating reconnaissance:", error);
+                    console.error("Error:", error);
                 },
             }
         );
@@ -96,6 +96,8 @@ const ReconnaissancePage = () => {
         setPageActive(1);
     });
 
+    console.log(paginatedData)
+
     return (
         <div>
             <form onSubmit={handleSubmit} id="domainForm" className="flex gap-2 mb-4">
@@ -113,39 +115,35 @@ const ReconnaissancePage = () => {
                     <MdHistory className="w-6 h-6" />
                 </Button>
             </form>
-            {domain ? (
-                <div className="space-y-4">
-                    <div>
-                        {isDomainInfoLoading ? (
-                            <TerminalCardV2 title="Domain Info">
-                                <div className="px-4"><LoaderV2 /></div>
-                            </TerminalCardV2>
-                        ) : (
-                            domainInfoData && <DomainInfo data={domainInfoData} />
-                        )}
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        {isDomainRecordsLoading ? (
-                            <TerminalCardV2 title="Domain Records">
-                                <div className="px-4"><LoaderV2 /></div>
-                            </TerminalCardV2>
-                        ) : (
-                            domainRecordsData && <DomainRecords data={domainRecordsData} />
-                        )}
-
-                        {isSubdomainsLoading ? (
-                            <TerminalCardV2 title="Sub Domain">
-                                <div className="px-4"><LoaderV2 /></div>
-                            </TerminalCardV2>
-                        ) : (
-                            subdomainsData && <SubDomain data={subdomainsData} />
-                        )}
-                    </div>
+            <div className="space-y-4">
+                <div>
+                    {isDomainInfoLoading ? (
+                        <TerminalCardV2 title="Domain Info">
+                            <div className="px-4"><LoaderV2 /></div>
+                        </TerminalCardV2>
+                    ) : (
+                        domainInfoData && <DomainInfo data={domainInfoData} />
+                    )}
                 </div>
-            ) : (
-                <div>Please enter a domain to proceed!</div>
-            )}
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {isDomainRecordsLoading ? (
+                        <TerminalCardV2 title="Domain Records">
+                            <div className="px-4"><LoaderV2 /></div>
+                        </TerminalCardV2>
+                    ) : (
+                        domainRecordsData && <DomainRecords data={domainRecordsData} />
+                    )}
+
+                    {isSubdomainsLoading ? (
+                        <TerminalCardV2 title="Sub Domain">
+                            <div className="px-4"><LoaderV2 /></div>
+                        </TerminalCardV2>
+                    ) : (
+                        subdomainsData && <SubDomain data={subdomainsData} />
+                    )}
+                </div>
+            </div>
             {/* Modal */}
             <Modal show={historyModal} setShow={setHistoryModal} width="lg" height="auto">
                 <div className="text-lg font-normal p-5">
