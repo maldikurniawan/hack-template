@@ -121,8 +121,8 @@ const ReconnaissancePage = () => {
     });
 
     // Fungsi untuk menangani klik pada tombol Actions
-    const handleViewDetails = (id: string) => {
-        // Set reconId ke state untuk memicu pengambilan data baru
+    const handleViewDetails = (id: string, domainName: string) => {
+        setDomain(domainName);
         setData({
             ...data,
             reconId: id as any,
@@ -230,7 +230,7 @@ const ReconnaissancePage = () => {
                                             <Button
                                                 size="40"
                                                 className="p-1.5"
-                                                onClick={() => handleViewDetails(item.id)}
+                                                onClick={() => handleViewDetails(item.id, item.domain_name)}
                                             >
                                                 <FaLink className="w-4 h-4" />
                                             </Button>
