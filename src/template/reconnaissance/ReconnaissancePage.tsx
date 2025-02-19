@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Limit, LoaderV2, Modal, Pagination, Tables, TerminalCardV2, TextField } from "@/components";
 import { MdHistory } from "react-icons/md";
 import { useGetData, usePostData } from "@/actions";
@@ -31,29 +31,53 @@ const ReconnaissancePage = () => {
 
     const createReconMutation = usePostData(API_URL_reconnaissance, true);
 
+    const [step, setStep] = useState(0);
+    const [currentReconId, setCurrentReconId] = useState(null);
+
+    useEffect(() => {
+        if (data.reconId && data.reconId !== currentReconId) {
+            setCurrentReconId(data.reconId);
+            setStep(1); // Reset ke step pertama untuk ID baru
+        }
+    }, [data.reconId]);
+
     const { data: domainInfoData, isLoading: isDomainInfoLoading, isError: isDomainInfoError } = useGetData(
         API_URL_domainInfo,
-        ["domainInfo", data.reconId],
+        ["domainInfo", currentReconId],
         true,
-        { id: data.reconId },
-        { enabled: !!data.reconId }
+        { id: currentReconId },
+        { enabled: step === 1 && !!currentReconId }
     );
 
     const { data: domainRecordsData, isLoading: isDomainRecordsLoading, isError: isDomainRecordsError } = useGetData(
         API_URL_domainRecords,
-        ["domainRecords", data.reconId],
+        ["domainRecords", currentReconId],
         true,
-        { id: data.reconId },
-        { enabled: !!data.reconId }
+        { id: currentReconId },
+        { enabled: step === 2 && !!currentReconId }
     );
 
     const { data: subdomainsData, isLoading: isSubdomainsLoading, isError: isSubdomainsError } = useGetData(
         API_URL_subDomain,
-        ["subdomains", data.reconId],
+        ["subdomains", currentReconId],
         true,
-        { id: data.reconId },
-        { enabled: !!data.reconId }
+        { id: currentReconId },
+        { enabled: step === 3 && !!currentReconId }
     );
+
+    // Update step berdasarkan data yang selesai dimuat
+    useEffect(() => {
+        if (step === 1 && domainInfoData) {
+            setStep(2);
+        }
+    }, [step, domainInfoData]);
+
+    useEffect(() => {
+        if (step === 2 && domainRecordsData) {
+            setStep(3);
+        }
+    }, [step, domainRecordsData]);
+
 
     // Fungsi untuk menangani submit form dan trigger createRecon
     const handleSubmit = async (e: any) => {
@@ -103,6 +127,7 @@ const ReconnaissancePage = () => {
             ...data,
             reconId: id as any,
         });
+        setHistoryModal(false);
     };
 
     return (
@@ -130,7 +155,7 @@ const ReconnaissancePage = () => {
                         </TerminalCardV2>
                     ) : isDomainInfoError ? (
                         <TerminalCardV2 title="Domain Info">
-                            <div className="px-4">Error loading domain info</div>
+                            <div className="px-4 text-lightRed py-2">Error loading domain info</div>
                         </TerminalCardV2>
                     ) : (
                         domainInfoData && <DomainInfo data={domainInfoData} />
@@ -144,19 +169,19 @@ const ReconnaissancePage = () => {
                         </TerminalCardV2>
                     ) : isDomainRecordsError ? (
                         <TerminalCardV2 title="Domain Records">
-                            <div className="px-4">Error loading domain records</div>
+                            <div className="px-4 text-lightRed py-2">Error loading domain records</div>
                         </TerminalCardV2>
                     ) : (
                         domainRecordsData && <DomainRecords data={domainRecordsData} />
                     )}
 
                     {isSubdomainsLoading ? (
-                        <TerminalCardV2 title="Sub Domain">
+                        <TerminalCardV2 title="Subdomain">
                             <div className="px-4"><LoaderV2 /></div>
                         </TerminalCardV2>
                     ) : isSubdomainsError ? (
-                        <TerminalCardV2 title="Sub Domain">
-                            <div className="px-4">Error loading subdomains</div>
+                        <TerminalCardV2 title="Subdomain">
+                            <div className="px-4 text-lightRed py-2">Error loading subdomains</div>
                         </TerminalCardV2>
                     ) : (
                         subdomainsData && <SubDomain data={subdomainsData} />
@@ -193,7 +218,7 @@ const ReconnaissancePage = () => {
                                 paginatedData.map((item: any, idx: any) => (
                                     <Tables.Row key={idx}>
                                         <Tables.Data>
-                                            <div className="whitespace-nowrap">{item.domain_id ?? "N/A"}</div>
+                                            <div className="whitespace-nowrap">{item.id ?? "N/A"}</div>
                                         </Tables.Data>
                                         <Tables.Data>
                                             <div className="whitespace-nowrap">{item.domain_name ?? "N/A"}</div>

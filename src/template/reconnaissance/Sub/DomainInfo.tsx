@@ -6,7 +6,7 @@ interface DomainInfoProps {
 }
 
 const DomainInfo: React.FC<DomainInfoProps> = ({ data }) => {
-    const domainData = data?.data?.data ?? {};
+    const domainData = data?.data ?? {};
 
     return (
         <TerminalCardV2 title="Domain Info">

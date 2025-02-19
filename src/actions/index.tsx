@@ -44,6 +44,8 @@ export const useGetData = (
             }
             return false;
         },
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
         ...options,
     });
 };

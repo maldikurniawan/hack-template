@@ -31,7 +31,7 @@ const SubDomain: React.FC<SubDomainProps> = ({ data }) => {
     });
 
     return (
-        <TerminalCardV2 title="Sub Domain">
+        <TerminalCardV2 title="Subdomain">
             <div className="p-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
                 <div className="w-full sm:w-60">
                     <TextField

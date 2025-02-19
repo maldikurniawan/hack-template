@@ -7,4 +7,4 @@ export const API_URL_reconnaissance = `${host}/reconnaissance/`;
 export const API_URL_domainInfo = `${host}/recon_domain_info`;
 export const API_URL_domainRecords = `${host}/recon_domain_records`;
 export const API_URL_subDomain = `${host}/recon_subdomain`;
-export const API_URL_getDomain = `${host}/recon_results`;
+export const API_URL_getDomain = `${host}/recon_all_data/`;
