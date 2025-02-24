@@ -89,7 +89,7 @@ const Dashboard = () => {
             </TerminalCard>
             <TerminalCard icon={<FaCat />} title="Binary Cat">
                 <div className="flex justify-center items-center text-center h-[315px]">
-                    <img src="/images/cat.gif" alt="Binary Cat" />
+                    <img src="/images/cat.gif" alt="Binary Cat" className="w-full h-full object-cover" />
                 </div>
             </TerminalCard>
             <TerminalCard icon={<FaChartLine />} title="Monthly Visitors">
@@ -97,7 +97,7 @@ const Dashboard = () => {
             </TerminalCard>
             <TerminalCard icon={<GiNestedHexagons />} title="Abstract Binary">
                 <div className="flex justify-center items-center text-center h-[315px]">
-                    <img src="/images/abstrak.gif" alt="Abstract" />
+                    <img src="/images/abstrak.gif" alt="Abstract" className="w-full h-full object-cover" />
                 </div>
             </TerminalCard>
             <TerminalCard icon={<FaCube />} title="Cube">
