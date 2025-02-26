@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const SweetAlertPage = () => {
     return (
         <motion.div
-            className="grid grid-cols-1 lg:grid-cols-3 gap-4"
+            className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
             initial={{ y: window.innerHeight, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
