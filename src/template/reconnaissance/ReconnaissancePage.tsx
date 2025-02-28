@@ -122,12 +122,16 @@ const ReconnaissancePage = () => {
 
     // Fungsi untuk menangani klik pada tombol Actions
     const handleViewDetails = (id: string, domainName: string) => {
-        setDomain(domainName);
-        setData({
-            ...data,
-            reconId: id as any,
-        });
-        setHistoryModal(false);
+        setHistoryModal(false); // Tutup modal terlebih dahulu
+
+        setTimeout(() => {
+            setDomain(domainName);
+            setData((prevData) => ({
+                ...prevData,
+                reconId: id as any,
+            }));
+            setSearchTerm("");
+        }, 300);
     };
 
     return (
