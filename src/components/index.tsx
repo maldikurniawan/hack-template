@@ -58,6 +58,7 @@ import TextArea from "./forms/TextArea";
 import TextField from "./forms/TextField";
 import Timeline from "./atoms/Timeline";
 import Tooltip from "./atoms/Tooltip";
+import Treeview from "./atoms/Treeview";
 
 export {
     Alert,
@@ -120,4 +121,5 @@ export {
     TextField,
     Timeline,
     Tooltip,
+    Treeview,
 };

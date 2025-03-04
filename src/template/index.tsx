@@ -35,6 +35,7 @@ import ReconnaissancePage from "./reconnaissance/ReconnaissancePage";
 import SelectPage from "./forms/SelectPage";
 import SwitchPage from "./forms/SwitchPage";
 import SweetAlertPage from "./components/SweetAlertPage";
+import TreeviewPage from "./components/TreeviewPage";
 import TextAreaPage from "./forms/TextAreaPage";
 import TextFieldPage from "./forms/TextFieldPage";
 import TablePage from "./tables/TablePage";
@@ -81,5 +82,6 @@ export {
     TextAreaPage,
     TextFieldPage,
     TablePage,
+    TreeviewPage,
     VulneranalysisPage,
 };

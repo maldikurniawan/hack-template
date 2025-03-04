@@ -37,6 +37,7 @@ import {
   SweetAlertPage,
   ReconnaissancePage,
   VulneranalysisPage,
+  TreeviewPage,
 } from "@/template";
 import { FaWolfPackBattalion } from "react-icons/fa";
 import { GiBrokenShield } from "react-icons/gi";
@@ -244,6 +245,14 @@ export const menu: MenuItem[] = [
         name: "timeline",
         title: "Timeline",
         element: <TimelinePage />,
+        sub: [],
+      },
+      {
+        icon: null,
+        path: "/ui-elements/components/treeview",
+        name: "treeview",
+        title: "Treeview",
+        element: <TreeviewPage />,
         sub: [],
       },
     ],
