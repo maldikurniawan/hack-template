@@ -35,12 +35,12 @@ import {
   CalendarPage,
   CarouselPage,
   SweetAlertPage,
-  ReconnaissancePage,
-  VulneranalysisPage,
+  // ReconnaissancePage,
+  // VulneranalysisPage,
   TreeviewPage,
 } from "@/template";
-import { FaWolfPackBattalion } from "react-icons/fa";
-import { GiBrokenShield } from "react-icons/gi";
+// import { FaWolfPackBattalion } from "react-icons/fa";
+// import { GiBrokenShield } from "react-icons/gi";
 import {
   PiCalendarDots,
   PiCards,
@@ -85,22 +85,22 @@ export const menu: MenuItem[] = [
     element: <Dashboard />,
     sub: [],
   },
-  {
-    icon: <FaWolfPackBattalion />,
-    path: "/reconnaissance",
-    name: "reconnaissance",
-    title: "Reconnaissance",
-    element: <ReconnaissancePage />,
-    sub: [],
-  },
-  {
-    icon: <GiBrokenShield />,
-    path: "/vulneranalysis",
-    name: "vulneranalysis",
-    title: "Vulneranalysis",
-    element: <VulneranalysisPage />,
-    sub: [],
-  },
+  // {
+  //   icon: <FaWolfPackBattalion />,
+  //   path: "/reconnaissance",
+  //   name: "reconnaissance",
+  //   title: "Reconnaissance",
+  //   element: <ReconnaissancePage />,
+  //   sub: [],
+  // },
+  // {
+  //   icon: <GiBrokenShield />,
+  //   path: "/vulneranalysis",
+  //   name: "vulneranalysis",
+  //   title: "Vulneranalysis",
+  //   element: <VulneranalysisPage />,
+  //   sub: [],
+  // },
   {
     label: "UI ELEMENTS",
   },
